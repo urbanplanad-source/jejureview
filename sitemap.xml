@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  sitemap.xml — 제주 의료미용 가이드
+  ※ 도메인 확정 후 아래 your-domain.com 을 실제 도메인으로 일괄 교체하세요.
+     (VS Code: Ctrl+H / 메모장: 편집 > 바꾸기)
+  ※ 병원/아티클 추가 시 이 파일에도 <url> 블록을 추가해야 합니다.
+-->
+<urlset
+  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
+  <!-- ════ 홈 ════ -->
+  <url>
+    <loc>https://your-domain.com/</loc>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://your-domain.com/?lang=zh"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://your-domain.com/?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://your-domain.com/?lang=ja"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://your-domain.com/"/>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- ════ 병원 목록 ════ -->
+  <url>
+    <loc>https://your-domain.com/?p=hospitals</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- ════ 병원 상세: 노형아름다운피부과 ════ -->
+  <url>
+    <loc>https://your-domain.com/?p=hospital&amp;id=areumd</loc>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://your-domain.com/?p=hospital&amp;id=areumd&amp;lang=zh"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://your-domain.com/?p=hospital&amp;id=areumd&amp;lang=en"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://your-domain.com/?p=hospital&amp;id=areumd&amp;lang=ja"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- ════ 병원 상세: 벨르몬성형외과 ════ -->
+  <url>
+    <loc>https://your-domain.com/?p=hospital&amp;id=bellemorn</loc>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://your-domain.com/?p=hospital&amp;id=bellemorn&amp;lang=zh"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://your-domain.com/?p=hospital&amp;id=bellemorn&amp;lang=en"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://your-domain.com/?p=hospital&amp;id=bellemorn&amp;lang=ja"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- ════ 아티클 목록 ════ -->
+  <url>
+    <loc>https://your-domain.com/?p=contents</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- ════ 아티클: 제주에서 피부과/성형외과 고르는 5가지 요점 ════ -->
+  <url>
+    <loc>https://your-domain.com/?p=post&amp;id=c-001</loc>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://your-domain.com/?p=post&amp;id=c-001&amp;lang=zh"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://your-domain.com/?p=post&amp;id=c-001&amp;lang=en"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://your-domain.com/?p=post&amp;id=c-001&amp;lang=ja"/>
+    <lastmod>2026-03-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- ════ 아티클: Thermage FLX & Ulthera 리프팅 ════ -->
+  <url>
+    <loc>https://your-domain.com/?p=post&amp;id=c-002</loc>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://your-domain.com/?p=post&amp;id=c-002&amp;lang=zh"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://your-domain.com/?p=post&amp;id=c-002&amp;lang=en"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://your-domain.com/?p=post&amp;id=c-002&amp;lang=ja"/>
+    <lastmod>2026-03-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- ════ 아티클: 한국 의료 리뷰 플랫폼 비교 ════ -->
+  <url>
+    <loc>https://your-domain.com/?p=post&amp;id=c-003</loc>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://your-domain.com/?p=post&amp;id=c-003&amp;lang=zh"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://your-domain.com/?p=post&amp;id=c-003&amp;lang=en"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://your-domain.com/?p=post&amp;id=c-003&amp;lang=ja"/>
+    <lastmod>2026-03-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- ════ 아티클: 제주 피부 레이저 시술 입문 가이드 ════ -->
+  <url>
+    <loc>https://your-domain.com/?p=post&amp;id=c-004</loc>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://your-domain.com/?p=post&amp;id=c-004&amp;lang=zh"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://your-domain.com/?p=post&amp;id=c-004&amp;lang=en"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://your-domain.com/?p=post&amp;id=c-004&amp;lang=ja"/>
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+</urlset>
