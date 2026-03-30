@@ -642,12 +642,13 @@ function hospCardHtml(h, isNearby=false){
     return `<div class="hosp-card-wide" data-nav="hospital" data-id="${h.id}"
       style="${isNearby?'border:1.5px solid rgba(59,130,246,.3);':''}">
       <div class="hosp-card-wide-img">
-        <img src="${h.thumbnail}" alt="${h.name_ko}" onerror="this.style.display='none'"/>
+        <img src="${h.thumbnail}" alt="${h.name_ko}" loading="lazy" onerror="this.style.display='none'"/>
         <div class="hosp-card-wide-badge">
           ${nearbyBadge}
           ${typeBadge}
           ${foreignBadge}
         </div>
+        <button class="fav-btn" data-fav="${h.id}">${isFav(h.id)?'♥':'♡'}</button>
       </div>
       <div class="hosp-card-wide-body">
         <div class="hosp-card-wide-row">
@@ -668,7 +669,7 @@ function hospCardHtml(h, isNearby=false){
   }
 
   // 썸네일 없으면 기존 가로형 카드
-  return `<div class="hosp-card" data-nav="hospital" data-id="${h.id}"
+  return `<div class="hosp-card-wrap hosp-card" data-nav="hospital" data-id="${h.id}"
     style="${isNearby?'border:1.5px solid rgba(59,130,246,.25);':''}">
     <div class="hosp-avatar">${h.name_ko.charAt(0)}</div>
     <div class="hosp-info">
@@ -682,6 +683,7 @@ function hospCardHtml(h, isNearby=false){
       </div>
     </div>
     <div class="hosp-chevron">${IC.chevron()}</div>
+    <button class="fav-btn" data-fav="${h.id}" style="top:50%;transform:translateY(-50%)">${isFav(h.id)?'♥':'♡'}</button>
   </div>`;
 }
 
@@ -887,15 +889,25 @@ function renderHospitals(){
 
   function isOpenNow(h){
     if(!h.hours) return false;
-    let slot;
-    if(nowDay===0)       slot = h.hours.sun    || "closed"; // 일요일
-    else if(nowDay===6)  slot = h.hours.sat    || "closed"; // 토요일
-    else                 slot = h.hours.weekday|| "closed"; // 평일
-    if(!slot || slot==="closed") return false;
-    const [openStr, closeStr] = slot.split("~").map(s=>s.trim());
-    if(!openStr||!closeStr) return false;
+    // hours 값은 다국어 객체 {zh,en,ja} → .en 문자열로 파싱
+    let slotObj;
+    if(nowDay===0){
+      // 일요일: closed 필드에 "every day" 포함 시에만 영업
+      const closedEn = (h.hours.closed && h.hours.closed.en) || "";
+      if(!/every\s*day/i.test(closedEn)) return false;
+      slotObj = h.hours.weekday;
+    } else if(nowDay===6){
+      slotObj = h.hours.sat;
+    } else {
+      slotObj = h.hours.weekday;
+    }
+    if(!slotObj) return false;
+    const slotStr = typeof slotObj === "string" ? slotObj : (slotObj.en || "");
+    // 시간 범위 추출: "10:00–19:00" or "10:00 - 19:00" 등
+    const m = slotStr.match(/(\d{1,2}:\d{2})\s*[–\-~]\s*(\d{1,2}:\d{2})/);
+    if(!m) return false;
     const toMin = s=>{const [hh,mm]=s.split(":").map(Number);return hh*60+(mm||0);};
-    return nowMin >= toMin(openStr) && nowMin < toMin(closeStr);
+    return nowMin >= toMin(m[1]) && nowMin < toMin(m[2]);
   }
 
   // 필터
@@ -1280,8 +1292,8 @@ function renderClinicListForSpec(){
     return `<div class="chat-bubble ai"><div class="ai-name">🤖 AI Assistant</div>${noResult}</div>`;
   }
   const cards = matched.map(h=>{
-    const thumb = h.photos?.[0]
-      ? `<img class="booking-clinic-thumb" src="${h.photos[0]}" alt="${h.name_ko}" onerror="this.style.display='none'">`
+    const thumb = h.images?.[0]
+      ? `<img class="booking-clinic-thumb" src="${h.images[0]}" alt="${h.name_ko}" onerror="this.outerHTML='<div class=\\'booking-clinic-thumb\\'>🏥</div>'">`
       : `<div class="booking-clinic-thumb">🏥</div>`;
     const stars = h.rating ? `⭐ ${h.rating}` : "";
     const reviews = h.review_count ? ` · ${h.review_count}${t('hosp_reviews')}` : "";
@@ -1631,8 +1643,43 @@ function render(){
 /* ════════════════════════════════════════
    EVENT BINDING
    ════════════════════════════════════════ */
+
+/* ── 병원 검색: named function + 디바운스로 중복 리스너·성능 문제 방지 ── */
+let _hospSearchTimer = null;
+function _onHospSearchInput(e){
+  clearTimeout(_hospSearchTimer);
+  _hospSearchTimer = setTimeout(()=>{
+    state.hospSearch = e.target.value;
+    const q = state.hospSearch.toLowerCase().trim();
+    const r = state.hospRegion;
+    const filtered = DB.hospitals.filter(h=>
+      (r==="all"||h.region===r) &&
+      (!state.hospChinese||h.chinese_staff) &&
+      (!q||`${h.name_ko} ${lng(h.name)} ${lng(h.address)}`.toLowerCase().includes(q))
+    );
+    const listEl = document.getElementById("hospList");
+    if(listEl){
+      listEl.innerHTML = filtered.length===0
+        ? `<div class="empty"><div class="empty-icon">🔍</div><div class="empty-title">${t('hosp_empty')}</div></div>`
+        : filtered.map(h=>hospCardHtml(h)).join("");
+    }
+    // 검색어 있을 때 X 버튼 추가/제거
+    const si = document.getElementById("hospSearch");
+    const clr = document.getElementById("clearSearch");
+    if(!clr && state.hospSearch && si){
+      si.insertAdjacentHTML("afterend",`<button class="search-clear" id="clearSearch">✕</button>`);
+      document.getElementById("clearSearch").addEventListener("click", _onClearSearch);
+    } else if(clr && !state.hospSearch){ clr.remove(); }
+  }, 300);
+}
+function _onClearSearch(){ state.hospSearch=""; render(); }
+
 /* ── 뷰 클릭 핸들러: named function으로 분리해 중복 바인딩 방지 ── */
 function _onViewClick(e){
+    // Favorite toggle — nav보다 먼저 체크해야 카드 이동 방지
+    const favEl = e.target.closest("[data-fav]");
+    if(favEl){ toggleFav(favEl.dataset.fav); return; }
+
     // Navigation
     const navEl = e.target.closest("[data-nav]");
     if(navEl){ navigate(navEl.dataset.nav, navEl.dataset.id||null); return; }
@@ -1712,35 +1759,19 @@ function bindEvents(){
 
   // 모달/시트 닫기는 각 show*() 함수 내부에 직접 바인딩됨 (아래 참조)
 
-  // Hospital search
+  // Hospital search — named function으로 분리하여 중복 리스너 방지
   const si = document.getElementById("hospSearch");
   if(si){
-    si.addEventListener("input", function(e){
-      state.hospSearch = e.target.value;
-      const q = state.hospSearch.toLowerCase().trim();
-      const r = state.hospRegion;
-      const lang = state.lang;
-      const filtered = DB.hospitals.filter(h=>
-        (r==="all"||h.region===r) &&
-        (!state.hospChinese||h.chinese_staff) &&
-        (!q||`${h.name_ko} ${lng(h.name)} ${lng(h.address)}`.toLowerCase().includes(q))
-      );
-      const listEl = document.getElementById("hospList");
-      if(listEl){
-        listEl.innerHTML = filtered.length===0
-          ? `<div class="empty"><div class="empty-icon">🔍</div><div class="empty-title">${t('hosp_empty')}</div></div>`
-          : filtered.map(h=>hospCardHtml(h)).join("");
-      }
-      const clr = document.getElementById("clearSearch");
-      if(!clr && state.hospSearch){
-        si.insertAdjacentHTML("afterend",`<button class="search-clear" id="clearSearch">✕</button>`);
-        document.getElementById("clearSearch").addEventListener("click",()=>{state.hospSearch="";render();});
-      } else if(clr && !state.hospSearch){ clr.remove(); }
-    });
+    // 이전 리스너 제거 후 재등록
+    si.removeEventListener("input", _onHospSearchInput);
+    si.addEventListener("input", _onHospSearchInput);
     si.focus(); si.setSelectionRange(si.value.length, si.value.length);
   }
   const clr = document.getElementById("clearSearch");
-  if(clr) clr.addEventListener("click",()=>{state.hospSearch="";render();});
+  if(clr){
+    clr.removeEventListener("click", _onClearSearch);
+    clr.addEventListener("click", _onClearSearch);
+  }
 
   // AI 안내 채팅 인풋 전송
   function sendChatMsg(){
