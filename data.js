@@ -118,7 +118,7 @@ const T = {
 
     /* 가격 섹션 */
     detail_prices:    "参考价格",
-    price_note:       "※ 以上为各机构提供的参考基准价，实际费用因施术组合及个人情况而异，请以机构实际报价为准。",
+    price_note:       "※ 以上为各机构提供的参考基准价，实际费用因施术组合及个人情况而异，请以机构实际报价为准。\n💱 价格单位为韩元(₩)，1元≈190₩ / 1USD≈1,380₩（汇率仅供参考）",
 
     /* 장소 유형 뱃지 */
     venue_clinic:     "医院",
@@ -236,7 +236,7 @@ const T = {
 
     /* 가격 섹션 */
     detail_prices:    "Reference Prices",
-    price_note:       "※ Prices above are reference figures provided by each venue. Actual cost varies by treatment combination. Please confirm with the venue directly.",
+    price_note:       "※ Prices above are reference figures provided by each venue. Actual cost varies by treatment combination. Please confirm with the venue directly.\n💱 Prices in KRW (₩). ~1 USD ≈ 1,380₩ (indicative rate)",
 
     /* 장소 유형 뱃지 */
     venue_clinic:     "Clinic",
@@ -354,7 +354,7 @@ const T = {
 
     /* 가격 섹션 */
     detail_prices:    "参考料金",
-    price_note:       "※ 表示価格は各施設が提供する参考価格です。施術の組み合わせ等により実際の料金は異なります。必ず施設に直接ご確認ください。",
+    price_note:       "※ 表示価格は各施設が提供する参考価格です。施術の組み合わせ等により実際の料金は異なります。必ず施設に直接ご確認ください。\n💱 価格は韓国ウォン(₩)表記です。1円≈9.2₩（参考レート）",
 
     /* 장소 유형 뱃지 */
     venue_clinic:     "クリニック",
