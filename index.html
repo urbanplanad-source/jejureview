@@ -176,7 +176,7 @@ button{cursor:pointer;border:none;background:none;padding:0;}
 .star.on{color:#f59e0b;}
 .star.off{color:#d1d5db;}
 .rating-num{margin-left:4px;font-size:14px;font-weight:700;color:#1a1a2e;}
-.review-count{font-size:12px;color:#7c7c8a;}
+.review-count{font-size:11px;color:#9ca3af;}
 
 .chip{display:inline-flex;align-items:center;padding:6px 12px;border-radius:999px;border:1px solid rgba(0,0,0,.06);background:transparent;color:#7c7c8a;font-size:13px;font-weight:600;white-space:nowrap;transition:all .15s;cursor:pointer;}
 .chip.active{border-width:1.5px;}
@@ -278,7 +278,7 @@ button{cursor:pointer;border:none;background:none;padding:0;}
 .divider{width:100%;height:1px;background:rgba(0,0,0,.06);margin:16px 0;}
 
 /* ── LIST STACK ── */
-.list-stack{display:flex;flex-direction:column;gap:10px;}
+.list-stack{display:flex;flex-direction:column;gap:12px;}
 
 /* ── POST DETAIL ── */
 .post-title{font-size:20px;font-weight:800;line-height:1.35;letter-spacing:-.02em;}
@@ -651,7 +651,7 @@ function hospCardHtml(h, isNearby=false){
         <div class="hosp-card-wide-sub">${lng(h.name)}</div>
         <div class="hosp-card-wide-rating">
           ${stars(h.rating)}
-          <span style="font-size:11px;color:#9ca3af">${h.review_count} ${t('hosp_reviews')}</span>
+          <span class="review-count">${h.review_count} ${t('hosp_reviews')}</span>
         </div>
         <div class="hosp-card-wide-meta">
           ${nearbyBadge}${typeBadge}${foreignBadge}${badge(reg(h.region))}
@@ -661,21 +661,21 @@ function hospCardHtml(h, isNearby=false){
     </div>`;
   }
 
-  // 썸네일 없으면 기존 가로형 카드
-  return `<div class="hosp-card-wrap hosp-card" data-nav="hospital" data-id="${h.id}" tabindex="0" role="button"
-    style="${isNearby?'border:1.5px solid rgba(59,130,246,.25);':''}">
-    <div class="hosp-avatar">${h.name_ko.charAt(0)}</div>
-    <div class="hosp-info">
-      <div class="hosp-name-ko">${h.name_ko}</div>
-      <div class="hosp-name-sub">${lng(h.name)}</div>
-      <div class="hosp-meta">
-        ${typeBadge}${nearbyBadge}${foreignBadge}
-        ${badge(reg(h.region))}
+  // 썸네일 없으면 아이콘 폴백으로 동일한 가로형 카드
+  return `<div class="hosp-card-wide" data-nav="hospital" data-id="${h.id}" tabindex="0" role="button"
+    style="${isNearby?'border:1.5px solid rgba(59,130,246,.3);':''}">
+    <div class="hosp-card-wide-img">🏥</div>
+    <div class="hosp-card-wide-body">
+      <div class="hosp-card-wide-name">${h.name_ko}</div>
+      <div class="hosp-card-wide-sub">${lng(h.name)}</div>
+      <div class="hosp-card-wide-rating">
         ${stars(h.rating)}
         <span class="review-count">${h.review_count} ${t('hosp_reviews')}</span>
       </div>
+      <div class="hosp-card-wide-meta">
+        ${nearbyBadge}${typeBadge}${foreignBadge}${badge(reg(h.region))}
+      </div>
     </div>
-    <div class="hosp-chevron">${IC.chevron()}</div>
     <button class="fav-btn" data-fav="${h.id}">${isFav(h.id)?'♥':'♡'}</button>
   </div>`;
 }
