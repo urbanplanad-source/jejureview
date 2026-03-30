@@ -330,17 +330,19 @@ button{cursor:pointer;border:none;background:none;padding:0;}
 .spec-item[data-spec="foreign_official"].spec-active .spec-icon{background:rgba(99,119,165,.25);}
 .spec-item[data-spec="popular"].spec-active .spec-icon     {background:rgba(239,68,68,.20);}
 
-/* ── WIDE HOSPITAL CARD (이미지 상단 배치) ── */
-.hosp-card-wide{background:#fff;border-radius:16px;border:1px solid rgba(0,0,0,.06);box-shadow:0 2px 12px rgba(0,0,0,.06);overflow:hidden;cursor:pointer;transition:transform .15s;-webkit-tap-highlight-color:transparent;}
+/* ── WIDE HOSPITAL CARD (이미지 좌측 · 정보 우측) ── */
+.hosp-card-wide{background:#fff;border-radius:16px;border:1px solid rgba(0,0,0,.06);box-shadow:0 2px 12px rgba(0,0,0,.06);cursor:pointer;transition:transform .15s;-webkit-tap-highlight-color:transparent;display:flex;align-items:flex-start;gap:12px;padding:12px;position:relative;}
 .hosp-card-wide:active{transform:scale(.98);}
-.hosp-card-wide-img{width:100%;aspect-ratio:4/3;background:linear-gradient(135deg,#e0e7ff,#f5f3ff);position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;font-size:48px;color:#c7c7cc;}
+.hosp-card-wide-img{width:84px;height:84px;flex-shrink:0;border-radius:12px;background:linear-gradient(135deg,#e0e7ff,#f5f3ff);overflow:hidden;display:flex;align-items:center;justify-content:center;font-size:32px;color:#c7c7cc;}
 .hosp-card-wide-img img{width:100%;height:100%;object-fit:cover;display:block;}
-.hosp-card-wide-badge{position:absolute;bottom:10px;left:10px;display:flex;gap:6px;flex-wrap:wrap;}
-.hosp-card-wide-body{padding:13px 14px 14px;}
-.hosp-card-wide-row{display:flex;align-items:flex-start;justify-content:space-between;gap:8px;}
-.hosp-card-wide-name{font-size:16px;font-weight:750;letter-spacing:-.01em;color:#1a1a2e;}
-.hosp-card-wide-sub{font-size:12px;color:#6177a5;margin-top:2px;}
-.hosp-card-wide-meta{display:flex;align-items:center;gap:6px;margin-top:8px;flex-wrap:wrap;}
+.hosp-card-wide-body{flex:1;min-width:0;padding-right:44px;}
+.hosp-card-wide-name{font-size:15px;font-weight:750;letter-spacing:-.01em;color:#1a1a2e;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.hosp-card-wide-sub{font-size:12px;color:#6177a5;margin-top:1px;}
+.hosp-card-wide-rating{display:flex;align-items:center;gap:5px;margin-top:4px;}
+.hosp-card-wide-rating .star{font-size:12px;}
+.hosp-card-wide-rating .rating-num{font-size:12px;}
+.hosp-card-wide-meta{display:flex;align-items:center;gap:5px;margin-top:6px;flex-wrap:wrap;}
+.hosp-card-wide-meta .badge{font-size:11px;padding:3px 8px;}
 
 /* ── LOCATION SHEET — 리스트 스타일 ── */
 .loc-list{display:flex;flex-direction:column;}
@@ -475,7 +477,7 @@ button{cursor:pointer;border:none;background:none;padding:0;}
 .badge-nearby{background:rgba(59,130,246,.1);color:#3b82f6;font-size:11px;font-weight:700;padding:3px 8px;border-radius:999px;display:inline-flex;align-items:center;gap:3px;}
 
 /* ── FAVORITE BTN ── */
-.fav-btn{position:absolute;top:14px;right:14px;width:36px;height:36px;border-radius:999px;background:rgba(255,255,255,.9);border:1px solid rgba(0,0,0,.08);display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:18px;box-shadow:0 2px 8px rgba(0,0,0,.08);transition:transform .15s;}
+.fav-btn{position:absolute;top:10px;right:10px;width:30px;height:30px;border-radius:999px;background:rgba(255,255,255,.92);border:1px solid rgba(0,0,0,.08);display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:15px;box-shadow:0 1px 6px rgba(0,0,0,.10);transition:transform .15s;}
 .fav-btn:active{transform:scale(.9);}
 .hosp-card-wrap{position:relative;}
 </style>
@@ -637,34 +639,25 @@ function hospCardHtml(h, isNearby=false){
     : "";
   const typeBadge = venueBadge(h);
 
-  // 썸네일 있으면 와이드 카드 (이미지 상단)
+  // 썸네일 있으면 가로형 카드 (이미지 좌측 · 정보 우측)
   if(h.thumbnail){
     return `<div class="hosp-card-wide" data-nav="hospital" data-id="${h.id}" tabindex="0" role="button"
       style="${isNearby?'border:1.5px solid rgba(59,130,246,.3);':''}">
       <div class="hosp-card-wide-img">
         <img src="${h.thumbnail}" alt="${h.name_ko}" loading="lazy" onerror="this.style.display='none'"/>
-        <div class="hosp-card-wide-badge">
-          ${nearbyBadge}
-          ${typeBadge}
-          ${foreignBadge}
-        </div>
-        <button class="fav-btn" data-fav="${h.id}">${isFav(h.id)?'♥':'♡'}</button>
       </div>
       <div class="hosp-card-wide-body">
-        <div class="hosp-card-wide-row">
-          <div>
-            <div class="hosp-card-wide-name">${h.name_ko}</div>
-            <div class="hosp-card-wide-sub">${lng(h.name)}</div>
-          </div>
-          <div style="text-align:right;flex-shrink:0">
-            ${stars(h.rating)}
-            <div style="font-size:11px;color:#9ca3af;margin-top:2px">${h.review_count} ${t('hosp_reviews')}</div>
-          </div>
+        <div class="hosp-card-wide-name">${h.name_ko}</div>
+        <div class="hosp-card-wide-sub">${lng(h.name)}</div>
+        <div class="hosp-card-wide-rating">
+          ${stars(h.rating)}
+          <span style="font-size:11px;color:#9ca3af">${h.review_count} ${t('hosp_reviews')}</span>
         </div>
         <div class="hosp-card-wide-meta">
-          ${badge(reg(h.region))}
+          ${nearbyBadge}${typeBadge}${foreignBadge}${badge(reg(h.region))}
         </div>
       </div>
+      <button class="fav-btn" data-fav="${h.id}">${isFav(h.id)?'♥':'♡'}</button>
     </div>`;
   }
 
@@ -683,7 +676,7 @@ function hospCardHtml(h, isNearby=false){
       </div>
     </div>
     <div class="hosp-chevron">${IC.chevron()}</div>
-    <button class="fav-btn" data-fav="${h.id}" style="top:50%;transform:translateY(-50%)">${isFav(h.id)?'♥':'♡'}</button>
+    <button class="fav-btn" data-fav="${h.id}">${isFav(h.id)?'♥':'♡'}</button>
   </div>`;
 }
 
