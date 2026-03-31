@@ -761,7 +761,7 @@ function renderHome(){
       ? `<div class="content-thumb" style="padding:0;background:none;"><img src="${c.thumbnail}" alt="" style="width:100%;height:100%;object-fit:cover;display:block;"></div>`
       : `<div class="content-thumb">📄</div>`;
     const catHtml = c.category ? `<div style="font-size:10px;font-weight:700;color:#3b82f6;margin-bottom:3px;">${lng(c.category)}</div>` : "";
-    return `<div class="content-card" data-nav="post" data-id="${c.id}">
+    return `<div class="content-card" data-nav="post" data-id="${c.id}" data-slug="${c.slug||''}">
       ${thumbHtml}
       <div class="content-body">
         ${catHtml}
@@ -1197,7 +1197,7 @@ function renderContents(){
       : `<div class="content-list-thumb" style="display:flex;align-items:center;justify-content:center;font-size:28px;">📄</div>`;
     const cat = c.category ? `<div class="content-list-cat">${lng(c.category)}</div>` : "";
     const excerpt = c.excerpt ? `<div class="content-list-excerpt">${lng(c.excerpt)}</div>` : "";
-    return `<div class="content-list-item" data-nav="post" data-id="${c.id}">
+    return `<div class="content-list-item" data-nav="post" data-id="${c.id}" data-slug="${c.slug||''}">
       ${thumb}
       <div class="content-list-body">
         ${cat}
@@ -1717,7 +1717,14 @@ function _onViewClick(e){
 
     // Navigation
     const navEl = e.target.closest("[data-nav]");
-    if(navEl){ navigate(navEl.dataset.nav, navEl.dataset.id||null); return; }
+    if(navEl){
+      if(navEl.dataset.nav==='post' && navEl.dataset.slug){
+        window.location.href = '/guide/' + navEl.dataset.slug + '/';
+        return;
+      }
+      navigate(navEl.dataset.nav, navEl.dataset.id||null);
+      return;
+    }
 
     // Back
     if(e.target.closest("[data-back]")){ goBack(); return; }

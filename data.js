@@ -776,6 +776,7 @@ const DB = {
   contents:[
     {
       id:"c-001",
+      slug:"choosing-clinic-jeju",
       category:{ zh:"选择指南", en:"Clinic Guide", ja:"選び方ガイド" },
       thumbnail:"https://picsum.photos/seed/jeju-clinic/600/360",
       excerpt:{
@@ -830,6 +831,7 @@ const DB = {
     },
     {
       id:"c-002",
+      slug:"thermage-ulthera-lifting-jeju",
       category:{ zh:"施术解读", en:"Treatment Guide", ja:"施術ガイド" },
       thumbnail:"https://picsum.photos/seed/jeju-lifting/600/360",
       excerpt:{
@@ -884,6 +886,7 @@ const DB = {
     },
     {
       id:"c-003",
+      slug:"korean-review-platforms",
       category:{ zh:"信息技巧", en:"Research Tips", ja:"調べ方のコツ" },
       thumbnail:"https://picsum.photos/seed/jeju-maps/600/360",
       excerpt:{
@@ -935,6 +938,7 @@ const DB = {
     },
     {
       id:"c-004",
+      slug:"laser-treatments-jeju",
       category:{ zh:"施术解读", en:"Treatment Guide", ja:"施術ガイド" },
       thumbnail:"https://picsum.photos/seed/jeju-laser/600/360",
       excerpt:{

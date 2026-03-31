@@ -47,55 +47,59 @@
     <priority>0.8</priority>
   </url>
 
-  <!-- ════ 아티클 목록 ════ -->
+  <!-- ════ 가이드 목록 ════ -->
   <url>
     <loc>https://your-domain.com/?p=contents</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
 
-  <!-- ════ 아티클: 제주에서 피부과/성형외과 고르는 5가지 요점 ════ -->
+  <!-- ════ 가이드: 제주 클리닉 선택 5가지 요점 ════ -->
   <url>
-    <loc>https://your-domain.com/?p=post&amp;id=c-001</loc>
-    <xhtml:link rel="alternate" hreflang="zh" href="https://your-domain.com/?p=post&amp;id=c-001&amp;lang=zh"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://your-domain.com/?p=post&amp;id=c-001&amp;lang=en"/>
-    <xhtml:link rel="alternate" hreflang="ja" href="https://your-domain.com/?p=post&amp;id=c-001&amp;lang=ja"/>
+    <loc>https://your-domain.com/guide/choosing-clinic-jeju/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://your-domain.com/guide/choosing-clinic-jeju/?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://your-domain.com/guide/choosing-clinic-jeju/?lang=zh"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://your-domain.com/guide/choosing-clinic-jeju/?lang=ja"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://your-domain.com/guide/choosing-clinic-jeju/"/>
     <lastmod>2026-03-10</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
   </url>
 
-  <!-- ════ 아티클: Thermage FLX & Ulthera 리프팅 ════ -->
+  <!-- ════ 가이드: Thermage FLX & Ulthera 리프팅 ════ -->
   <url>
-    <loc>https://your-domain.com/?p=post&amp;id=c-002</loc>
-    <xhtml:link rel="alternate" hreflang="zh" href="https://your-domain.com/?p=post&amp;id=c-002&amp;lang=zh"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://your-domain.com/?p=post&amp;id=c-002&amp;lang=en"/>
-    <xhtml:link rel="alternate" hreflang="ja" href="https://your-domain.com/?p=post&amp;id=c-002&amp;lang=ja"/>
+    <loc>https://your-domain.com/guide/thermage-ulthera-lifting-jeju/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://your-domain.com/guide/thermage-ulthera-lifting-jeju/?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://your-domain.com/guide/thermage-ulthera-lifting-jeju/?lang=zh"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://your-domain.com/guide/thermage-ulthera-lifting-jeju/?lang=ja"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://your-domain.com/guide/thermage-ulthera-lifting-jeju/"/>
     <lastmod>2026-03-08</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
   </url>
 
-  <!-- ════ 아티클: 한국 의료 리뷰 플랫폼 비교 ════ -->
+  <!-- ════ 가이드: 한국 의료 리뷰 플랫폼 비교 ════ -->
   <url>
-    <loc>https://your-domain.com/?p=post&amp;id=c-003</loc>
-    <xhtml:link rel="alternate" hreflang="zh" href="https://your-domain.com/?p=post&amp;id=c-003&amp;lang=zh"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://your-domain.com/?p=post&amp;id=c-003&amp;lang=en"/>
-    <xhtml:link rel="alternate" hreflang="ja" href="https://your-domain.com/?p=post&amp;id=c-003&amp;lang=ja"/>
+    <loc>https://your-domain.com/guide/korean-review-platforms/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://your-domain.com/guide/korean-review-platforms/?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://your-domain.com/guide/korean-review-platforms/?lang=zh"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://your-domain.com/guide/korean-review-platforms/?lang=ja"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://your-domain.com/guide/korean-review-platforms/"/>
     <lastmod>2026-03-05</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
   </url>
 
-  <!-- ════ 아티클: 제주 피부 레이저 시술 입문 가이드 ════ -->
+  <!-- ════ 가이드: 제주 레이저 시술 입문 ════ -->
   <url>
-    <loc>https://your-domain.com/?p=post&amp;id=c-004</loc>
-    <xhtml:link rel="alternate" hreflang="zh" href="https://your-domain.com/?p=post&amp;id=c-004&amp;lang=zh"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://your-domain.com/?p=post&amp;id=c-004&amp;lang=en"/>
-    <xhtml:link rel="alternate" hreflang="ja" href="https://your-domain.com/?p=post&amp;id=c-004&amp;lang=ja"/>
+    <loc>https://your-domain.com/guide/laser-treatments-jeju/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://your-domain.com/guide/laser-treatments-jeju/?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://your-domain.com/guide/laser-treatments-jeju/?lang=zh"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://your-domain.com/guide/laser-treatments-jeju/?lang=ja"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://your-domain.com/guide/laser-treatments-jeju/"/>
     <lastmod>2026-03-01</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
   </url>
 
 </urlset>
