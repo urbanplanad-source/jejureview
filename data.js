@@ -91,9 +91,19 @@ const T = {
     hours_weekday:   "平日",
     hours_sat:       "周六",
     hours_closed:    "休息日",
+    hours_timezone:  "韩国时间 (KST, UTC+9)",
 
     /* 인기시술 */
     home_popular:    "人气项目",
+
+    /* 새로운 필드 */
+    detail_payment:   "💳 结账方式",
+    detail_languages: "🗣️ 语言服务",
+    detail_doctor:    "👨‍⚕️ 医生信息",
+    detail_booking:   "📞 预约方式",
+    exchange_calc:    "💱 CNY 到 KRW 转换",
+    exchange_rate:    "1 CNY ≈",
+    exchange_krw:     "₩ (参考汇率)",
 
     /* 진료과목 그리드 */
     home_specialty:  "选择科目",
@@ -143,6 +153,13 @@ const T = {
     tab_hospitals: "Clinics",
     tab_contents:  "Guide",
     tab_me:        "My",    tab_booking:   "Info",
+    detail_payment:   "💳 Payment Methods",
+    detail_languages: "🗣️ Languages Spoken",
+    detail_doctor:    "👨‍⚕️ Doctor Info",
+    detail_booking:   "📞 How to Book",
+    exchange_calc:    "💱 CNY to KRW Converter",
+    exchange_rate:    "1 CNY ≈",
+    exchange_krw:     "₩ (reference rate)",
     home_title:    "Jeju Medical Beauty Guide",
     home_subtitle: "Dermatology & Aesthetic Clinics",
     home_pick:     "Featured Clinics",
@@ -260,6 +277,13 @@ const T = {
     tab_hospitals: "クリニック",
     tab_contents:  "ガイド",
     tab_me:        "マイページ",    tab_booking:   "情報",
+    detail_payment:   "💳 決済方法",
+    detail_languages: "🗣️ 言語対応",
+    detail_doctor:    "👨‍⚕️ 医師情報",
+    detail_booking:   "📞 予約方法",
+    exchange_calc:    "💱 CNY から KRW へ",
+    exchange_rate:    "1 CNY ≈",
+    exchange_krw:     "₩ (参考レート)",
     home_title:    "済州島 医療美容ガイド",
     home_subtitle: "皮膚科・整形外科 厳選情報",
     home_pick:     "おすすめクリニック",
@@ -429,6 +453,27 @@ const DB = {
       },
       type:"clinic",
       rating:4.6, review_count:390,
+      /* ── 新增字段 ── */
+      payment_methods:{
+        zh:["现场刷卡（VISA/MC）","现场现金","国际银行转账（咨询后）"],
+        en:["On-site: Card (VISA/MC)","On-site: Cash","Bank transfer (by arrangement)"],
+        ja:["現地決済：カード（VISA/MC）","現地決済：現金","国際送金（相談後）"]
+      },
+      booking_method:{
+        zh:"电话优先（中文咨询可用），也支持 WeChat 预询",
+        en:"Phone recommended (Chinese staff available), WeChat inquiry welcome",
+        ja:"電話推奨（中文対応可）、WeChat問合せ可"
+      },
+      languages_supported:{
+        zh:"韩语·中文（流利）·日语（基础）",
+        en:"Korean, Chinese (fluent), Japanese (basic)",
+        ja:"韓国語、中国語（流暢）、日本語（基本）"
+      },
+      doctor_info:{
+        zh:"3名皮肤科专科医师（其中1名医学博士），10年以上临床经验",
+        en:"3 board-certified dermatologists (1 with PhD), 10+ yrs clinical experience",
+        ja:"皮膚科専門医3名（博士1名）、臨床経験10年以上"
+      },
       prices:[
         {name:{zh:"激光托宁",           en:"Laser Toning",              ja:"レーザートーニング"},     price:"50,000원~"},
         {name:{zh:"Thermage FLX",      en:"Thermage FLX",              ja:"Thermage FLX"},          price:"500,000원~"},
@@ -569,6 +614,27 @@ const DB = {
       },
       type:"clinic",
       rating:4.7, review_count:180,
+      /* ── 新增字段 ── */
+      payment_methods:{
+        zh:["现场刷卡（VISA/MC/银联）","现场现金（KRW）"],
+        en:["On-site: Card (VISA/MC/UnionPay)","On-site: Cash (KRW)"],
+        ja:["現地決済：カード（VISA/MC/UnionPay）","現地決済：現金（KRW）"]
+      },
+      booking_method:{
+        zh:"建议电话预约（中英文可）或 WeChat，需确认营业日期",
+        en:"Phone recommended (Korean/English), WeChat welcome. Confirm operating days.",
+        ja:"電話推奨（韓国語/英語対応）、WeChat可。営業日確認必須。"
+      },
+      languages_supported:{
+        zh:"韩语·中文（院长及主要咨询师）·英文（基础）",
+        en:"Korean, Chinese (director & main staff), English (basic)",
+        ja:"韓国語、中国語（院長・主要スタッフ）、英語（基本）"
+      },
+      doctor_info:{
+        zh:"院长为整形外科专科医师，15年以上临床经验，专攻非手术提拉",
+        en:"Director: board-certified plastic surgeon, 15+ yrs, specialist in non-surgical lifting",
+        ja:"院長：整形外科専門医、臨床経験15年以上、非手術リフティング専門"
+      },
       prices:[
         {name:{zh:"Thermage FLX",      en:"Thermage FLX",              ja:"Thermage FLX"},          price:"500,000원~"},
         {name:{zh:"Ulthera（全脸）",    en:"Ulthera (full face)",       ja:"Ulthera（フルフェイス）"}, price:"600,000원~"},

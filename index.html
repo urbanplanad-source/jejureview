@@ -826,6 +826,21 @@ function renderHome(){
         <div class="stat-card"><div class="stat-num" style="color:#10b981">${totalReviews}+</div><div class="stat-label">${statLabels[1]}</div></div>
         <div class="stat-card"><div class="stat-num" style="color:#f59e0b">3</div><div class="stat-label">${statLabels[2]}</div></div>
       </div>
+      <!-- 💱 CNY 到 KRW 环率计算器 (仅显示给中文用户) -->
+      ${lang==='zh' ? `
+      <div class="card" style="margin-top:16px;padding:14px;background:linear-gradient(135deg,rgba(59,130,246,.05),rgba(139,92,246,.05))">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px">
+          <span style="font-size:16px">💱</span>
+          <span style="font-weight:600;color:#1a1a2e">${t('exchange_calc')}</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:8px">
+          <input id="cnyInput" type="number" placeholder="CNY 金额" step="1" min="0"
+            style="flex:1;padding:10px 12px;border:1px solid rgba(59,130,246,.2);border-radius:8px;font-size:14px;font-family:inherit"/>
+          <span style="font-weight:700;color:#3b82f6;white-space:nowrap">= </span>
+          <span id="krwOutput" style="font-weight:700;color:#1a1a2e;min-width:100px;text-align:right">0 ₩</span>
+        </div>
+        <div style="font-size:11px;color:#7c7c8a;margin-top:6px">1 CNY ≈ 200 KRW (${t('exchange_krw')})</div>
+      </div>` : ``}
       <div class="section-header">
         <div class="section-title">${sectionTitle}</div>
         <button class="btn-more" data-nav="hospitals">${t('home_more')}</button>
@@ -1002,13 +1017,43 @@ function renderHospitalDetail(){
   const hrs = h.hours||{};
   const hoursHtml = `
     <div style="margin-top:12px;padding-top:12px;border-top:1px solid rgba(0,0,0,.06)">
-      <div style="font-size:12px;font-weight:700;color:#7c7c8a;margin-bottom:8px">🕐 ${t('detail_hours')}</div>
+      <div style="font-size:12px;font-weight:700;color:#7c7c8a;margin-bottom:8px">🕐 ${t('detail_hours')} ${t('hours_timezone')}</div>
       <div class="hours-grid">
         <span class="hours-day">${t('hours_weekday')}</span><span class="hours-time">${lng(hrs.weekday)||"—"}</span>
         <span class="hours-day">${t('hours_sat')}</span><span class="hours-time">${lng(hrs.sat)||"—"}</span>
         <span class="hours-day hours-closed">${t('hours_closed')}</span><span class="hours-time hours-closed">${lng(hrs.closed)||"—"}</span>
       </div>
     </div>`;
+
+  // 💳 결제 방법 섹션
+  const paymentHtml = (h.payment_methods) ? `
+    <div style="margin-top:12px;padding-top:12px;border-top:1px solid rgba(0,0,0,.06)">
+      <div style="font-size:12px;font-weight:700;color:#7c7c8a;margin-bottom:8px">${t('detail_payment')}</div>
+      <ul style="list-style:none;padding:0;margin:0">
+        ${lng(h.payment_methods).map(p=>`<li style="padding:4px 0;font-size:13px;color:#1a1a2e">• ${p}</li>`).join("")}
+      </ul>
+    </div>` : "";
+
+  // 🗣️ 언어 서비스 섹션
+  const languagesHtml = (h.languages_supported) ? `
+    <div style="margin-top:12px;padding-top:12px;border-top:1px solid rgba(0,0,0,.06)">
+      <div style="font-size:12px;font-weight:700;color:#7c7c8a;margin-bottom:8px">${t('detail_languages')}</div>
+      <div style="font-size:13px;color:#1a1a2e">${lng(h.languages_supported)}</div>
+    </div>` : "";
+
+  // 👨‍⚕️ 의사 정보 섹션
+  const doctorHtml = (h.doctor_info) ? `
+    <div style="margin-top:12px;padding-top:12px;border-top:1px solid rgba(0,0,0,.06)">
+      <div style="font-size:12px;font-weight:700;color:#7c7c8a;margin-bottom:8px">${t('detail_doctor')}</div>
+      <div style="font-size:13px;color:#1a1a2e;line-height:1.5">${lng(h.doctor_info)}</div>
+    </div>` : "";
+
+  // 📞  예약 방법 섹션
+  const bookingHtml = (h.booking_method) ? `
+    <div style="margin-top:12px;padding-top:12px;border-top:1px solid rgba(0,0,0,.06)">
+      <div style="font-size:12px;font-weight:700;color:#7c7c8a;margin-bottom:8px">${t('detail_booking')}</div>
+      <div style="font-size:13px;color:#1a1a2e">${lng(h.booking_method)}</div>
+    </div>` : "";
 
   // Contact button by language
   const c = h.contact||{};
@@ -1131,6 +1176,10 @@ function renderHospitalDetail(){
           <div class="hosp-detail-info-row">${IC.phone()} <span>${h.phone}</span></div>
         </div>
         ${hoursHtml}
+        ${paymentHtml}
+        ${languagesHtml}
+        ${doctorHtml}
+        ${bookingHtml}
         <div class="action-row">
           <a href="${mapUrl}" target="_blank" class="btn-action blue">🗺️ ${t('detail_map')}</a>
           <a href="tel:${h.phone}" class="btn-action">📞 ${t('detail_phone')}</a>
@@ -1711,6 +1760,14 @@ function _onHospSearchInput(e){
 }
 function _onClearSearch(){ state.hospSearch=""; render(); }
 
+/* ── 환전 계산기: CNY 입력 → KRW 표시 (1 CNY ≈ 200 KRW) ── */
+function _onCnyInput(e){
+  const cny = parseFloat(e.target.value) || 0;
+  const krw = Math.round(cny * 200);
+  const output = document.getElementById("krwOutput");
+  if(output) output.textContent = krw > 0 ? `${krw.toLocaleString()} ₩` : "0 ₩";
+}
+
 /* ── 키보드 접근성: Enter/Space로 카드 클릭 ── */
 function _onViewKeydown(e){
   if(e.key==="Enter"||e.key===" "){
@@ -1838,6 +1895,13 @@ function bindEvents(){
   if(clr){
     clr.removeEventListener("click", _onClearSearch);
     clr.addEventListener("click", _onClearSearch);
+  }
+
+  // 💱 CNY → KRW 환전 계산기
+  const cnyInput = document.getElementById("cnyInput");
+  if(cnyInput){
+    cnyInput.removeEventListener("input", _onCnyInput);
+    cnyInput.addEventListener("input", _onCnyInput);
   }
 
   // AI 안내 채팅 인풋 전송
@@ -2256,6 +2320,8 @@ function isFav(id){ return getFavs().includes(id); }
   // Restore location (if user previously selected manually)
   const savedLoc = localStorage.getItem("location");
   if(savedLoc && ["all","jeju-city","seogwipo"].includes(savedLoc)) state.location = savedLoc;
+  // 🇨🇳 처음 방문한 중국 사용자는 제주시(공항 인근)로 기본값 설정
+  else if(state.lang === "zh" && !savedLoc) state.location = "jeju-city";
 
   // ── URL 파라미터 복원 (웹 호스팅 환경: 구글 인덱싱된 URL 직접 접근 시) ──
   if(window.location.protocol !== "file:"){
