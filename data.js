@@ -14,7 +14,7 @@ const T = {
     tab_me:        "我的",
 
     /* 홈 */
-    home_title:    "济州岛医美指南",
+    home_title:    "因赛特美医",
     home_subtitle: "精选皮肤科 · 整形外科信息",
     home_pick:     "精选医院",
     home_latest:   "最新攻略",
@@ -160,7 +160,7 @@ const T = {
     exchange_calc:    "💱 CNY to KRW Converter",
     exchange_rate:    "1 CNY ≈",
     exchange_krw:     "₩ (reference rate)",
-    home_title:    "Jeju Medical Beauty Guide",
+    home_title:    "insight-medi",
     home_subtitle: "Dermatology & Aesthetic Clinics",
     home_pick:     "Featured Clinics",
     home_latest:   "Latest Articles",
@@ -284,7 +284,7 @@ const T = {
     exchange_calc:    "💱 CNY から KRW へ",
     exchange_rate:    "1 CNY ≈",
     exchange_krw:     "₩ (参考レート)",
-    home_title:    "済州島 医療美容ガイド",
+    home_title:    "insight-medi",
     home_subtitle: "皮膚科・整形外科 厳選情報",
     home_pick:     "おすすめクリニック",
     home_latest:   "最新記事",
