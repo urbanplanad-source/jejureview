@@ -108,11 +108,11 @@ const T = {
     foreign_badge:   "外语服务",
 
     /* AI 시술 안내 탭 */
-    tab_booking:      "AI咨询",
-    booking_title:    "AI 施术咨询",
-    booking_intro:    "您好！请告诉我您感兴趣的项目，\n我来为您提供相关信息并展示可提供该施术的医院列表。",
+    tab_booking:      "医院信息",
+    booking_title:    "医院信息查询",
+    booking_intro:    "您可以按施术类别浏览济州岛的医院信息。\n本平台仅展示信息，不负责预约或中介服务。",
     booking_ask_spec: "请选择您感兴趣的项目类别：",
-    booking_confirm:  "以下是济州岛可提供该施术的医院列表：",
+    booking_confirm:  "以下是济州岛相关医院的信息：",
     booking_placeholder: "请输入...",
     booking_send:     "发送",
 
@@ -142,8 +142,7 @@ const T = {
     tab_home:      "Home",
     tab_hospitals: "Clinics",
     tab_contents:  "Guide",
-    tab_me:        "My",
-
+    tab_me:        "My",    tab_booking:   "Info",
     home_title:    "Jeju Medical Beauty Guide",
     home_subtitle: "Dermatology & Aesthetic Clinics",
     home_pick:     "Featured Clinics",
@@ -226,9 +225,9 @@ const T = {
     spec_pediatric:  "Pediatrics",
     foreign_badge:   "Multilingual",
 
-    tab_booking:      "AI Guide",
-    booking_title:    "AI Treatment Guide",
-    booking_intro:    "Hello! Tell me what treatment you're looking for\nand I'll share information along with clinics that offer it in Jeju.",
+    tab_booking:     "Info",
+    booking_title:    "Clinic Information Search",
+    booking_intro:    "Browse clinics in Jeju by treatment category.\nPlease note: This platform provides information only and does not handle bookings or referrals.",
     booking_ask_spec: "What type of treatment are you interested in?",
     booking_confirm:  "Here are Jeju clinics that offer this treatment:",
     booking_placeholder: "Type here...",
@@ -260,8 +259,7 @@ const T = {
     tab_home:      "ホーム",
     tab_hospitals: "クリニック",
     tab_contents:  "ガイド",
-    tab_me:        "マイページ",
-
+    tab_me:        "マイページ",    tab_booking:   "情報",
     home_title:    "済州島 医療美容ガイド",
     home_subtitle: "皮膚科・整形外科 厳選情報",
     home_pick:     "おすすめクリニック",
@@ -344,9 +342,9 @@ const T = {
     spec_pediatric:  "小児科",
     foreign_badge:   "多言語対応",
 
-    tab_booking:      "AI案内",
-    booking_title:    "AI 施術ガイド",
-    booking_intro:    "こんにちは！ご希望の施術をお聞かせください。\n関連情報と、済州島でその施術を提供するクリニック一覧をご案内します。",
+    tab_booking:     "情報",
+    booking_title:    "クリニック情報検索",
+    booking_intro:    "施術カテゴリ別に済州島のクリニック情報をご覧いただけます。\n本プラットフォームは情報提供のみで、予約や紹介業務は行いません。",
     booking_ask_spec: "ご興味のある施術カテゴリを選んでください：",
     booking_confirm:  "済州島でこの施術を提供しているクリニック一覧です：",
     booking_placeholder: "入力してください...",

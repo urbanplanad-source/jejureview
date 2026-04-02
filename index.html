@@ -781,11 +781,17 @@ function renderHome(){
     en:"AI-structured summaries of Korean public review platforms to help you find the right clinic",
     ja:"韓国の公開プラットフォーム口コミをAI構造化。クリニックの評判を素早く把握できます"
   }[lang];
-  const disTitle = {zh:"信息说明",en:"Disclaimer",ja:"ご注意"}[lang];
+  const disTitle = {zh:"重要提示",en:"Important Notice",ja:"重要なお知らせ"}[lang];
   const disBody  = {
-    zh:"本平台内容基于公开评论的AI摘要整理，仅供参考，不构成医疗建议。个体体验差异较大，请综合判断。",
-    en:"Content is AI-generated from publicly available reviews. For informational purposes only. Not medical advice. Individual results may vary.",
-    ja:"公開口コミのAI要約です。参考情報として提供しており、医療アドバイスではありません。個人差があります。"
+    zh:"本平台为医疗信息展示平台，不从事医疗咨询、预约中介或患者介绍业务。"
+        +"内容基于公开评论的AI摘要，仅供参考，不构成医疗建议。"
+        +"就诊决策应自行与医疗机构沟通确认。本平台与医院无任何利益关系。",
+    en:"This platform is for information purposes only. We do not provide medical advice, handle bookings, or act as a referral agent. "
+        +"Content is AI-generated from public reviews and is not medical advice. "
+        +"Please verify clinic credentials directly with the clinic. We have no financial relationship with any clinics.",
+    ja:"本プラットフォームは情報提供のみが目的で、医療咨询・予約・患者紹介業務は行いません。"
+        +"内容は公開口コミのAI要約であり、医療アドバイスではありません。"
+        +"受診前に必ずクリニックにご確認ください。本プラットフォームとクリニックは利害関係がありません。"
   }[lang];
 
   // Section title changes based on location
@@ -1390,29 +1396,45 @@ function renderMe(){
 /* ── 개인정보처리방침 ── */
 function renderPrivacy(){
   const lang = state.lang;
-  const titles = {zh:"隐私政策",en:"Privacy Policy",ja:"プライバシーポリシー"};
-  const updated = "2026-03-27";
+  const titles = {zh:"隐私政策与服务条款",en:"Privacy Policy & Service Terms",ja:"プライバシーポリシー & 利用規約"};
+  const updated = "2026-04-02";
   const content = {
-    zh:`<h2>1. 收集的信息</h2>
+    zh:`<h2>1. 服务性质</h2>
+<p>本平台为医疗信息展示平台，不从事以下业务：</p>
+<ul><li>医疗咨询或诊疗建议</li><li>预约代理或中介</li><li>患者介绍或转诊</li></ul>
+<p>本平台与任何医疗机构均无资金或利益关系。</p>
+<h2>2. 收集的信息</h2>
 <p>本服务不直接收集用户的个人信息。用户通过WeChat、LINE、Instagram等渠道联系医院时，相关信息将直接传递给各医疗机构，本服务不予保存。</p>
-<h2>2. 信息使用目的</h2>
-<p>本服务仅提供济州岛医疗机构的参考信息，不从事预约代理或患者介绍业务。</p>
-<h2>3. 第三方提供</h2>
+<h2>3. 信息使用目的</h2>
+<p>本服务仅提供济州岛医疗机构的参考信息。所有就诊决策由用户自行判断，与本平台无关。</p>
+<h2>4. 第三方提供</h2>
 <p>本服务不向第三方提供用户信息。各医疗机构的隐私政策请直接向相关机构确认。</p>
-<h2>4. Cookie 使用</h2>
-<p>本服务使用localStorage保存语言设置及收藏信息。不使用追踪Cookie。</p>
-<h2>5. 联系方式</h2>
-<p>如有隐私相关咨询，请通过Instagram DM联系我们。</p>`,
-    en:`<h2>1. Information We Collect</h2>
+<h2>5. 数据存储方式</h2>
+<p>本服务仅使用浏览器本地存储（localStorage），不涉及云端服务器。语言设置和收藏信息仅储存在您的设备上，不被上传或分享。</p>
+<h2>6. Cookie 使用</h2>
+<p>本服务不使用追踪Cookie，不进行用户行为分析。</p>
+<h2>7. 免责声明</h2>
+<p>本平台提供的医疗信息基于公开评论的AI摘要，仅供参考。用户因使用本平台信息做出的任何医疗决策，本平台不承担责任。</p>
+<h2>8. 联系方式</h2>
+<p>如有隐私或服务相关咨询，请通过Instagram DM联系我们。</p>`,
+    en:`<h2>1. Service Nature</h2>
+<p>This platform is for information display only. We do NOT provide:</p>
+<ul><li>Medical advice or consultation</li><li>Booking or referral services</li><li>Patient introductions or transfers</li></ul>
+<p>This platform has no financial or business relationship with any medical facilities.</p>
+<h2>2. Information We Collect</h2>
 <p>This service does not directly collect personal information. When you contact a clinic via WeChat, LINE, or Instagram, that information goes directly to the clinic and is not stored by us.</p>
-<h2>2. Purpose of Use</h2>
-<p>This service provides reference information about Jeju Island medical facilities only. We do not act as a booking agent or patient referral service.</p>
-<h2>3. Third-Party Disclosure</h2>
+<h2>3. Purpose of Use</h2>
+<p>This service provides reference information about Jeju Island medical facilities only. All medical decisions are made by users independently and are not our responsibility.</p>
+<h2>4. Third-Party Disclosure</h2>
 <p>We do not share user data with third parties. Each clinic's own privacy policy applies when you contact them directly.</p>
-<h2>4. Cookies</h2>
-<p>We use localStorage to save your language preference and saved clinics. No tracking cookies are used.</p>
-<h2>5. Contact</h2>
-<p>For privacy-related inquiries, please contact us via Instagram DM.</p>`,
+<h2>5. Data Storage</h2>
+<p>This service uses only browser local storage (localStorage) and does not involve any servers. Your language preferences and saved clinics are stored only on your device and are not uploaded or shared.</p>
+<h2>6. Cookies</h2>
+<p>No tracking cookies are used. We do not perform user behavior analysis.</p>
+<h2>7. Disclaimer</h2>
+<p>Medical information on this platform is AI-generated from public reviews for reference only. We assume no responsibility for any medical decisions you make based on this information.</p>
+<h2>8. Contact</h2>
+<p>For privacy or service-related inquiries, please contact us via Instagram DM.</p>`,
     ja:`<h2>1. 収集する情報</h2>
 <p>本サービスは個人情報を直接収集しません。WeChat・LINE・Instagramでクリニックに連絡した場合、情報は直接各医療機関に届き、本サービスでは保存しません。</p>
 <h2>2. 利用目的</h2>
