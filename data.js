@@ -152,7 +152,8 @@ const T = {
     tab_home:      "Home",
     tab_hospitals: "Clinics",
     tab_contents:  "Guide",
-    tab_me:        "My",    tab_booking:   "Info",
+    tab_me:        "My",
+    tab_booking:   "Info",
     detail_payment:   "💳 Payment Methods",
     detail_languages: "🗣️ Languages Spoken",
     detail_doctor:    "👨‍⚕️ Doctor Info",
@@ -276,7 +277,8 @@ const T = {
     tab_home:      "ホーム",
     tab_hospitals: "クリニック",
     tab_contents:  "ガイド",
-    tab_me:        "マイページ",    tab_booking:   "情報",
+    tab_me:        "マイページ",
+    tab_booking:   "情報",
     detail_payment:   "💳 決済方法",
     detail_languages: "🗣️ 言語対応",
     detail_doctor:    "👨‍⚕️ 医師情報",
@@ -486,7 +488,7 @@ const DB = {
           highlights:["4位专科医师坐诊","个人定制方案","复合施术体系","老衡市区交通便利"],
           platforms:{
             naver:{
-              source:"Naver 地图", count_hint:"约 320 条",
+              source:"Naver 地图", count_hint:"约 1,120 条",
               summary:"Naver评论以记录型长文为主，较多描述「医生说明清楚」「复合施术效果」「预约流程」等体验细节。评论者多为当地居民，复诊记录占比高，对色素激光（去斑）和痘痘管理项目评价集中。",
               keywords:["说明清楚","专科医生","激光托宁","痘痘","复诊","等待"],
               pros:["4位专科医生各有分工，专业感明显","医生1对1诊断，针对个人皮肤状态制定方案","色素管理和痘痘治疗评论数量多，口碑稳定","位于老衡五岔路口，济州市内交通便利"],

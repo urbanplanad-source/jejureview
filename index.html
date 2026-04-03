@@ -1192,7 +1192,7 @@ function renderHospitalDetail(){
               <input id="krwInput-${h.id}" type="number" placeholder="KRW 금액" step="1000" min="0"
                 style="flex:1;padding:8px 10px;border:1px solid rgba(59,130,246,.2);border-radius:8px;font-size:13px;font-family:inherit"/>
               <span style="font-weight:700;color:#3b82f6;white-space:nowrap">= </span>
-              <span id="cnyOutput-${h.id}" style="font-weight:700;color:#1a1a2e;min-width:80px;text-align:right">0 ¥</span>
+              <span id="cnyOutput-${h.id}" style="font-weight:700;color:#1a1a2e;min-width:80px;text-align:right">0 ${state.lang==='zh'?'元':'CNY'}</span>
             </div>
             <div style="font-size:11px;color:#7c7c8a;margin-top:6px">(1 KRW ≈ 0.005 CNY)</div>
           </div>
@@ -1493,7 +1493,7 @@ function renderPrivacy(){
   };
   return `<div class="safe-area page-enter">
     <div class="page-header">
-      <button class="btn-icon" data-back="1">${IC.back(20)}</button>
+      <button class="page-header-back" data-back>${IC.back()}</button>
       <span class="page-header-title">${titles[lang]}</span>
     </div>
     <div style="padding:16px 20px 40px">
@@ -1762,7 +1762,10 @@ function _onKrwInput(e){
   const krw = parseFloat(e.target.value) || 0;
   const cny = (krw / 200).toFixed(2);
   const output = document.getElementById(`cnyOutput-${hospitalId}`);
-  if(output) output.textContent = krw > 0 ? `${cny} ¥` : "0 ¥";
+  if(output) {
+    const symbol = state.lang === 'zh' ? '元' : 'CNY';
+    output.textContent = krw > 0 ? `${cny} ${symbol}` : `0 ${symbol}`;
+  }
 }
 
 /* ── 키보드 접근성: Enter/Space로 카드 클릭 ── */
