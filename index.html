@@ -493,7 +493,19 @@ button{cursor:pointer;border:none;background:none;padding:0;}
   <aside id="pc-ad"></aside>
 </div>
 
-<script src="data.js"></script>
+<!-- 공통 데이터 -->
+<script src="data/common.js"></script>
+<!-- 병원 기본 인덱스 -->
+<script src="data/index.js"></script>
+<!-- 지역별 상세 정보는 필요시 동적 로드 -->
+<script>
+// DB 객체와의 호환성을 위한 래퍼
+// index.js가 로드된 후 DB 변수 설정
+window.DB = {
+  get hospitals() { return DB_PROXY.hospitals; },
+  get contents() { return DB_PROXY.contents; }
+};
+</script>
 <script>
 /* ════════════════════════════════════════
    STATE
@@ -683,7 +695,7 @@ function hospCardHtml(h, isNearby=false){
 /* ════════════════════════════════════════
    ROUTER / NAVIGATION
    ════════════════════════════════════════ */
-function navigate(page, id=null){
+async function navigate(page, id=null){
   navHistory.push({page:state.page, id:state.id, tab:state.tab});
   state.page = page;
   state.id = id;
@@ -692,7 +704,7 @@ function navigate(page, id=null){
   else if(page==="post") state.tab = "contents";
   else if(page==="privacy") state.tab = "me";
   window.scrollTo(0,0);
-  render();
+  await render();
 }
 function goBack(){
   if(navHistory.length){
@@ -704,7 +716,7 @@ function goBack(){
     render();
   }
 }
-function switchTab(tab){
+async function switchTab(tab){
   navHistory = [];
   // booking 탭 재진입 시 시술 선택 초기화
   if(tab==="booking"){
@@ -715,7 +727,7 @@ function switchTab(tab){
   state.tab = tab;
   state.id = null;
   window.scrollTo(0,0);
-  render();
+  await render();
 }
 
 /* ════════════════════════════════════════
@@ -970,9 +982,18 @@ function renderHospitals(){
 }
 
 /* ── HOSPITAL DETAIL ── */
-function renderHospitalDetail(){
+async function renderHospitalDetail(){
   const lang = state.lang;
-  const h = DB.hospitals.find(x=>x.id===state.id);
+  
+  // 기본 정보 먼저 찾기
+  let h = getHospitalById(state.id);
+  if(!h) return `<div class="safe-area page-enter"><div class="page-header"><button class="page-header-back" data-back>${IC.back()}</button><span class="page-header-title">—</span></div><div class="empty"><div class="empty-icon">❌</div><div class="empty-title">Not found</div></div></div>`;
+  
+  // 상세 정보 로드 (필요한 경우)
+  const detail = await loadHospitalDetail(state.id);
+  if(detail) {
+    h = { ...h, ...detail };
+  }
   if(!h) return `<div class="safe-area page-enter"><div class="page-header"><button class="page-header-back" data-back>${IC.back()}</button><span class="page-header-title">—</span></div><div class="empty"><div class="empty-icon">❌</div><div class="empty-title">Not found</div></div></div>`;
 
   const isClinic = !h.type || h.type==="clinic";
@@ -1701,14 +1722,14 @@ function renderPcAd(){
   }
 }
 
-function render(){
+async function render(){
   const view   = document.getElementById("view");
   const tabBar = document.getElementById("tabBar");
 
   let html="";
   if(state.page==="home")          html=renderHome();
   else if(state.page==="hospitals") html=renderHospitals();
-  else if(state.page==="hospital")  html=renderHospitalDetail();
+  else if(state.page==="hospital")  html=await renderHospitalDetail();
   else if(state.page==="contents")  html=renderContents();
   else if(state.page==="post")      html=renderPost();
   else if(state.page==="me")        html=renderMe();
@@ -1972,9 +1993,9 @@ function bindEvents(){
 }
 
 /* ── TAB BAR CLICKS ── */
-document.getElementById("tabBar").addEventListener("click",function(e){
+document.getElementById("tabBar").addEventListener("click",async function(e){
   const btn = e.target.closest("[data-tab]");
-  if(btn) switchTab(btn.dataset.tab);
+  if(btn) await switchTab(btn.dataset.tab);
 });
 
 
@@ -2339,7 +2360,7 @@ function isFav(id){ return getFavs().includes(id); }
 /* ════════════════════════════════════════
    INIT
    ════════════════════════════════════════ */
-(function init(){
+(async function init(){
   // Restore language
   const savedLang = localStorage.getItem("lang");
   if(savedLang && ["zh","en","ja"].includes(savedLang)) state.lang = savedLang;
@@ -2370,10 +2391,10 @@ function isFav(id){ return getFavs().includes(id); }
     if(id) state.id = id;
   }
 
-  render();
+  await render();
 
   // ── 브라우저 뒤로/앞으로 버튼 처리 ──
-  window.addEventListener("popstate", function(e){
+  window.addEventListener("popstate", async function(e){
     if(e.state){
       state.page = e.state.page || "home";
       state.id   = e.state.id   || null;
@@ -2383,7 +2404,7 @@ function isFav(id){ return getFavs().includes(id); }
       state.page = "home"; state.id = null; state.tab = "home";
     }
     window.scrollTo(0,0);
-    render();
+    await render();
   });
 
   // Attempt GPS detection after first render (non-blocking, max once per 24h)
