@@ -561,7 +561,12 @@ let navHistory = [];
    ════════════════════════════════════════ */
 function t(key){ return (T[state.lang]||T.zh)[key] || T.zh[key] || key; }
 function reg(rk){ return (REGION[state.lang]||REGION.zh)[rk] || rk; }
-function lng(obj){ if(!obj) return ""; return obj[state.lang] || obj.zh || obj.en || ""; }
+function lng(obj){
+  if(obj===null || obj===undefined) return "";
+  if(typeof obj==="string" || typeof obj==="number") return String(obj);
+  if(Array.isArray(obj)) return obj;
+  return obj[state.lang] || obj.zh || obj.en || "";
+}
 
 /* ════════════════════════════════════════
    LANG CHANGE
@@ -629,6 +634,38 @@ function venueBadge(h){
   if(type==="massage")  return `<span class="badge-venue-massage">💆 ${t('venue_massage')}</span>`;
   return "";
 }
+function normalizeHospitalData(){
+  DB.hospitals = DB.hospitals
+  .filter(h=>{
+    const ko = h.name_ko || "";
+    const en = (h.name && h.name.en) || "";
+    return !(/와인피부과의원/.test(ko) || /wine dermatology/i.test(en));
+  })
+  .map(h=>{
+    const normalized = {...h};
+    if(
+      normalized.name_ko==="벨륭성형외과의원" ||
+      normalized.name_ko==="벨르e몽성형외과의원" ||
+      normalized.name_ko==="벨르e?몽성형외과의원" ||
+      /벨르.*성형외과의원/.test(normalized.name_ko)
+    ){
+      normalized.name_ko = "벨르몬성형외과의원";
+    }
+    if(!normalized.phone){
+      normalized.phone = normalized.tel || normalized.telephone || normalized.contact_phone || "";
+    }
+    if(normalized.hours){
+      normalized.hours = {
+        ...normalized.hours,
+        weekday: normalized.hours.weekday || normalized.hours.weekdays || normalized.hours.week || normalized.hours.mon_fri,
+        sat: normalized.hours.sat || normalized.hours.saturday,
+        closed: normalized.hours.closed || normalized.hours.holiday || normalized.hours.off
+      };
+    }
+    return normalized;
+  });
+}
+normalizeHospitalData();
 function hospCardHtml(h, isNearby=false){
   const lang = state.lang;
   const nearbyBadge = isNearby
@@ -969,6 +1006,13 @@ function renderHospitalDetail(){
   const h = DB.hospitals.find(x=>x.id===state.id);
   if(!h) return `<div class="safe-area page-enter"><div class="page-header"><button class="page-header-back" data-back>${IC.back()}</button><span class="page-header-title">—</span></div><div class="empty"><div class="empty-icon">❌</div><div class="empty-title">Not found</div></div></div>`;
 
+  // 신규 병원 데이터 확장 시 발생하는 필드명 차이를 흡수
+  const displayPhone = h.phone || h.tel || h.telephone || h.contact_phone || "—";
+  const hrs = h.hours || {};
+  const weekdayHours = hrs.weekday || hrs.weekdays || hrs.week || hrs.mon_fri || null;
+  const satHours = hrs.sat || hrs.saturday || null;
+  const closedHours = hrs.closed || hrs.holiday || hrs.off || null;
+
   const isClinic = !h.type || h.type==="clinic";
   const rs_all = h.review_summary||{};
   const rs = rs_all[lang] || rs_all.zh || {};
@@ -993,14 +1037,13 @@ function renderHospitalDetail(){
   const mapUrl = `https://www.google.com/maps?q=${h.lat},${h.lng}`;
   const extLink = (h.platform_links||{})[activePf]||"";
 
-  const hrs = h.hours||{};
   const hoursHtml = `
     <div style="margin-top:12px;padding-top:12px;border-top:1px solid rgba(0,0,0,.06)">
       <div style="font-size:12px;font-weight:700;color:#7c7c8a;margin-bottom:8px">🕐 ${t('detail_hours')}</div>
       <div class="hours-grid">
-        <span class="hours-day">${t('hours_weekday')}</span><span class="hours-time">${lng(hrs.weekday)||"—"}</span>
-        <span class="hours-day">${t('hours_sat')}</span><span class="hours-time">${lng(hrs.sat)||"—"}</span>
-        <span class="hours-day hours-closed">${t('hours_closed')}</span><span class="hours-time hours-closed">${lng(hrs.closed)||"—"}</span>
+        <span class="hours-day">${t('hours_weekday')}</span><span class="hours-time">${lng(weekdayHours)||"—"}</span>
+        <span class="hours-day">${t('hours_sat')}</span><span class="hours-time">${lng(satHours)||"—"}</span>
+        <span class="hours-day hours-closed">${t('hours_closed')}</span><span class="hours-time hours-closed">${lng(closedHours)||"—"}</span>
       </div>
     </div>`;
 
@@ -1122,12 +1165,12 @@ function renderHospitalDetail(){
         </div>
         <div style="margin-top:14px;display:flex;flex-direction:column;gap:8px">
           <div class="hosp-detail-info-row">${IC.map()} <span>${lng(h.address)}</span></div>
-          <div class="hosp-detail-info-row">${IC.phone()} <span>${h.phone}</span></div>
+          <div class="hosp-detail-info-row">${IC.phone()} <span>${displayPhone}</span></div>
         </div>
         ${hoursHtml}
         <div class="action-row">
           <a href="${mapUrl}" target="_blank" class="btn-action blue">🗺️ ${t('detail_map')}</a>
-          <a href="tel:${h.phone}" class="btn-action">📞 ${t('detail_phone')}</a>
+          <a href="tel:${displayPhone}" class="btn-action">📞 ${t('detail_phone')}</a>
         </div>
         <div class="specialties">${specialties}</div>
       </div>
@@ -1181,7 +1224,7 @@ function renderHospitalDetail(){
         <div class="cta-title">${t('detail_contact')}</div>
         <div style="font-size:12px;color:#7c7c8a;margin-bottom:12px">${ctaNote}</div>
         <div class="cta-btns" style="margin-bottom:10px">
-          <button class="cta-btn-blue" onclick="window.location.href='tel:${h.phone}'">📞 ${t('detail_phone')}</button>
+          <button class="cta-btn-blue" onclick="window.location.href='tel:${displayPhone}'">📞 ${t('detail_phone')}</button>
         </div>
         ${contactBtnHtml}
       </div>
