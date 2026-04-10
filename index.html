@@ -635,26 +635,6 @@ function venueBadge(h){
   return "";
 }
 function normalizeHospitalData(){
-  const bellemornTypos = new Set([
-    "벨륭성형외과의원",
-    "벨르e몽성형외과의원",
-    "벨르e?몽성형외과의원"
-  ]);
-  DB.hospitals = DB.hospitals
-  .filter(h=>{
-    const ko = h.name_ko || "";
-    const en = (h.name && h.name.en) || "";
-    return !(/와인피부과의원/.test(ko) || /wine dermatology/i.test(en));
-  })
-  .map(h=>{
-    const normalized = {...h};
-    const koName = (normalized.name_ko || "").trim();
-    if(
-      bellemornTypos.has(koName) ||
-      (/벨르/.test(koName) && /성형외과의원$/.test(koName) && /[몽륭]/.test(koName))
-    ){
-      normalized.name_ko = "벨르몬성형외과의원";
-    }
     if(!normalized.phone){
       normalized.phone = normalized.tel || normalized.telephone || normalized.contact_phone || "";
     }
