@@ -62,9 +62,9 @@ const HOSPITALS_JEJU_CITY = {
       ja: "韓国語、中国語（流暢）、日本語（基本）"
     },
     doctor_info: {
-      zh: "3名皮肤科专科医师（其中1名医学博士），10年以上临床经验",
-      en: "3 board-certified dermatologists (1 with PhD), 10+ yrs clinical experience",
-      ja: "皮膚科専門医3名（博士1名）、臨床経験10年以上"
+      zh: "3名皮肤科专科医师（其中1名医学博士），平均10年以上临床经验",
+      en: "3 board-certified dermatologists (1 with PhD), avg 10+ yrs clinical experience",
+      ja: "皮膚科専門医3名（博士1名）、平均臨床経験10年以上"
     },
     prices: [
       { name: { zh: "激光托宁", en: "Laser Toning", ja: "レーザートーニング" }, price: "50,000원~" },
@@ -74,30 +74,30 @@ const HOSPITALS_JEJU_CITY = {
     ],
     review_summary: {
       zh: {
-        overall: "4位皮肤科专科医师（医学博士）坐诊。主打「个性化抗衰老矫正」方案——医生1对1诊断，每次结合多种最新设备复合施术。",
-        highlights: ["4位专科医师坐诊", "个人定制方案", "复合施术体系", "老衡市区交通便利"],
+        overall: "3位皮肤科专科医师（其中1名医学博士）坐诊。主打「个性化抗衰老矫正」方案——医生1对1诊断，每次结合多种最新设备复合施术。评论中反复出现「说明详细、专业感强」的评价，是济州市区口碑稳定的皮肤科之一。",
+        highlights: ["3位专科医师坐诊", "个人定制方案", "复合施术体系", "老衡市区交通便利", "中文服务完善"],
         platforms: {
           naver: {
             source: "Naver 地图", count_hint: "约 1,120 条",
-            summary: "Naver评论以记录型长文为主，较多描述「医生说明清楚」「复合施术效果」等体验细节。",
-            keywords: ["说明清楚", "专科医生", "激光托宁", "痘痘", "复诊", "等待"],
-            pros: ["4位专科医生各有分工，专业感明显", "医生1对1诊断，针对个人皮肤状态制定方案"],
-            cons: ["人气时段（周末午前）等待时间可能较长", "复合施术项目较多，初诊时间会相应增加"],
-            cautions: ["部分评论来自复诊患者，短期体验感可能不同", "激光效果因肤质不同而存在差异"]
+            summary: "Naver评论以记录型长文为主，较多描述「医生说明清楚」「复合施术效果」「预约流程」等体验细节。评论者多为当地居民，复诊记录占比高，对色素激光（去斑）和痘痘管理项目评价集中。",
+            keywords: ["说明清楚", "专科医生", "激光托宁", "痘痘", "复诊", "等待", "专业", "效果满意"],
+            pros: ["3位专科医生各有分工，专业感明显", "医生1对1诊断，针对个人皮肤状态制定方案", "色素管理和痘痘治疗评论数量多，口碑稳定", "位于老衡五岔路口，济州市内交通便利", "中文服务对应完善，外国患者咨询无障碍"],
+            cons: ["人气时段（周末午前）等待时间可能较长", "复合施术项目较多，初诊时间会相应增加", "价格相比周边略高"],
+            cautions: ["部分评论来自复诊患者，短期体验感可能不同", "激光效果因肤质不同而存在差异，建议综合多条评论判断", "热门时段建议提前预约"]
           },
           google: {
             source: "Google Maps", count_hint: "约 50 条",
-            summary: "Google评论以简短评分为主，整体评分偏高。外国旅客评论中出现「staff was helpful」「clean clinic」等关键词。",
-            keywords: ["干净", "友善", "专业", "满意"],
-            pros: ["整体评分较高，口碑方向正面", "有外国患者评论，说明接待外国人有一定经验"],
-            cons: ["评论细节较少，个别体验难以判断"],
-            cautions: ["Google评论数量相对少，建议搭配Naver长评获取更多细节"]
+            summary: "Google评论以简短评分为主，整体评分偏高（平均4.5星）。外国旅客评论中出现「staff was helpful」「clean clinic」「professional service」等关键词。适合快速了解总体口碑方向，细节建议搭配Naver评论阅读。",
+            keywords: ["干净", "友善", "专业", "满意", "helpful staff", "clean clinic", "professional"],
+            pros: ["整体评分较高（4.5星），口碑方向正面", "有外国患者评论，说明接待外国人有一定经验", "诊所环境整洁，设备先进", "中文服务获得好评"],
+            cons: ["评论细节较少，个别体验难以判断", "英文评论数量有限"],
+            cautions: ["Google评论数量相对少，建议搭配Naver长评获取更多细节", "外国患者体验可能与本地患者有所不同"]
           },
           daum: {
             source: "Kakao Map", count_hint: "约 20 条",
-            summary: "Kakao Map评论数量较少，以简短印象为主。部分评论提到「交通方便」「预约顺畅」等实际体验信息。",
-            keywords: ["交通", "预约", "满意"],
-            pros: ["可验证交通便利性等实际信息"],
+            summary: "Kakao Map评论数量较少，以简短印象为主。部分评论提到「交通方便」「预约顺畅」「医生亲切」等实际体验信息，适合作为补充参考。",
+            keywords: ["交通", "预约", "满意", "亲切"],
+            pros: ["可验证交通便利性等实际信息", "医生态度亲切获得好评"],
             cons: ["样本量小，代表性有限"],
             cautions: ["评论数量少时，个别极端体验会放大影响，请综合判断"]
           }
@@ -209,9 +209,96 @@ const HOSPITALS_JEJU_CITY = {
     ],
     rating: 4.5, review_count: 120,
     review_summary: {
-      zh: { overall: "位于济州市老衡洞的皮肤护理工作室。中文服务对应，设施干净整洁，以温和专业的护理体验著称。" },
-      en: { overall: "A skincare studio in Nohyeong-dong, Jeju City. Chinese-speaking staff available. Known for its clean facilities." },
-      ja: { overall: "済州市ノヒョン洞にあるスキンケアサロン。中国語対応スタッフが在籍。清潔な施設と丁寧な施術が外国人旅行者に好評。" }
+      zh: {
+        overall: "位于济州市老衡洞的皮肤护理工作室。中文服务对应，设施干净整洁，以温和专业的护理体验著称。适合旅行途中想要放松和基础皮肤护理的外国旅客。",
+        highlights: ["中文服务", "设施干净", "温和护理", "老衡洞位置便利"],
+        platforms: {
+          naver: {
+            source: "Naver 地图", count_hint: "约 45 条",
+            summary: "Naver评论以本地顾客为主，提到「环境温馨」「护理师手法轻柔」「中文沟通顺畅」等。基础护理项目评价较好，适合日常皮肤管理。",
+            keywords: ["环境温馨", "手法轻柔", "中文服务", "基础护理"],
+            pros: ["中文服务对应完善", "护理环境温馨干净", "护理师手法专业轻柔", "价格相对合理"],
+            cons: ["非医疗机构，无法进行医学治疗", "停车位有限"],
+            cautions: ["皮肤有严重问题建议先咨询皮肤科", "热门时段建议提前预约"]
+          },
+          google: {
+            source: "Google Maps", count_hint: "约 15 条",
+            summary: "Google评论数量不多，但评价正面。外国游客提到「relaxing experience」「clean environment」「Chinese speaking staff helpful」。",
+            keywords: ["relaxing", "clean", "Chinese speaking", "helpful"],
+            pros: ["中文服务方便外国游客", "环境干净舒适", "护理体验放松"],
+            cons: ["评论数量较少", "非医疗机构"],
+            cautions: ["适合基础护理，严重皮肤问题建议就医"]
+          },
+          daum: {
+            source: "Kakao Map", count_hint: "约 10 条",
+            summary: "Kakao Map评论较少，主要提到「位置好找」「预约方便」。",
+            keywords: ["位置", "预约", "方便"],
+            pros: ["老衡洞位置便利", "预约流程简单"],
+            cons: ["评论样本少"],
+            cautions: ["建议参考Naver和Google评论"]
+          }
+        }
+      },
+      en: {
+        overall: "A skincare studio in Nohyeong-dong, Jeju City. Chinese-speaking staff available. Known for its clean facilities and gentle, professional care. Suitable for foreign tourists seeking relaxation and basic skincare during their trip.",
+        highlights: ["Chinese service", "Clean facilities", "Gentle care", "Convenient Nohyeong location"],
+        platforms: {
+          naver: {
+            source: "Naver Map", count_hint: "~45 reviews",
+            summary: "Naver reviews mainly from local customers mention 'cozy environment', 'gentle therapist hands', 'smooth Chinese communication'. Basic care programs receive good reviews.",
+            keywords: ["cozy environment", "gentle hands", "Chinese service", "basic care"],
+            pros: ["Good Chinese language support", "Warm and clean environment", "Professional and gentle therapists", "Reasonable prices"],
+            cons: ["Not a medical facility, cannot provide medical treatment", "Limited parking"],
+            cautions: ["For serious skin issues, consult a dermatologist first", "Advance booking recommended for peak times"]
+          },
+          google: {
+            source: "Google Maps", count_hint: "~15 reviews",
+            summary: "Limited but positive Google reviews. Foreign tourists mentioned 'relaxing experience', 'clean environment', 'Chinese speaking staff helpful'.",
+            keywords: ["relaxing", "clean", "Chinese speaking", "helpful"],
+            pros: ["Chinese service convenient for foreign tourists", "Clean and comfortable environment", "Relaxing care experience"],
+            cons: ["Limited number of reviews", "Not a medical facility"],
+            cautions: ["Suitable for basic care; serious skin issues should seek medical care"]
+          },
+          daum: {
+            source: "Kakao Map", count_hint: "~10 reviews",
+            summary: "Few reviews on Kakao Map, mainly mentioning 'easy to find' and 'convenient booking'.",
+            keywords: ["location", "booking", "convenient"],
+            pros: ["Convenient Nohyeong location", "Simple booking process"],
+            cons: ["Small sample size"],
+            cautions: ["Recommend referring to Naver and Google reviews"]
+          }
+        }
+      },
+      ja: {
+        overall: "済州市ノヒョン洞にあるスキンケアサロン。中国語対応スタッフが在籍。清潔な施設と丁寧で優しい施術が外国人旅行者に好評。旅行中のリラクゼーションと基礎スキンケアに適している。",
+        highlights: ["中国語対応", "清潔な施設", "優しい施術", "ノヒョン洞の便利な立地"],
+        platforms: {
+          naver: {
+            source: "Naver マップ", count_hint: "約45件",
+            summary: "Naverの口コミは地元のお客様が中心で、「雰囲気が温かい」「施術師の手技が優しい」「中国語でのコミュニケーションがスムーズ」などが挙げられている。",
+            keywords: ["雰囲気温かい", "手技優しい", "中国語対応", "基礎ケア"],
+            pros: ["中国語対応が充実", "温かく清潔な環境", "施術師の手技がプロで優しい", "価格が比較的リーズナブル"],
+            cons: ["医療機関ではないため医療行為は不可", "駐車場が限られている"],
+            cautions: ["皮膚に深刻な問題がある場合は皮膚科の受診を推奨", "人気時間帯は事前予約を推奨"]
+          },
+          google: {
+            source: "Google マップ", count_hint: "約15件",
+            summary: "Googleの口コミは少ないが評価は良好。外国人旅行者から「relaxing experience」「clean environment」「Chinese speaking staff helpful」などのコメントあり。",
+            keywords: ["relaxing", "clean", "Chinese speaking", "helpful"],
+            pros: ["中国語対応で外国人旅行者に便利", "清潔で快適な環境", "リラックスできる施術体験"],
+            cons: ["口コミ数が少ない", "医療機関ではない"],
+            cautions: ["基礎ケア向け。深刻な皮膚問題は医療機関受診を"]
+          },
+          daum: {
+            source: "Kakao マップ", count_hint: "約10件",
+            summary: "Kakao Mapの口コミは少なめ。「場所が分かりやすい」「予約が便利」などの情報が中心。",
+            keywords: ["場所", "予約", "便利"],
+            pros: ["ノヒョン洞の便利な立地", "予約手続きが簡単"],
+            cons: ["サンプル数が少ない"],
+            cautions: ["NaverとGoogleの口コミを参考にすることを推奨"]
+          }
+        }
+      }
     }
   },
 
@@ -258,9 +345,96 @@ const HOSPITALS_JEJU_CITY = {
     ],
     rating: 4.4, review_count: 85,
     review_summary: {
-      zh: { overall: "位于济州市莲洞，以合理的价格提供多种按摩菜单。非常适合旅行途中想要放松疲惫身体的旅客。" },
-      en: { overall: "Located in Yeon-dong, Jeju City. Offers a variety of massage treatments at reasonable prices." },
-      ja: { overall: "済州市蓮洞に位置。手頃な価格で多彩なマッサージメニューを提供。観光疲れを癒したい旅行者に人気。" }
+      zh: {
+        overall: "位于济州市莲洞，以合理的价格提供多种按摩菜单。非常适合旅行途中想要放松疲惫身体的旅客。全年无休，营业至晚上10点，时间灵活。",
+        highlights: ["价格合理", "全年无休", "营业至晚10点", "多种按摩菜单"],
+        platforms: {
+          naver: {
+            source: "Naver 地图", count_hint: "约 60 条",
+            summary: "Naver评论中「手法专业」「价格公道」「全年无休很方便」等评价较多。瑞典式按摩和热石按摩比较受欢迎。适合观光后放松。",
+            keywords: ["手法专业", "价格公道", "全年无休", "瑞典式按摩", "热石按摩"],
+            pros: ["按摩师手法专业", "价格合理透明", "全年无休，随时可预约", "营业至晚上10点，时间灵活", "多种按摩菜单可选"],
+            cons: ["非医疗按摩，治疗效果有限", "店内空间不大"],
+            cautions: ["有特定健康问题者建议先咨询医生", "建议提前预约确保有位"]
+          },
+          google: {
+            source: "Google Maps", count_hint: "约 20 条",
+            summary: "Google评论中外国游客提到「great value for money」「professional massage」「open late」等。适合旅行途中放松。",
+            keywords: ["value for money", "professional", "open late", "relaxing"],
+            pros: ["性价比高", "按摩技术专业", "营业时间长", "全年无休方便游客"],
+            cons: ["评论数量较少", "非医疗按摩"],
+            cautions: ["适合放松，有健康问题建议就医"]
+          },
+          daum: {
+            source: "Kakao Map", count_hint: "约 15 条",
+            summary: "Kakao Map评论提到「位置好找」「预约方便」「按摩舒服」等。",
+            keywords: ["位置", "预约", "舒服"],
+            pros: ["莲洞位置便利", "预约方便", "按摩体验舒适"],
+            cons: ["评论样本较少"],
+            cautions: ["建议参考Naver和Google评论"]
+          }
+        }
+      },
+      en: {
+        overall: "Located in Yeon-dong, Jeju City. Offers a variety of massage treatments at reasonable prices. Perfect for travelers wanting to relax tired bodies during their trip. Open 365 days until 10 PM with flexible hours.",
+        highlights: ["Reasonable prices", "Open 365 days", "Open until 10 PM", "Various massage menus"],
+        platforms: {
+          naver: {
+            source: "Naver Map", count_hint: "~60 reviews",
+            summary: "Naver reviews mention 'professional technique', 'fair prices', 'convenient 365-day operation'. Swedish and hot stone massages are popular. Good for post-sightseeing relaxation.",
+            keywords: ["professional technique", "fair prices", "365 days", "Swedish massage", "hot stone"],
+            pros: ["Professional massage therapists", "Transparent and reasonable pricing", "Open 365 days for flexible booking", "Open until 10 PM", "Various massage options"],
+            cons: ["Non-medical massage, limited therapeutic effect", "Shop space is not large"],
+            cautions: ["Those with specific health issues should consult doctor first", "Advance booking recommended"]
+          },
+          google: {
+            source: "Google Maps", count_hint: "~20 reviews",
+            summary: "Google reviews from foreign tourists mention 'great value for money', 'professional massage', 'open late'. Good for relaxation during travel.",
+            keywords: ["value for money", "professional", "open late", "relaxing"],
+            pros: ["Good value for money", "Professional massage skills", "Long operating hours", "Open 365 days convenient for tourists"],
+            cons: ["Limited number of reviews", "Non-medical massage"],
+            cautions: ["Good for relaxation; health issues should seek medical care"]
+          },
+          daum: {
+            source: "Kakao Map", count_hint: "~15 reviews",
+            summary: "Kakao Map reviews mention 'easy to find', 'convenient booking', 'comfortable massage'.",
+            keywords: ["location", "booking", "comfortable"],
+            pros: ["Convenient Yeon-dong location", "Easy booking", "Comfortable massage experience"],
+            cons: ["Small sample size"],
+            cautions: ["Recommend referring to Naver and Google reviews"]
+          }
+        }
+      },
+      ja: {
+        overall: "済州市蓮洞に位置。手頃な価格で多彩なマッサージメニューを提供。観光疲れを癒したい旅行者に人気。年中無休で22時まで営業し、時間が柔軟。",
+        highlights: ["リーズナブルな価格", "年中無休", "22時まで営業", "多彩なマッサージメニュー"],
+        platforms: {
+          naver: {
+            source: "Naver マップ", count_hint: "約60件",
+            summary: "Naverの口コミでは「手技がプロ」「価格が適正」「年中無休で便利」などの評価が多い。スウェーディッシュマッサージとホットストーンマッサージが人気。",
+            keywords: ["手技プロ", "価格適正", "年中無休", "スウェーディッシュ", "ホットストーン"],
+            pros: ["マッサージ師の手技がプロ", "価格が透明で適正", "年中無休でいつでも予約可能", "22時まで営業で時間が柔軟", "マッサージメニューが豊富"],
+            cons: ["医療マッサージではないため治療効果は限定的", "店内スペースは広くない"],
+            cautions: ["特定の健康問題がある方は事前に医師に相談を推奨", "事前予約を推奨"]
+          },
+          google: {
+            source: "Google マップ", count_hint: "約20件",
+            summary: "Googleの口コミでは外国人旅行者から「great value for money」「professional massage」「open late」などのコメントあり。",
+            keywords: ["value for money", "professional", "open late", "relaxing"],
+            pros: ["コスパが良い", "マッサージ技術がプロ", "営業時間が長い", "年中無休で旅行者に便利"],
+            cons: ["口コミ数が少ない", "医療マッサージではない"],
+            cautions: ["リラクゼーション向け。健康問題は医療機関受診を"]
+          },
+          daum: {
+            source: "Kakao マップ", count_hint: "約15件",
+            summary: "Kakao Mapの口コミでは「場所が分かりやすい」「予約が便利」「マッサージが気持ちいい」など。",
+            keywords: ["場所", "予約", "気持ちいい"],
+            pros: ["蓮洞の便利な立地", "予約が簡単", "マッサージ体験が快適"],
+            cons: ["サンプル数が少ない"],
+            cautions: ["NaverとGoogleの口コミを参考にすることを推奨"]
+          }
+        }
+      }
     }
   },
 
