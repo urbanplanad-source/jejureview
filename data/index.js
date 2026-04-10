@@ -54,7 +54,7 @@ const HOSPITAL_INDEX = [
     featured: true,
     rating: 4.7,
     review_count: 180,
-    name_ko: "벨륭성형외과의원",
+    name_ko: "벨르e?몽성형외과의원",
     name: { zh: "贝勒蒙整形外科", en: "Bellemorn Plastic Surgery", ja: "ベルモン整形外科" },
     thumbnail: "images/bellemorn-thumb.jpg",
     has_detail: true
@@ -74,7 +74,19 @@ const HOSPITAL_INDEX = [
     thumbnail: "images/ami-thumb.jpg",
     has_detail: true
   },
-
+  {
+    id: "wine",
+    region: "jeju-city",
+    specialty: "dermatology",
+    type: "clinic",
+    featured: false,
+    rating: 4.2,
+    review_count: 78,
+    name_ko: "와인피부과의원",
+    name: { zh: "葡萄酒皮肤科", en: "Wine Dermatology", ja: "ワイン皮膚科" },
+    thumbnail: "images/wine-thumb.jpg",
+    has_detail: true
+  },
   {
     id: "mimo",
     region: "jeju-city",
