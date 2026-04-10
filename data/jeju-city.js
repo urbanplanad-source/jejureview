@@ -262,5 +262,264 @@ const HOSPITALS_JEJU_CITY = {
       en: { overall: "Located in Yeon-dong, Jeju City. Offers a variety of massage treatments at reasonable prices." },
       ja: { overall: "済州市蓮洞に位置。手頃な価格で多彩なマッサージメニューを提供。観光疲れを癒したい旅行者に人気。" }
     }
+  },
+
+  /* ─── 추가 병원: 피부과/성형외과 ─────────────────────────────── */
+  "ami": {
+    id: "ami",
+    region: "jeju-city",
+    specialty: "dermatology",
+    foreign_friendly: true,
+    featured: false,
+    name: { zh: "阿美医院", en: "Ami Clinic", ja: "アミ医院" },
+    name_ko: "아미의원",
+    address: {
+      zh: "济州市 老衡洞 老衡14街12号 HO大厦3楼",
+      en: "3F HO Bldg, 12 Nohyeong 14-gil, Nohyeong-dong, Jeju City",
+      ja: "済州市 ノヒョン洞 ノヒョン14キル12 HOビル3階"
+    },
+    phone: "064-747-3778",
+    thumbnail: "images/ami-thumb.jpg",
+    images: [],
+    contact: { wechat: "", line: "", instagram: "" },
+    chinese_staff: false,
+    hours: {
+      weekday: { zh: "10:00 - 19:00", en: "Mon–Fri 10:00–19:00", ja: "平日 10:00–19:00" },
+      sat: { zh: "10:00 - 15:00", en: "Sat 10:00–15:00", ja: "土曜 10:00–15:00" },
+      closed: { zh: "周日 休息", en: "Sun Closed", ja: "日曜 休診" }
+    },
+    lat: 33.4850, lng: 126.4800,
+    platform_links: {
+      naver: "https://map.naver.com/v5/search/아미의원%20제주",
+      google: "https://www.google.com/maps/search/아미의원+제주",
+      daum: "https://map.kakao.com/?q=아미의원+제주"
+    },
+    specialties: {
+      zh: ["皮肤管理", "激光美容", "微整形"],
+      en: ["Skin Care", "Laser Treatment", "Aesthetic Procedures"],
+      ja: ["スキンケア", "レーザー美容", "美容施術"]
+    },
+    type: "clinic",
+    rating: 4.3, review_count: 95,
+    review_summary: {
+      zh: { overall: "位于老衡洞的皮肤科，提供皮肤管理和激光美容服务。" },
+      en: { overall: "A dermatology clinic in Nohyeong-dong offering skin care and laser treatments." },
+      ja: { overall: "ノヒョン洞にある皮膚科。スキンケアとレーザー治療を提供。" }
+    }
+  },
+
+  "wine": {
+    id: "wine",
+    region: "jeju-city",
+    specialty: "dermatology",
+    foreign_friendly: true,
+    featured: false,
+    name: { zh: "葡萄酒皮肤科", en: "Wine Dermatology", ja: "ワイン皮膚科" },
+    name_ko: "와인피부과의원",
+    address: {
+      zh: "济州市 老衡洞",
+      en: "Nohyeong-dong, Jeju City",
+      ja: "済州市 ノヒョン洞"
+    },
+    phone: "064-712-6200",
+    thumbnail: "images/wine-thumb.jpg",
+    images: [],
+    contact: { wechat: "", line: "", instagram: "" },
+    chinese_staff: false,
+    hours: {
+      weekday: { zh: "10:00 - 19:00", en: "Mon–Fri 10:00–19:00", ja: "平日 10:00–19:00" },
+      sat: { zh: "10:00 - 14:00", en: "Sat 10:00–14:00", ja: "土曜 10:00–14:00" },
+      closed: { zh: "周日 休息", en: "Sun Closed", ja: "日曜 休診" }
+    },
+    lat: 33.4860, lng: 126.4810,
+    platform_links: {
+      naver: "https://map.naver.com/v5/search/와인피부과의원%20제주",
+      google: "https://www.google.com/maps/search/와인피부과의원+제주",
+      daum: "https://map.kakao.com/?q=와인피부과의원+제주"
+    },
+    specialties: {
+      zh: ["皮肤美容", "激光治疗", "抗衰老"],
+      en: ["Skin Aesthetics", "Laser Therapy", "Anti-aging"],
+      ja: ["美容皮膚科", "レーザー治療", "アンチエイジング"]
+    },
+    type: "clinic",
+    rating: 4.2, review_count: 78,
+    review_summary: {
+      zh: { overall: "老衡洞的皮肤科医院，提供多种皮肤美容服务。" },
+      en: { overall: "A dermatology clinic in Nohyeong-dong offering various skin aesthetic services." },
+      ja: { overall: "ノヒョン洞にある皮膚科。様々な美容皮膚科サービスを提供。" }
+    }
+  },
+
+  "mimo": {
+    id: "mimo",
+    region: "jeju-city",
+    specialty: "dermatology",
+    foreign_friendly: true,
+    featured: false,
+    name: { zh: "美毛皮肤科", en: "Mimo Dermatology", ja: "ミモ皮膚科" },
+    name_ko: "미모피부과의원",
+    address: {
+      zh: "济州市 老衡洞",
+      en: "Nohyeong-dong, Jeju City",
+      ja: "済州市 ノヒョン洞"
+    },
+    phone: "064-744-7582",
+    thumbnail: "images/mimo-thumb.jpg",
+    images: [],
+    contact: { wechat: "", line: "", instagram: "" },
+    chinese_staff: false,
+    hours: {
+      weekday: { zh: "10:00 - 19:00", en: "Mon–Fri 10:00–19:00", ja: "平日 10:00–19:00" },
+      sat: { zh: "10:00 - 14:00", en: "Sat 10:00–14:00", ja: "土曜 10:00–14:00" },
+      closed: { zh: "周日 休息", en: "Sun Closed", ja: "日曜 休診" }
+    },
+    lat: 33.4870, lng: 126.4830,
+    platform_links: {
+      naver: "https://map.naver.com/v5/search/미모피부과의원%20제주",
+      google: "https://www.google.com/maps/search/미모피부과의원+제주",
+      daum: "https://map.kakao.com/?q=미모피부과의원+제주"
+    },
+    specialties: {
+      zh: ["皮肤管理", "激光", "注射美容"],
+      en: ["Skin Care", "Laser", "Injectables"],
+      ja: ["スキンケア", "レーザー", "注射美容"]
+    },
+    type: "clinic",
+    rating: 4.1, review_count: 65,
+    review_summary: {
+      zh: { overall: "老衡洞的皮肤科医院。" },
+      en: { overall: "A dermatology clinic in Nohyeong-dong." },
+      ja: { overall: "ノヒョン洞にある皮膚科。" }
+    }
+  },
+
+  "yeonse": {
+    id: "yeonse",
+    region: "jeju-city",
+    specialty: "dermatology",
+    foreign_friendly: true,
+    featured: false,
+    name: { zh: "延世皮肤科", en: "Yonse Dermatology", ja: "延世皮膚科" },
+    name_ko: "연세피부과의원",
+    address: {
+      zh: "济州市 老衡洞",
+      en: "Nohyeong-dong, Jeju City",
+      ja: "済州市 ノヒョン洞"
+    },
+    phone: "064-755-0075",
+    thumbnail: "images/yeonse-thumb.jpg",
+    images: [],
+    contact: { wechat: "", line: "", instagram: "" },
+    chinese_staff: false,
+    hours: {
+      weekday: { zh: "10:00 - 19:00", en: "Mon–Fri 10:00–19:00", ja: "平日 10:00–19:00" },
+      sat: { zh: "10:00 - 14:00", en: "Sat 10:00–14:00", ja: "土曜 10:00–14:00" },
+      closed: { zh: "周日 休息", en: "Sun Closed", ja: "日曜 休診" }
+    },
+    lat: 33.4890, lng: 126.4840,
+    platform_links: {
+      naver: "https://map.naver.com/v5/search/연세피부과의원%20제주",
+      google: "https://www.google.com/maps/search/연세피부과의원+제주",
+      daum: "https://map.kakao.com/?q=연세피부과의원+제주"
+    },
+    specialties: {
+      zh: ["皮肤治疗", "激光", "微整形"],
+      en: ["Skin Treatment", "Laser", "Aesthetics"],
+      ja: ["皮膚治療", "レーザー", "美容施術"]
+    },
+    type: "clinic",
+    rating: 4.0, review_count: 58,
+    review_summary: {
+      zh: { overall: "老衡洞的皮肤科医院。" },
+      en: { overall: "A dermatology clinic in Nohyeong-dong." },
+      ja: { overall: "ノヒョン洞にある皮膚科。" }
+    }
+  },
+
+  "miu": {
+    id: "miu",
+    region: "jeju-city",
+    specialty: "plastic-surgery",
+    foreign_friendly: true,
+    featured: false,
+    name: { zh: "美牛整形外科", en: "Miu Plastic Surgery", ja: "ミウ整形外科" },
+    name_ko: "미우성형외과의원",
+    address: {
+      zh: "济州市 老衡洞",
+      en: "Nohyeong-dong, Jeju City",
+      ja: "済州市 ノヒョン洞"
+    },
+    phone: "064-773-8888",
+    thumbnail: "images/miu-thumb.jpg",
+    images: [],
+    contact: { wechat: "", line: "", instagram: "" },
+    chinese_staff: false,
+    hours: {
+      weekday: { zh: "10:00 - 19:00", en: "Mon–Fri 10:00–19:00", ja: "平日 10:00–19:00" },
+      sat: { zh: "10:00 - 14:00", en: "Sat 10:00–14:00", ja: "土曜 10:00–14:00" },
+      closed: { zh: "周日 休息", en: "Sun Closed", ja: "日曜 休診" }
+    },
+    lat: 33.4900, lng: 126.4850,
+    platform_links: {
+      naver: "https://map.naver.com/v5/search/미우성형외과의원%20제주",
+      google: "https://www.google.com/maps/search/미우성형외과의원+제주",
+      daum: "https://map.kakao.com/?q=미우성형외과의원+제주"
+    },
+    specialties: {
+      zh: ["眼部整形", "鼻部整形", "面部轮廓"],
+      en: ["Eye Surgery", "Nose Surgery", "Facial Contouring"],
+      ja: ["目の整形", "鼻の整形", "輪郭整形"]
+    },
+    type: "clinic",
+    rating: 4.2, review_count: 72,
+    review_summary: {
+      zh: { overall: "老衡洞的整形外科医院。" },
+      en: { overall: "A plastic surgery clinic in Nohyeong-dong." },
+      ja: { overall: "ノヒョン洞にある整形外科。" }
+    }
+  },
+
+  "gonggam": {
+    id: "gonggam",
+    region: "jeju-city",
+    specialty: "plastic-surgery",
+    foreign_friendly: true,
+    featured: false,
+    name: { zh: "共感整形外科", en: "Gonggam Plastic Surgery", ja: "共感整形外科" },
+    name_ko: "공감성형외과의원",
+    address: {
+      zh: "济州市 老衡洞",
+      en: "Nohyeong-dong, Jeju City",
+      ja: "済州市 ノヒョン洞"
+    },
+    phone: "064-702-0310",
+    thumbnail: "images/gonggam-thumb.jpg",
+    images: [],
+    contact: { wechat: "", line: "", instagram: "" },
+    chinese_staff: false,
+    hours: {
+      weekday: { zh: "10:00 - 19:00", en: "Mon–Fri 10:00–19:00", ja: "平日 10:00–19:00" },
+      sat: { zh: "10:00 - 14:00", en: "Sat 10:00–14:00", ja: "土曜 10:00–14:00" },
+      closed: { zh: "周日 休息", en: "Sun Closed", ja: "日曜 休診" }
+    },
+    lat: 33.4910, lng: 126.4860,
+    platform_links: {
+      naver: "https://map.naver.com/v5/search/공감성형외과의원%20제주",
+      google: "https://www.google.com/maps/search/공감성형외과의원+제주",
+      daum: "https://map.kakao.com/?q=공감성형외과의원+제주"
+    },
+    specialties: {
+      zh: ["眼部整形", "鼻部整形", "皮肤美容"],
+      en: ["Eye Surgery", "Nose Surgery", "Skin Aesthetics"],
+      ja: ["目の整形", "鼻の整形", "美容皮膚科"]
+    },
+    type: "clinic",
+    rating: 4.1, review_count: 68,
+    review_summary: {
+      zh: { overall: "老衡洞的整形外科兼皮肤科医院。" },
+      en: { overall: "A plastic surgery and dermatology clinic in Nohyeong-dong." },
+      ja: { overall: "ノヒョン洞にある整形外科・皮膚科。" }
+    }
   }
 };

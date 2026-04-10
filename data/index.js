@@ -58,6 +58,86 @@ const HOSPITAL_INDEX = [
     name: { zh: "贝勒蒙整形外科", en: "Bellemorn Plastic Surgery", ja: "ベルモン整形外科" },
     thumbnail: "images/bellemorn-thumb.jpg",
     has_detail: true
+  },
+
+  // 추가 피부과/성형외과 병원
+  {
+    id: "ami",
+    region: "jeju-city",
+    specialty: "dermatology",
+    type: "clinic",
+    featured: false,
+    rating: 4.3,
+    review_count: 95,
+    name_ko: "아미의원",
+    name: { zh: "阿美医院", en: "Ami Clinic", ja: "アミ医院" },
+    thumbnail: "images/ami-thumb.jpg",
+    has_detail: true
+  },
+  {
+    id: "wine",
+    region: "jeju-city",
+    specialty: "dermatology",
+    type: "clinic",
+    featured: false,
+    rating: 4.2,
+    review_count: 78,
+    name_ko: "와인피부과의원",
+    name: { zh: "葡萄酒皮肤科", en: "Wine Dermatology", ja: "ワイン皮膚科" },
+    thumbnail: "images/wine-thumb.jpg",
+    has_detail: true
+  },
+  {
+    id: "mimo",
+    region: "jeju-city",
+    specialty: "dermatology",
+    type: "clinic",
+    featured: false,
+    rating: 4.1,
+    review_count: 65,
+    name_ko: "미모피부과의원",
+    name: { zh: "美毛皮肤科", en: "Mimo Dermatology", ja: "ミモ皮膚科" },
+    thumbnail: "images/mimo-thumb.jpg",
+    has_detail: true
+  },
+  {
+    id: "yeonse",
+    region: "jeju-city",
+    specialty: "dermatology",
+    type: "clinic",
+    featured: false,
+    rating: 4.0,
+    review_count: 58,
+    name_ko: "연세피부과의원",
+    name: { zh: "延世皮肤科", en: "Yonse Dermatology", ja: "延世皮膚科" },
+    thumbnail: "images/yeonse-thumb.jpg",
+    has_detail: true
+  },
+  {
+    id: "miu",
+    region: "jeju-city",
+    specialty: "plastic-surgery",
+    type: "clinic",
+    featured: false,
+    rating: 4.2,
+    review_count: 72,
+    name_ko: "미우성형외과의원",
+    name: { zh: "美牛整形外科", en: "Miu Plastic Surgery", ja: "ミウ整形外科" },
+    thumbnail: "images/miu-thumb.jpg",
+    has_detail: true
+  },
+  {
+    id: "gonggam",
+    region: "jeju-city",
+    specialty: "plastic-surgery",
+    type: "clinic",
+    featured: false,
+    rating: 4.1,
+    review_count: 68,
+    name_ko: "공감성형외과의원",
+    name: { zh: "共感整形外科", en: "Gonggam Plastic Surgery", ja: "共感整形外科" },
+    thumbnail: "images/gonggam-thumb.jpg",
+    has_detail: true
   }
 ];
 
