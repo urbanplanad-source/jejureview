@@ -561,7 +561,12 @@ let navHistory = [];
    ════════════════════════════════════════ */
 function t(key){ return (T[state.lang]||T.zh)[key] || T.zh[key] || key; }
 function reg(rk){ return (REGION[state.lang]||REGION.zh)[rk] || rk; }
-function lng(obj){ if(!obj) return ""; return obj[state.lang] || obj.zh || obj.en || ""; }
+function lng(obj){
+  if(obj===null || obj===undefined) return "";
+  if(typeof obj==="string" || typeof obj==="number") return String(obj);
+  if(Array.isArray(obj)) return obj;
+  return obj[state.lang] || obj.zh || obj.en || "";
+}
 
 /* ════════════════════════════════════════
    LANG CHANGE
@@ -630,9 +635,6 @@ function venueBadge(h){
   return "";
 }
 function normalizeHospitalData(){
-  DB.hospitals = DB.hospitals.map(h=>{
-    const normalized = {...h};
-    if(normalized.name_ko==="벨륭성형외과의원") normalized.name_ko = "벨르몬성형외과의원";
     if(!normalized.phone){
       normalized.phone = normalized.tel || normalized.telephone || normalized.contact_phone || "";
     }
