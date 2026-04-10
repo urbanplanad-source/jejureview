@@ -62,9 +62,9 @@ const HOSPITALS_JEJU_CITY = {
       ja: "韓国語、中国語（流暢）、日本語（基本）"
     },
     doctor_info: {
-      zh: "4名皮肤科专科医师，平均10年以上临床经验",
-      en: "4 board-certified dermatologists, avg 10+ yrs clinical experience",
-      ja: "皮膚科専門医4名、平均臨床経験10年以上"
+      zh: "3名皮肤科专科医师，平均10年以上临床经验",
+      en: "3 board-certified dermatologists, avg 10+ yrs clinical experience",
+      ja: "皮膚科専門医3名、平均臨床経験10年以上"
     },
     prices: [
       { name: { zh: "激光托宁", en: "Laser Toning", ja: "レーザートーニング" }, price: "50,000원~" },
