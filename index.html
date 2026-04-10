@@ -635,6 +635,11 @@ function venueBadge(h){
   return "";
 }
 function normalizeHospitalData(){
+  const bellemornTypos = new Set([
+    "벨륭성형외과의원",
+    "벨르e몽성형외과의원",
+    "벨르e?몽성형외과의원"
+  ]);
   DB.hospitals = DB.hospitals
   .filter(h=>{
     const ko = h.name_ko || "";
@@ -643,11 +648,10 @@ function normalizeHospitalData(){
   })
   .map(h=>{
     const normalized = {...h};
+    const koName = (normalized.name_ko || "").trim();
     if(
-      normalized.name_ko==="벨륭성형외과의원" ||
-      normalized.name_ko==="벨르e몽성형외과의원" ||
-      normalized.name_ko==="벨르e?몽성형외과의원" ||
-      /벨르.*성형외과의원/.test(normalized.name_ko)
+      bellemornTypos.has(koName) ||
+      (/벨르/.test(koName) && /성형외과의원$/.test(koName) && /[몽륭]/.test(koName))
     ){
       normalized.name_ko = "벨르몬성형외과의원";
     }
