@@ -45,7 +45,7 @@ const HOSPITALS_JEJU_CITY = {
       ja: ["レーザー色素治療", "エイジングケア", "ニキビ管理", "注射美容"]
     },
     type: "clinic",
-    rating: 4.6, review_count: 390,
+    rating: 4.6, review_count: 320,
     payment_methods: {
       zh: ["现场刷卡（VISA/MC）", "现场现金", "国际银行转账（咨询后）"],
       en: ["On-site: Card (VISA/MC)", "On-site: Cash", "Bank transfer (by arrangement)"],
@@ -62,9 +62,9 @@ const HOSPITALS_JEJU_CITY = {
       ja: "韓国語、中国語（流暢）、日本語（基本）"
     },
     doctor_info: {
-      zh: "3名皮肤科专科医师（其中1名医学博士），平均10年以上临床经验",
-      en: "3 board-certified dermatologists (1 with PhD), avg 10+ yrs clinical experience",
-      ja: "皮膚科専門医3名（博士1名）、平均臨床経験10年以上"
+      zh: "4名皮肤科专科医师，平均10年以上临床经验",
+      en: "4 board-certified dermatologists, avg 10+ yrs clinical experience",
+      ja: "皮膚科専門医4名、平均臨床経験10年以上"
     },
     prices: [
       { name: { zh: "激光托宁", en: "Laser Toning", ja: "レーザートーニング" }, price: "50,000원~" },
@@ -104,16 +104,16 @@ const HOSPITALS_JEJU_CITY = {
         }
       },
       en: {
-        overall: "Four board-certified dermatologists on staff. The clinic specialises in personalised anti-ageing protocols—each visit includes a one-on-one physician consultation.",
-        highlights: ["4 board-certified dermatologists", "Personalised treatment plans", "Combination laser protocols", "Convenient location in Jeju City"],
+        overall: "Four board-certified dermatologists on staff. The clinic specialises in personalised anti-ageing protocols—each visit includes a one-on-one physician consultation followed by combination laser treatments tailored to the patient's skin condition. Reviewers consistently highlight detailed explanations and a high level of professionalism.",
+        highlights: ["4 board-certified dermatologists", "Personalised treatment plans", "Combination laser protocols", "Convenient location at Nohyeong 5-way intersection"],
         platforms: {
           naver: {
             source: "Naver Map", count_hint: "~320 reviews",
-            summary: "Naver reviews are mostly detailed long-form posts describing the consultation process, laser outcomes, and wait times.",
+            summary: "Naver reviews are mostly detailed long-form posts describing the consultation process, laser outcomes, and wait times. Reviewers are predominantly local residents with multiple return visits. Pigmentation lasers and acne treatments receive the most mentions.",
             keywords: ["thorough explanation", "specialist", "laser toning", "acne", "repeat visit", "wait"],
-            pros: ["4 specialists each with distinct expertise", "1-on-1 physician consultation tailored to skin condition"],
+            pros: ["4 specialists each with distinct expertise", "1-on-1 physician consultation tailored to skin condition", "Strong track record in pigmentation and acne care", "Easy access at Nohyeong 5-way intersection"],
             cons: ["Possible wait during peak hours (weekend mornings)", "Combination treatments may lengthen first-visit duration"],
-            cautions: ["Many reviewers are repeat patients; single-visit experience may differ", "Laser results vary by skin type"]
+            cautions: ["Many reviewers are repeat patients; single-visit experience may differ", "Laser results vary by skin type—read multiple reviews before deciding"]
           },
           google: {
             source: "Google Maps", count_hint: "~50 reviews",
@@ -305,49 +305,6 @@ const HOSPITALS_JEJU_CITY = {
       zh: { overall: "位于老衡洞的皮肤科，提供皮肤管理和激光美容服务。" },
       en: { overall: "A dermatology clinic in Nohyeong-dong offering skin care and laser treatments." },
       ja: { overall: "ノヒョン洞にある皮膚科。スキンケアとレーザー治療を提供。" }
-    }
-  },
-
-  "wine": {
-    id: "wine",
-    region: "jeju-city",
-    specialty: "dermatology",
-    foreign_friendly: true,
-    featured: false,
-    name: { zh: "葡萄酒皮肤科", en: "Wine Dermatology", ja: "ワイン皮膚科" },
-    name_ko: "와인피부과의원",
-    address: {
-      zh: "济州市 老衡洞",
-      en: "Nohyeong-dong, Jeju City",
-      ja: "済州市 ノヒョン洞"
-    },
-    phone: "064-712-6200",
-    thumbnail: "images/wine-thumb.jpg",
-    images: [],
-    contact: { wechat: "", line: "", instagram: "" },
-    chinese_staff: false,
-    hours: {
-      weekday: { zh: "10:00 - 19:00", en: "Mon–Fri 10:00–19:00", ja: "平日 10:00–19:00" },
-      sat: { zh: "10:00 - 14:00", en: "Sat 10:00–14:00", ja: "土曜 10:00–14:00" },
-      closed: { zh: "周日 休息", en: "Sun Closed", ja: "日曜 休診" }
-    },
-    lat: 33.4860, lng: 126.4810,
-    platform_links: {
-      naver: "https://map.naver.com/v5/search/와인피부과의원%20제주",
-      google: "https://www.google.com/maps/search/와인피부과의원+제주",
-      daum: "https://map.kakao.com/?q=와인피부과의원+제주"
-    },
-    specialties: {
-      zh: ["皮肤美容", "激光治疗", "抗衰老"],
-      en: ["Skin Aesthetics", "Laser Therapy", "Anti-aging"],
-      ja: ["美容皮膚科", "レーザー治療", "アンチエイジング"]
-    },
-    type: "clinic",
-    rating: 4.2, review_count: 78,
-    review_summary: {
-      zh: { overall: "老衡洞的皮肤科医院，提供多种皮肤美容服务。" },
-      en: { overall: "A dermatology clinic in Nohyeong-dong offering various skin aesthetic services." },
-      ja: { overall: "ノヒョン洞にある皮膚科。様々な美容皮膚科サービスを提供。" }
     }
   },
 
