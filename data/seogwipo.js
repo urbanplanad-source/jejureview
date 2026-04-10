@@ -14,7 +14,7 @@ const HOSPITALS_SEOGWIPO = {
       en: "Bellemorn Plastic Surgery (Shinhwa World)",
       ja: "ベルモン整形外科（神話ワールド）"
     },
-    name_ko: "벨륭성형외과의원",
+    name_ko: "벨르e?몽성형외과의원",
     address: {
       zh: "西归浦市 神话世界 Landing馆 神话购物街",
       en: "Shinhwa World Landing Hall, Shinhwa Shopping Street, Seogwipo",
@@ -32,9 +32,9 @@ const HOSPITALS_SEOGWIPO = {
     },
     lat: 33.3029, lng: 126.2914,
     platform_links: {
-      naver: "https://map.naver.com/v5/search/벨륭성형외과",
-      google: "https://www.google.com/maps/search/벨륭성형외과+서귀포",
-      daum: "https://map.kakao.com/?q=벨륭성형외과"
+      naver: "https://map.naver.com/v5/search/벨르e?몽성형외과",
+      google: "https://www.google.com/maps/search/벨르e?몽성형외과+서귀포",
+      daum: "https://map.kakao.com/?q=벨르e?몽성형외과"
     },
     specialties: {
       zh: ["提拉紧致", "Thermage FLX", "Ulthera", "注射美容"],
