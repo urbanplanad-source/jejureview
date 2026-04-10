@@ -138,6 +138,47 @@ const HOSPITAL_INDEX = [
     name: { zh: "共感整形外科", en: "Gonggam Plastic Surgery", ja: "共感整形外科" },
     thumbnail: "images/gonggam-thumb.jpg",
     has_detail: true
+  },
+
+  // 서귀포 추가 병원
+  {
+    id: "seoulfirst",
+    region: "seogwipo",
+    specialty: "plastic-surgery",
+    type: "clinic",
+    featured: false,
+    rating: 4.3,
+    review_count: 112,
+    name_ko: "서울퍼스트성형외과의원",
+    name: { zh: "首尔第一整形外科", en: "Seoul First Plastic Surgery", ja: "ソウルファースト整形外科" },
+    thumbnail: "images/seoulfirst-thumb.jpg",
+    has_detail: true
+  },
+  {
+    id: "together",
+    region: "seogwipo",
+    specialty: "dermatology",
+    type: "clinic",
+    featured: false,
+    rating: 4.2,
+    review_count: 89,
+    name_ko: "투게더피부과의원",
+    name: { zh: "一起皮肤科", en: "Together Dermatology", ja: "トゥゲザー皮膚科" },
+    thumbnail: "images/together-thumb.jpg",
+    has_detail: true
+  },
+  {
+    id: "we",
+    region: "seogwipo",
+    specialty: "plastic-surgery",
+    type: "clinic",
+    featured: false,
+    rating: 4.0,
+    review_count: 65,
+    name_ko: "WE병원",
+    name: { zh: "WE医院", en: "WE Hospital", ja: "WE病院" },
+    thumbnail: "images/we-thumb.jpg",
+    has_detail: true
   }
 ];
 
