@@ -229,15 +229,17 @@ async function loadHospitalDetail(hospitalId) {
 // 스크립트 동적 로드 헬퍼
 function loadScript(src) {
   return new Promise((resolve, reject) => {
+    // 절대 URL로 변환 (GitHub Pages 서브경로 환경에서도 올바르게 동작)
+    const resolvedSrc = new URL(src, window.location.href).href;
     // 이미 로드된 경우
-    const existing = document.querySelector(`script[src="${src}"]`);
+    const existing = document.querySelector(`script[src="${resolvedSrc}"]`);
     if (existing) {
       resolve();
       return;
     }
-    
+
     const script = document.createElement('script');
-    script.src = src;
+    script.src = resolvedSrc;
     script.async = true;
     script.onload = resolve;
     script.onerror = reject;
