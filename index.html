@@ -6,7 +6,17 @@
 <title>因赛特美医 | insight-medi</title>
 <meta name="description" id="meta-desc" content="제주 피부과·성형외과 의료관광 가이드. 中文·English·日本語 대응 병원 정보 및 리뷰 요약."/>
 <meta name="robots" content="index, follow"/>
-<link rel="canonical" id="meta-canonical" href="https://your-domain.com/"/>
+<link rel="canonical" id="meta-canonical" href="https://insightmedi.co.kr/"/>
+<!-- ── PWA ── -->
+<link rel="manifest" href="manifest.json"/>
+<meta name="theme-color" content="#3182F6"/>
+<meta name="mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-status-bar-style" content="default"/>
+<meta name="apple-mobile-web-app-title" content="insight-medi"/>
+<link rel="apple-touch-icon" href="images/icon-192.png"/>
+<link rel="icon" type="image/png" sizes="192x192" href="images/icon-192.png"/>
+<link rel="icon" type="image/png" sizes="512x512" href="images/icon-512.png"/>
 <!-- Google Search Console: 도메인 확정 후 아래 코드 입력 -->
 <!-- <meta name="google-site-verification" content="YOUR_CODE_HERE"/> -->
 <!-- Naver Search Advisor: 도메인 확정 후 아래 코드 입력 -->
@@ -14,15 +24,29 @@
 <meta property="og:type"        id="og-type"    content="website"/>
 <meta property="og:title"       id="og-title"   content="因赛特美医"/>
 <meta property="og:description" id="og-desc"    content="济州岛皮肤科·整形外科医疗旅游指南"/>
-<meta property="og:url"         id="og-url"     content="https://your-domain.com/"/>
-<meta property="og:image"       id="og-image"   content="https://your-domain.com/images/og-default.jpg"/>
+<meta property="og:url"         id="og-url"     content="https://insightmedi.co.kr/"/>
+<meta property="og:image"       id="og-image"   content="https://insightmedi.co.kr/images/og-default.jpg"/>
 <meta property="og:locale"      id="og-locale"  content="zh_CN"/>
 <meta property="og:site_name"   content="因赛特美医"/>
 <script type="application/ld+json" id="ld-json">{}</script>
+<!-- DNS 선접속 — 외부 CDN 레이턴시 최소화 -->
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin/>
+<link rel="dns-prefetch" href="https://cdn.jsdelivr.net"/>
+<!-- Pretendard Variable Font (Toss Design System) -->
+<link rel="preload" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css"/>
+<link rel="stylesheet" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css"/>
+<!-- Twemoji: flat emoji rendering (OS 기본 3D 이모지 → 통일된 flat 스타일) -->
 <style>
+:root{
+  --primary:#3182F6;--primary-light:#E8F3FF;--bg:#F2F4F6;--surface:#FFFFFF;
+  --text-main:#191F28;--text-secondary:#4E5968;--text-tertiary:#8B95A1;
+  --border:#E5E8EB;--success:#2DCA72;--error:#F04452;--warning:#FFBA05;
+  --shadow-1:0 2px 4px rgba(0,0,0,0.04);--shadow-2:0 8px 16px rgba(0,0,0,0.08);
+  --radius-card:20px;--radius-btn:12px;
+}
 *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
-html,body{width:100%;min-height:100%;background:#f6f6f8;}
-body{font-family:-apple-system,BlinkMacSystemFont,"Hiragino Kaku Gothic ProN","Noto Sans JP","PingFang SC","Noto Sans SC","Microsoft YaHei",system-ui,sans-serif;color:#1a1a2e;-webkit-font-smoothing:antialiased;}
+html,body{width:100%;min-height:100%;background:#F2F4F6;}
+body{font-family:'Pretendard Variable','Pretendard',Inter,-apple-system,BlinkMacSystemFont,"Hiragino Kaku Gothic ProN","Noto Sans JP","PingFang SC","Noto Sans SC","Microsoft YaHei",system-ui,sans-serif;color:#191F28;-webkit-font-smoothing:antialiased;letter-spacing:-.01em;}
 input,button,textarea{font-family:inherit;}
 ::-webkit-scrollbar{display:none;}
 button{cursor:pointer;border:none;background:none;padding:0;}
@@ -30,7 +54,7 @@ button{cursor:pointer;border:none;background:none;padding:0;}
 /* ── LAYOUT ── */
 /* #pc-wrapper는 단순 컨테이너 — flex 없음 (앱은 margin:auto로 중앙 정렬 유지) */
 #pc-wrapper{min-height:100vh;}
-#app{max-width:430px;margin:0 auto;min-height:100vh;background:#f6f6f8;position:relative;box-shadow:0 0 60px rgba(0,0,0,.08);}
+#app{max-width:430px;margin:0 auto;min-height:100vh;background:#F2F4F6;position:relative;box-shadow:0 0 60px rgba(0,0,0,.08);}
 
 /* PC 광고: 기본 숨김, PC에서만 fixed 좌측 중앙 표시 */
 #pc-ad{display:none;}
@@ -53,47 +77,57 @@ button{cursor:pointer;border:none;background:none;padding:0;}
 
 
 /* ── BOTTOM TAB ── */
-.tab-bar{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:100%;max-width:430px;background:rgba(255,255,255,.92);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-top:1px solid rgba(0,0,0,.06);padding-bottom:env(safe-area-inset-bottom);display:flex;z-index:50;}
-.tab-btn{flex:1;border:none;background:none;padding:8px 0 6px;display:flex;flex-direction:column;align-items:center;gap:2px;cursor:pointer;color:#9ca3af;transition:color .15s;}
-.tab-btn.active{color:#3b82f6;}
-.tab-btn span{font-size:10px;font-weight:500;}
+/* ── 글로벌 하단 고지 ── */
+.global-notice{position:fixed;top:0;left:50%;transform:translateX(-50%);width:100%;max-width:430px;background:rgba(25,31,40,.88);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);padding:10px 40px 10px 16px;z-index:60;opacity:1;transition:opacity .5s ease,transform .5s ease;transform-origin:top center;}
+.global-notice.notice-hide{opacity:0;pointer-events:none;transform:translateX(-50%) translateY(-100%);}
+.global-notice-text{font-size:11px;color:rgba(255,255,255,.85);line-height:1.55;text-align:center;}
+.global-notice-close{position:absolute;top:50%;right:10px;transform:translateY(-50%);background:none;border:none;color:rgba(255,255,255,.6);font-size:16px;cursor:pointer;padding:4px;line-height:1;}
+body.notice-visible .page-header{top:40px;transition:top .3s ease;}
+body.notice-visible #view{padding-top:40px;}
+.tab-bar{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:100%;max-width:430px;background:#fff;border-top:1px solid #E5E8EB;padding-bottom:env(safe-area-inset-bottom);display:flex;z-index:50;}
+.tab-btn{flex:1;border:none;background:none;padding:10px 0 6px;display:flex;flex-direction:column;align-items:center;gap:3px;cursor:pointer;color:#8B95A1;transition:color .15s;}
+.tab-btn.active{color:#3182F6;}
+.tab-btn span{font-size:10px;font-weight:500;letter-spacing:.01em;}
 .tab-btn.active span{font-weight:700;}
 .tab-btn svg{display:block;}
 
 /* ── PAGE HEADER ── */
-.page-header{position:sticky;top:0;z-index:40;background:rgba(246,246,248,.88);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid rgba(0,0,0,.06);padding:12px 16px;display:flex;align-items:center;gap:12px;}
-.page-header-back{border:none;background:none;padding:4px;display:flex;color:#3b82f6;cursor:pointer;}
+.page-header{position:sticky;top:0;z-index:40;background:rgba(255,255,255,.96);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid #E5E8EB;padding:12px 16px;display:flex;align-items:center;gap:12px;}
+.page-header-back{border:none;background:none;padding:4px;display:flex;color:#3182F6;cursor:pointer;}
 .page-header-title{flex:1;font-size:17px;font-weight:700;letter-spacing:-.02em;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
 
 /* ── CARDS ── */
-.card{background:#fff;border-radius:16px;border:1px solid rgba(0,0,0,.06);box-shadow:0 2px 12px rgba(0,0,0,.06);padding:16px;}
-.card-sm{padding:14px;}
+.card{background:#fff;border-radius:20px;border:1px solid #E5E8EB;box-shadow:0 2px 4px rgba(0,0,0,0.04);padding:20px;}
+.card-sm{padding:16px;}
 .card+.card,.card+.section-wrap{margin-top:12px;}
 
 /* ── HERO ── */
 .hero{padding:28px 0 8px;text-align:center;}
-.hero-icon{width:56px;height:56px;margin:0 auto 12px;border-radius:16px;background:linear-gradient(135deg,#3b82f6,#8b5cf6);display:flex;align-items:center;justify-content:center;font-size:26px;box-shadow:0 8px 24px rgba(59,130,246,.25);}
+.hero-icon{width:72px;height:72px;margin:0 auto 14px;border-radius:20px;background:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 24px rgba(49,130,246,.18);overflow:hidden;}
+.hero-icon img{width:100%;height:100%;display:block;object-fit:cover;}
 .hero h1{font-size:22px;font-weight:800;letter-spacing:-.03em;}
-.hero p{margin:8px auto 0;color:#7c7c8a;font-size:13px;line-height:1.55;max-width:300px;}
+.hero p{margin:8px auto 0;color:#8B95A1;font-size:13px;line-height:1.55;max-width:300px;}
 
 /* ── STATS ── */
 .stats-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin:16px 0;}
-.stat-card{background:#fff;border-radius:16px;border:1px solid rgba(0,0,0,.06);box-shadow:0 2px 12px rgba(0,0,0,.06);padding:14px 8px;text-align:center;}
-.stat-num{font-size:22px;font-weight:800;}
-.stat-label{font-size:11px;color:#7c7c8a;margin-top:2px;font-weight:600;}
+.stat-card{background:#fff;border-radius:20px;border:1px solid #E5E8EB;box-shadow:0 2px 4px rgba(0,0,0,0.04);padding:16px 8px;text-align:center;}
+.stat-num{font-size:22px;font-weight:800;color:#191F28;}
+.stat-label{font-size:11px;color:#8B95A1;margin-top:2px;font-weight:600;}
 
 /* ── SECTION HEADER ── */
-.section-header{display:flex;justify-content:space-between;align-items:center;margin:24px 0 12px;}
-.section-title{font-size:18px;font-weight:750;}
-.btn-more{background:rgba(59,130,246,.08);color:#3b82f6;padding:6px 12px;border-radius:999px;font-size:12px;font-weight:650;}
+.section-header{display:flex;justify-content:space-between;align-items:center;margin:28px 0 14px;}
+.section-title{font-size:17px;font-weight:700;letter-spacing:-.02em;}
+.btn-more{background:#E8F3FF;color:#3182F6;padding:6px 14px;border-radius:999px;font-size:12px;font-weight:700;}
+.btn-see-more{display:flex;align-items:center;justify-content:center;gap:4px;width:100%;margin:12px 0 4px;padding:14px;background:#fff;border:1px solid #E5E8EB;border-radius:14px;font-size:14px;font-weight:600;color:#4E5968;cursor:pointer;}
+.btn-see-more:active{background:#F2F4F6;}
 
 /* ── HOSPITAL CARD ── */
-.hosp-card{background:#fff;border-radius:16px;border:1px solid rgba(0,0,0,.06);box-shadow:0 2px 12px rgba(0,0,0,.06);padding:14px;display:flex;align-items:center;gap:14px;cursor:pointer;transition:transform .15s;}
+.hosp-card{background:#fff;border-radius:20px;border:1px solid #E5E8EB;box-shadow:0 2px 4px rgba(0,0,0,0.04);padding:16px;display:flex;align-items:center;gap:14px;cursor:pointer;transition:transform .15s;}
 .hosp-card:active{transform:scale(.98);}
-.hosp-avatar{width:52px;height:52px;border-radius:14px;background:linear-gradient(135deg,#e0e7ff 0%,#f0f0ff 100%);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:22px;border:1px solid rgba(0,0,0,.06);}
-.hosp-thumb{width:52px;height:52px;border-radius:14px;overflow:hidden;flex-shrink:0;background:#e8e8f0;border:1px solid rgba(0,0,0,.06);position:relative;display:flex;align-items:center;justify-content:center;}
+.hosp-avatar{width:52px;height:52px;border-radius:14px;background:linear-gradient(135deg,#e0e7ff 0%,#f0f0ff 100%);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:22px;border:1px solid #E5E8EB;}
+.hosp-thumb{width:52px;height:52px;border-radius:14px;overflow:hidden;flex-shrink:0;background:#e8e8f0;border:1px solid #E5E8EB;position:relative;display:flex;align-items:center;justify-content:center;}
 .hosp-thumb img{width:100%;height:100%;object-fit:cover;display:block;}
-.hosp-thumb-fallback{position:absolute;font-size:22px;color:#7c7c8a;}
+.hosp-thumb-fallback{position:absolute;font-size:22px;color:#8B95A1;}
 /* ── DETAIL IMAGE GALLERY ── */
 .detail-images{display:flex;gap:8px;padding:12px 16px 0;overflow-x:auto;-webkit-overflow-scrolling:touch;scroll-snap-type:x mandatory;}
 .detail-images::-webkit-scrollbar{display:none;}
@@ -102,59 +136,53 @@ button{cursor:pointer;border:none;background:none;padding:0;}
 .detail-img-empty{width:100%;aspect-ratio:4/3;background:linear-gradient(135deg,#f0f0f8,#e8e8f0);border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:32px;color:#c0c0cc;}
 .hosp-info{flex:1;min-width:0;margin-left:0;}
 .hosp-name-ko{font-size:16px;font-weight:700;letter-spacing:-.01em;}
-.hosp-name-sub{font-size:13px;color:#7c7c8a;margin-top:2px;}
+.hosp-name-sub{font-size:13px;color:#8B95A1;margin-top:2px;}
 .hosp-meta{display:flex;align-items:center;gap:8px;margin-top:6px;flex-wrap:wrap;}
 .hosp-chevron{color:#c7c7cc;flex-shrink:0;margin-left:4px;}
-.badge-foreign{display:inline-flex;align-items:center;gap:3px;padding:3px 8px;border-radius:999px;background:rgba(245,158,11,.1);color:#d97706;font-size:11px;font-weight:700;}
+.badge-foreign{display:inline-flex;align-items:center;gap:3px;padding:3px 8px;border-radius:999px;background:rgba(255,186,5,.12);color:#b87d00;font-size:11px;font-weight:700;}
+.badge-licensed{display:inline-flex;align-items:center;gap:3px;padding:3px 8px;border-radius:999px;background:#E8F3FF;color:#3182F6;font-size:11px;font-weight:700;border:1px solid rgba(49,130,246,.18);cursor:help;}
 
 /* ── SPECIALTY GRID (똑닥 스타일) ── */
-.spec-section{margin:20px 0 4px;}
-.spec-section-title{font-size:15px;font-weight:700;margin-bottom:12px;letter-spacing:-.02em;}
-.spec-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;}
-.spec-item{display:flex;flex-direction:column;align-items:center;gap:7px;cursor:pointer;-webkit-tap-highlight-color:transparent;}
-.spec-item:active .spec-icon{transform:scale(.93);}
-.spec-icon{width:64px;height:64px;border-radius:20px;background:#fff;border:1px solid rgba(0,0,0,.07);box-shadow:0 2px 8px rgba(0,0,0,.06);display:flex;align-items:center;justify-content:center;font-size:28px;transition:transform .15s;}
-/* 블루 모노크롬 계열로 통일 — 이모지가 구분자 역할 */
-.spec-icon.beauty   {background:rgba(59,130,246,.10);}
-.spec-icon.dental   {background:rgba(59,130,246,.10);}
-.spec-icon.eye      {background:rgba(59,130,246,.10);}
-.spec-icon.ent      {background:rgba(59,130,246,.10);}
-.spec-icon.internal {background:rgba(59,130,246,.10);}
-.spec-icon.neuro    {background:rgba(59,130,246,.10);}
-.spec-icon.ortho    {background:rgba(59,130,246,.10);}
-.spec-icon.pediatric{background:rgba(59,130,246,.10);}
-.spec-label{font-size:12px;font-weight:600;color:#374151;text-align:center;line-height:1.3;}
+.spec-section{margin:24px 0 4px;}
+.spec-section-title{font-size:15px;font-weight:700;margin-bottom:14px;letter-spacing:-.02em;}
+.spec-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px 8px;}
+.spec-item{display:flex;flex-direction:column;align-items:center;gap:8px;cursor:pointer;-webkit-tap-highlight-color:transparent;}
+.spec-item:active .spec-icon{transform:scale(.91);}
+.spec-icon{width:68px;height:68px;border-radius:22px;background:#fff;border:none;box-shadow:0 2px 8px rgba(0,0,0,0.07);display:flex;align-items:center;justify-content:center;font-size:32px;transition:transform .15s;padding:14px;}
+.spec-icon svg{width:40px;height:40px;display:block;flex-shrink:0;}
+.proc-card-icon svg{width:28px;height:28px;display:block;}
+.spec-label{font-size:12px;font-weight:600;color:#191F28;text-align:center;line-height:1.3;}
 /* ── POPULAR PROCEDURES ── */
-.proc-section{margin:20px 0 0;}
-.proc-section-title{font-size:15px;font-weight:700;margin-bottom:10px;letter-spacing:-.02em;}
-.proc-card{display:flex;align-items:center;gap:14px;background:#fff;border-radius:16px;padding:16px;margin-bottom:10px;box-shadow:0 1px 6px rgba(0,0,0,.07);border:1px solid rgba(0,0,0,.06);cursor:pointer;transition:transform .12s,box-shadow .12s;-webkit-tap-highlight-color:transparent;}
-.proc-card:active{transform:scale(.98);box-shadow:0 1px 3px rgba(0,0,0,.06);}
+.proc-section{margin:24px 0 0;}
+.proc-section-title{font-size:15px;font-weight:700;margin-bottom:12px;letter-spacing:-.02em;}
+.proc-card{display:flex;align-items:center;gap:14px;background:#fff;border-radius:20px;padding:16px;margin-bottom:10px;box-shadow:0 2px 4px rgba(0,0,0,0.04);border:1px solid #E5E8EB;cursor:pointer;transition:transform .12s;-webkit-tap-highlight-color:transparent;}
+.proc-card:active{transform:scale(.98);}
 .proc-card-icon{width:48px;height:48px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:24px;flex-shrink:0;}
-.proc-card-icon.lifting  {background:rgba(59,130,246,.10);}
-.proc-card-icon.botox    {background:rgba(59,130,246,.10);}
-.proc-card-icon.booster  {background:rgba(59,130,246,.10);}
+.proc-card-icon.lifting  {background:#EFF6FF;}
+.proc-card-icon.botox    {background:#FFF1F2;}
+.proc-card-icon.booster  {background:#ECFEFF;}
 .proc-card-body{flex:1;min-width:0;}
-.proc-card-name{font-size:15px;font-weight:700;color:#1a1a2e;margin-bottom:3px;}
-.proc-card-sub{font-size:12px;color:#6b7280;line-height:1.4;}
+.proc-card-name{font-size:15px;font-weight:700;color:#191F28;margin-bottom:3px;}
+.proc-card-sub{font-size:12px;color:#4E5968;line-height:1.4;}
 .proc-card-arrow{color:#d1d5db;font-size:18px;flex-shrink:0;}
 
 /* ── BOOKING CHAT UI ── */
 .booking-wrap{display:flex;flex-direction:column;height:calc(100vh - 68px - env(safe-area-inset-bottom));}
-.booking-header{padding:16px;background:#fff;border-bottom:1px solid rgba(0,0,0,.06);flex-shrink:0;}
+.booking-header{padding:16px;background:#fff;border-bottom:1px solid #E5E8EB;flex-shrink:0;}
 .booking-header-title{font-size:17px;font-weight:800;}
-.booking-header-sub{font-size:12px;color:#7c7c8a;margin-top:2px;}
-.chat-messages{flex:1;overflow-y:auto;padding:16px;display:flex;flex-direction:column;gap:12px;background:#f6f6f8;}
+.booking-header-sub{font-size:12px;color:#8B95A1;margin-top:2px;}
+.chat-messages{flex:1;overflow-y:auto;padding:16px;display:flex;flex-direction:column;gap:12px;background:#F2F4F6;}
 .chat-bubble{max-width:80%;padding:12px 14px;border-radius:18px;font-size:14px;line-height:1.55;word-break:break-word;}
-.chat-bubble.ai{background:#fff;color:#1a1a2e;border-radius:4px 18px 18px 18px;border:1px solid rgba(0,0,0,.06);align-self:flex-start;box-shadow:0 1px 4px rgba(0,0,0,.06);}
-.chat-bubble.user{background:#3b82f6;color:#fff;border-radius:18px 4px 18px 18px;align-self:flex-end;}
-.chat-bubble.ai .ai-name{font-size:11px;color:#7c7c8a;font-weight:700;margin-bottom:5px;}
-.quick-replies{display:flex;flex-wrap:wrap;gap:8px;padding:4px 16px 8px;background:#f6f6f8;}
-.qr-btn{padding:8px 14px;border-radius:20px;background:#fff;border:1.5px solid #3b82f6;color:#3b82f6;font-size:13px;font-weight:650;cursor:pointer;transition:all .15s;white-space:nowrap;}
-.qr-btn:active{background:#3b82f6;color:#fff;transform:scale(.97);}
-.chat-input-bar{display:flex;align-items:center;gap:8px;padding:10px 16px;background:#fff;border-top:1px solid rgba(0,0,0,.06);flex-shrink:0;padding-bottom:calc(10px + env(safe-area-inset-bottom));}
-.chat-input{flex:1;padding:10px 14px;border-radius:22px;border:1.5px solid #e5e7eb;font-size:14px;outline:none;background:#f9fafb;transition:border-color .15s;}
-.chat-input:focus{border-color:#3b82f6;}
-.chat-send-btn{width:40px;height:40px;border-radius:50%;background:#3b82f6;display:flex;align-items:center;justify-content:center;flex-shrink:0;cursor:pointer;transition:transform .15s;}
+.chat-bubble.ai{background:#fff;color:#191F28;border-radius:4px 18px 18px 18px;border:1px solid #E5E8EB;align-self:flex-start;box-shadow:0 1px 4px rgba(0,0,0,.06);}
+.chat-bubble.user{background:#3182F6;color:#fff;border-radius:18px 4px 18px 18px;align-self:flex-end;}
+.chat-bubble.ai .ai-name{font-size:11px;color:#8B95A1;font-weight:700;margin-bottom:5px;}
+.quick-replies{display:flex;flex-wrap:wrap;gap:8px;padding:4px 16px 8px;background:#F2F4F6;}
+.qr-btn{padding:8px 14px;border-radius:20px;background:#fff;border:1.5px solid #3182F6;color:#3182F6;font-size:13px;font-weight:650;cursor:pointer;transition:all .15s;white-space:nowrap;}
+.qr-btn:active{background:#3182F6;color:#fff;transform:scale(.97);}
+.chat-input-bar{display:flex;align-items:center;gap:8px;padding:10px 16px;background:#fff;border-top:1px solid #E5E8EB;flex-shrink:0;padding-bottom:calc(10px + env(safe-area-inset-bottom));}
+.chat-input{flex:1;padding:10px 14px;border-radius:22px;border:1.5px solid #E5E8EB;font-size:14px;outline:none;background:#f9fafb;transition:border-color .15s;}
+.chat-input:focus{border-color:#3182F6;}
+.chat-send-btn{width:40px;height:40px;border-radius:50%;background:#3182F6;display:flex;align-items:center;justify-content:center;flex-shrink:0;cursor:pointer;transition:transform .15s;}
 .chat-send-btn:active{transform:scale(.92);}
 .chat-send-btn:disabled{background:#d1d5db;cursor:default;}
 /* booking 탭 — 병원 목록 카드 */
@@ -162,182 +190,174 @@ button{cursor:pointer;border:none;background:none;padding:0;}
 .booking-clinic-card:active{background:#f5f5f7;}
 .booking-clinic-thumb{width:48px;height:48px;border-radius:12px;object-fit:cover;background:#e0e7ff;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:22px;}
 .booking-clinic-info{flex:1;min-width:0;}
-.booking-clinic-name{font-size:14px;font-weight:700;color:#1a1a2e;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
-.booking-clinic-meta{font-size:12px;color:#7c7c8a;margin-top:2px;}
+.booking-clinic-name{font-size:14px;font-weight:700;color:#191F28;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.booking-clinic-meta{font-size:12px;color:#8B95A1;margin-top:2px;}
 .booking-clinic-arrow{color:#c7c7cc;font-size:16px;flex-shrink:0;}
 
 /* ── BADGES & CHIPS ── */
-.badge{display:inline-block;padding:4px 10px;border-radius:999px;background:rgba(59,130,246,.08);color:#3b82f6;font-size:12px;font-weight:650;}
-.badge-green{background:rgba(16,185,129,.1);color:#10b981;}
-.badge-orange{background:rgba(245,158,11,.1);color:#f59e0b;}
-.badge-accent{background:rgba(59,130,246,.15);color:#3b82f6;}
+.badge{display:inline-block;padding:4px 10px;border-radius:999px;background:#E8F3FF;color:#3182F6;font-size:12px;font-weight:650;}
+.badge-green{background:rgba(45,202,114,.12);color:#18a15b;}
+.badge-orange{background:rgba(255,186,5,.12);color:#b87d00;}
+.badge-accent{background:#E8F3FF;color:#3182F6;}
 .stars{display:flex;align-items:center;gap:2px;}
 .star{font-size:14px;}
-.star.on{color:#f59e0b;}
-.star.off{color:#d1d5db;}
-.rating-num{margin-left:4px;font-size:14px;font-weight:700;color:#1a1a2e;}
-.review-count{font-size:11px;color:#9ca3af;}
+.star.on{color:#FFBA05;}
+.star.off{color:#E5E8EB;}
+.rating-num{margin-left:4px;font-size:14px;font-weight:700;color:#191F28;}
+.review-count{font-size:11px;color:#8B95A1;}
 
-.chip{display:inline-flex;align-items:center;padding:6px 12px;border-radius:999px;border:1px solid rgba(0,0,0,.06);background:transparent;color:#7c7c8a;font-size:13px;font-weight:600;white-space:nowrap;transition:all .15s;cursor:pointer;}
-.chip.active{border-width:1.5px;}
+.chip{display:inline-flex;align-items:center;padding:7px 14px;border-radius:999px;border:1.5px solid #E5E8EB;background:#fff;color:#8B95A1;font-size:13px;font-weight:600;white-space:nowrap;transition:all .15s;cursor:pointer;}
+.chip.active{background:#E8F3FF;border-color:#3182F6;color:#3182F6;font-weight:700;border-width:1.5px;}
 .chips-row{display:flex;gap:8px;overflow-x:auto;padding-bottom:4px;}
 .chips-row::-webkit-scrollbar{display:none;}
 
-.kw-tag{padding:4px 10px;border-radius:999px;background:#f3f4f6;font-size:12px;color:#7c7c8a;font-weight:600;}
+.kw-tag{padding:4px 10px;border-radius:999px;background:#F2F4F6;font-size:12px;color:#8B95A1;font-weight:600;}
 
 /* ── CONTENT CAROUSEL ── */
 .content-carousel{display:flex;gap:12px;overflow-x:auto;padding-bottom:4px;scroll-snap-type:x mandatory;}
 .content-carousel::-webkit-scrollbar{display:none;}
-.content-card{flex:0 0 75%;max-width:280px;scroll-snap-align:start;background:#fff;border-radius:16px;border:1px solid rgba(0,0,0,.06);box-shadow:0 2px 12px rgba(0,0,0,.06);overflow:hidden;cursor:pointer;}
-.content-thumb{height:120px;background:linear-gradient(135deg,#e0e7ff 0%,#f5f3ff 100%);display:flex;align-items:center;justify-content:center;font-size:32px;color:#818cf8;}
+.content-card{flex:0 0 75%;max-width:280px;scroll-snap-align:start;background:#fff;border-radius:20px;border:1px solid #E5E8EB;box-shadow:0 2px 4px rgba(0,0,0,0.04);overflow:hidden;cursor:pointer;}
+.content-thumb{height:120px;background:#E8F3FF;display:flex;align-items:center;justify-content:center;font-size:32px;color:#3182F6;}
 .content-body{padding:12px 14px 14px;}
-.content-title{font-size:14px;font-weight:700;line-height:1.4;}
-.content-date{font-size:12px;color:#7c7c8a;margin-top:4px;}
+.content-title{font-size:14px;font-weight:700;line-height:1.4;color:#191F28;}
+.content-date{font-size:12px;color:#8B95A1;margin-top:4px;}
 
 /* ── CONTENT LIST ITEM (게시판형) ── */
-.content-list-item{background:#fff;border-radius:16px;border:1px solid rgba(0,0,0,.06);box-shadow:0 2px 12px rgba(0,0,0,.06);overflow:hidden;cursor:pointer;display:flex;flex-direction:row;align-items:stretch;min-height:90px;}
-.content-list-thumb{width:96px;flex-shrink:0;background:linear-gradient(135deg,#e0e7ff,#f5f3ff);overflow:hidden;}
+.content-list-item{background:#fff;border-radius:20px;border:1px solid #E5E8EB;box-shadow:0 2px 4px rgba(0,0,0,0.04);overflow:hidden;cursor:pointer;display:flex;flex-direction:row;align-items:stretch;min-height:90px;}
+.content-list-thumb{width:96px;flex-shrink:0;background:#E8F3FF;overflow:hidden;}
 .content-list-thumb img{width:100%;height:100%;object-fit:cover;display:block;}
 .content-list-body{flex:1;min-width:0;padding:11px 13px;display:flex;flex-direction:column;justify-content:center;gap:4px;}
-.content-list-cat{font-size:11px;font-weight:700;color:#3b82f6;letter-spacing:.02em;}
-.content-list-title{font-size:14px;font-weight:700;line-height:1.4;color:#1a1a2e;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;}
-.content-list-excerpt{font-size:12px;color:#6b7280;line-height:1.4;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;}
-.content-list-meta{font-size:11px;color:#9ca3af;margin-top:2px;}
+.content-list-cat{font-size:11px;font-weight:700;color:#3182F6;letter-spacing:.02em;}
+.content-list-title{font-size:14px;font-weight:700;line-height:1.4;color:#191F28;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;}
+.content-list-excerpt{font-size:12px;color:#4E5968;line-height:1.4;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;}
+.content-list-meta{font-size:11px;color:#8B95A1;margin-top:2px;}
 
 /* ── INFO BOXES ── */
-.info-box{border-radius:10px;padding:14px;margin-bottom:10px;}
+.info-box{border-radius:14px;padding:16px;margin-bottom:10px;}
 .info-box-title{display:flex;align-items:center;gap:6px;font-size:13px;font-weight:700;margin-bottom:8px;}
-.info-box-item{font-size:13px;line-height:1.6;padding-left:8px;border-left-width:2px;border-left-style:solid;margin-bottom:6px;}
-.info-box.green{background:rgba(16,185,129,.1);}
-.info-box.green .info-box-title{color:#065f46;}
-.info-box.green .info-box-item{color:#064e3b;border-left-color:#10b981;}
-.info-box.orange{background:rgba(245,158,11,.1);}
-.info-box.orange .info-box-title{color:#92400e;}
-.info-box.orange .info-box-item{color:#78350f;border-left-color:#f59e0b;}
-.info-box.red{background:rgba(239,68,68,.08);}
-.info-box.red .info-box-title{color:#991b1b;}
-.info-box.red .info-box-item{color:#7f1d1d;border-left-color:#ef4444;}
+.info-box-item{font-size:13px;line-height:1.65;padding-left:10px;border-left-width:2px;border-left-style:solid;margin-bottom:6px;}
+.info-box.green{background:rgba(45,202,114,.08);}
+.info-box.green .info-box-title{color:#0d6e3c;}
+.info-box.green .info-box-item{color:#145c35;border-left-color:#2DCA72;}
+.info-box.orange{background:rgba(255,186,5,.08);}
+.info-box.orange .info-box-title{color:#8a5d00;}
+.info-box.orange .info-box-item{color:#6e4a00;border-left-color:#FFBA05;}
+.info-box.red{background:rgba(240,68,82,.06);}
+.info-box.red .info-box-title{color:#b0192a;}
+.info-box.red .info-box-item{color:#8f1221;border-left-color:#F04452;}
 
 /* ── DISCLAIMER ── */
-.disclaimer{background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.15);border-radius:16px;padding:14px;margin:24px 0 20px;display:flex;gap:10px;align-items:flex-start;}
-.disclaimer-title{font-size:13px;font-weight:700;color:#92400e;}
-.disclaimer-body{font-size:12px;color:#a16207;margin-top:4px;line-height:1.55;}
+.disclaimer{background:rgba(255,186,5,.08);border:1px solid rgba(255,186,5,.2);border-radius:20px;padding:16px;margin:28px 0 20px;display:flex;gap:10px;align-items:flex-start;}
+.disclaimer-title{font-size:13px;font-weight:700;color:#8a5d00;}
+.disclaimer-body{font-size:12px;color:#7a5100;margin-top:4px;line-height:1.55;}
 
 /* ── HOSPITAL DETAIL ── */
 .hosp-detail-top{display:flex;gap:14px;align-items:center;}
-.hosp-detail-avatar{width:64px;height:64px;border-radius:18px;background:linear-gradient(135deg,#e0e7ff,#f0f0ff);display:flex;align-items:center;justify-content:center;font-size:28px;border:1px solid rgba(0,0,0,.06);flex-shrink:0;}
-.hosp-detail-info-row{display:flex;align-items:center;gap:8px;font-size:13px;color:#7c7c8a;margin-top:8px;}
+.hosp-detail-avatar{width:64px;height:64px;border-radius:20px;background:#E8F3FF;display:flex;align-items:center;justify-content:center;font-size:28px;border:1px solid #E5E8EB;flex-shrink:0;}
+.hosp-detail-info-row{display:flex;align-items:center;gap:8px;font-size:13px;color:#8B95A1;margin-top:8px;}
 .specialties{display:flex;gap:6px;margin-top:12px;flex-wrap:wrap;}
 
 .platform-tabs{display:flex;gap:6px;margin-bottom:14px;}
-.platform-meta{font-size:13px;color:#7c7c8a;margin-bottom:10px;font-weight:600;}
-.platform-summary{font-size:14px;color:#1a1a2e;line-height:1.6;margin-bottom:14px;}
+.platform-meta{font-size:13px;color:#8B95A1;margin-bottom:10px;font-weight:600;}
+.platform-summary{font-size:14px;color:#191F28;line-height:1.6;margin-bottom:14px;}
 .keywords-row{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:16px;}
 
 .ai-summary-header{display:flex;align-items:center;gap:8px;margin-bottom:10px;}
-.ai-summary-text{font-size:14px;color:#7c7c8a;line-height:1.65;}
+.ai-summary-text{font-size:14px;color:#8B95A1;line-height:1.65;}
 .highlights{display:flex;gap:6px;flex-wrap:wrap;margin-top:12px;}
 
 /* ── CTA ── */
 .cta-card{text-align:center;}
 .cta-title{font-size:14px;font-weight:700;margin-bottom:10px;}
 .cta-btns{display:flex;gap:10px;justify-content:center;}
-.cta-btn-blue{flex:1;max-width:160px;padding:12px 0;border-radius:12px;border:none;background:#3b82f6;color:#fff;font-weight:700;font-size:14px;cursor:pointer;box-shadow:0 4px 14px rgba(59,130,246,.3);}
+.cta-btn-blue{flex:1;max-width:160px;padding:12px 0;border-radius:12px;border:none;background:#3182F6;color:#fff;font-weight:700;font-size:14px;cursor:pointer;box-shadow:0 4px 12px rgba(49,130,246,.25);}
 .cta-btn-green{flex:1;max-width:160px;padding:12px 0;border-radius:12px;border:1.5px solid #07c160;background:#fff;color:#07c160;font-weight:700;font-size:14px;cursor:pointer;}
 .cta-btn-line{flex:1;max-width:160px;padding:12px 0;border-radius:12px;border:1.5px solid #06c755;background:#fff;color:#06c755;font-weight:700;font-size:14px;cursor:pointer;}
 .cta-btn-ig{flex:1;max-width:160px;padding:12px 0;border-radius:12px;border:none;background:linear-gradient(135deg,#c13584,#833ab4);color:#fff;font-weight:700;font-size:14px;cursor:pointer;}
 
 /* ── SEARCH ── */
 .search-wrap{position:relative;margin:12px 0;}
-.search-icon{position:absolute;left:12px;top:50%;transform:translateY(-50%);color:#7c7c8a;pointer-events:none;}
-.search-input{width:100%;padding:12px 38px 12px 38px;border-radius:12px;border:1px solid rgba(0,0,0,.06);background:#fff;font-size:15px;outline:none;color:#1a1a2e;box-sizing:border-box;}
-.search-clear{position:absolute;right:10px;top:50%;transform:translateY(-50%);border:none;background:#e5e7eb;width:22px;height:22px;border-radius:999px;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:12px;color:#6b7280;}
+.search-icon{position:absolute;left:14px;top:50%;transform:translateY(-50%);color:#8B95A1;pointer-events:none;}
+.search-input{width:100%;padding:13px 40px 13px 40px;border-radius:14px;border:1.5px solid #E5E8EB;background:#fff;font-size:15px;outline:none;color:#191F28;box-sizing:border-box;transition:border-color .15s;}
+.search-input:focus{border-color:#3182F6;}
+.search-clear{position:absolute;right:10px;top:50%;transform:translateY(-50%);border:none;background:#E5E8EB;width:22px;height:22px;border-radius:999px;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:12px;color:#4E5968;}
 
 /* ── ME PAGE ── */
 .me-avatar-wrap{padding:24px 16px;text-align:center;}
-.me-avatar{width:72px;height:72px;border-radius:999px;background:linear-gradient(135deg,#3b82f6,#8b5cf6);margin:0 auto 14px;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 20px rgba(59,130,246,.25);}
+.me-avatar{width:72px;height:72px;border-radius:999px;background:#3182F6;margin:0 auto 14px;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 12px rgba(49,130,246,.22);}
 .me-name{font-size:18px;font-weight:750;}
-.me-sub{font-size:13px;color:#7c7c8a;margin-top:4px;}
+.me-sub{font-size:13px;color:#8B95A1;margin-top:4px;}
 .me-list{padding:0 16px;display:flex;flex-direction:column;gap:2px;}
 .me-item{display:flex;align-items:center;gap:14px;padding:14px 16px;background:#fff;cursor:pointer;}
-.me-item:first-child{border-radius:16px 16px 0 0;}
-.me-item:last-child{border-radius:0 0 16px 16px;}
-.me-item:not(:last-child){border-bottom:1px solid rgba(0,0,0,.06);}
+.me-item:first-child{border-radius:20px 20px 0 0;}
+.me-item:last-child{border-radius:0 0 20px 20px;}
+.me-item:not(:last-child){border-bottom:1px solid #E5E8EB;}
 .me-item-icon{font-size:20px;}
 .me-item-label{flex:1;font-size:15px;font-weight:600;}
-.me-item-sub{font-size:13px;color:#7c7c8a;}
-.me-footer{text-align:center;padding:32px 16px;color:#7c7c8a;font-size:12px;}
+.me-item-sub{font-size:13px;color:#8B95A1;}
+.me-footer{text-align:center;padding:32px 16px;color:#8B95A1;font-size:12px;}
 
 /* ── EMPTY STATE ── */
 .empty{text-align:center;padding:48px 20px;}
 .empty-icon{font-size:40px;margin-bottom:12px;opacity:.4;}
 .empty-title{font-size:16px;font-weight:700;}
-.empty-sub{font-size:13px;color:#7c7c8a;margin-top:6px;line-height:1.5;}
+.empty-sub{font-size:13px;color:#8B95A1;margin-top:6px;line-height:1.5;}
 
 /* ── DIVIDER ── */
-.divider{width:100%;height:1px;background:rgba(0,0,0,.06);margin:16px 0;}
+.divider{width:100%;height:1px;background:#E5E8EB;margin:20px 0;}
 
 /* ── LIST STACK ── */
 .list-stack{display:flex;flex-direction:column;gap:12px;}
 
 /* ── POST DETAIL ── */
 .post-title{font-size:20px;font-weight:800;line-height:1.35;letter-spacing:-.02em;}
-.post-date{font-size:13px;color:#7c7c8a;margin-top:8px;font-weight:600;}
-.post-cat-badge{display:inline-block;font-size:11px;font-weight:700;color:#3b82f6;background:rgba(59,130,246,.1);padding:3px 10px;border-radius:999px;margin-bottom:8px;}
+.post-date{font-size:13px;color:#8B95A1;margin-top:8px;font-weight:600;}
+.post-cat-badge{display:inline-block;font-size:11px;font-weight:700;color:#3182F6;background:#E8F3FF;padding:3px 10px;border-radius:999px;margin-bottom:8px;}
 .post-hero{width:100%;border-radius:14px;overflow:hidden;margin:12px 0;max-height:220px;object-fit:cover;display:block;}
 /* post HTML 내부 스타일 */
-.post-html{font-size:15px;line-height:1.8;color:#374151;}
-.post-html h2{font-size:17px;font-weight:800;color:#1a1a2e;margin:20px 0 8px;letter-spacing:-.02em;padding-left:10px;border-left:3px solid #3b82f6;}
+.post-html{font-size:15px;line-height:1.8;color:#4E5968;}
+.post-html h2{font-size:17px;font-weight:800;color:#191F28;margin:20px 0 8px;letter-spacing:-.02em;padding-left:10px;border-left:3px solid #3182F6;}
 .post-html p{margin:0 0 12px;line-height:1.8;}
 .post-html p:last-child{margin-bottom:0;}
-.post-html strong{color:#1a1a2e;font-weight:700;}
+.post-html strong{color:#191F28;font-weight:700;}
 .post-html img{width:100%;border-radius:12px;margin:12px 0;display:block;}
 .post-html ul{margin:0 0 12px 18px;padding:0;}
 .post-html li{margin-bottom:6px;line-height:1.7;}
 
 /* ── PRICE TABLE ── */
 .price-section{padding-top:2px;}
-.price-section-title{font-size:13px;font-weight:750;color:#1a1a2e;margin-bottom:10px;display:flex;align-items:center;gap:6px;}
-.price-row{display:flex;align-items:center;justify-content:space-between;padding:9px 0;border-bottom:1px solid rgba(0,0,0,.06);}
+.price-section-title{font-size:13px;font-weight:750;color:#191F28;margin-bottom:10px;display:flex;align-items:center;gap:6px;}
+.price-row{display:flex;align-items:center;justify-content:space-between;padding:9px 0;border-bottom:1px solid #E5E8EB;}
 .price-row:last-child{border-bottom:none;}
-.price-name{font-size:13px;color:#374151;font-weight:500;}
-.price-amount{font-size:14px;font-weight:750;color:#D16900;white-space:nowrap;margin-left:8px;}
-.price-disclaimer{font-size:11px;color:#9ca3af;text-align:center;margin-top:10px;line-height:1.5;padding:8px 10px;background:#f9fafb;border-radius:8px;}
+.price-name{font-size:13px;color:#4E5968;font-weight:500;}
+.price-amount{font-size:14px;font-weight:700;color:#191F28;white-space:nowrap;margin-left:8px;}
+.price-disclaimer{font-size:11px;color:#8B95A1;text-align:center;margin-top:10px;line-height:1.5;padding:8px 10px;background:#F2F4F6;border-radius:10px;}
 
 /* ── YOUTUBE EMBED ── */
-.yt-section-title{font-size:15px;font-weight:750;color:#1a1a2e;margin-bottom:10px;}
+.yt-section-title{font-size:15px;font-weight:750;color:#191F28;margin-bottom:10px;}
 .yt-wrap{position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:14px;background:#000;}
 .yt-wrap iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:none;border-radius:14px;}
 
 /* ── VENUE TYPE BADGE ── */
-.badge-venue-clinic  {background:rgba(59,130,246,.08);  color:#3b82f6; font-size:11px;font-weight:700;padding:3px 8px;border-radius:999px;display:inline-flex;align-items:center;gap:3px;}
+.badge-venue-clinic  {background:#E8F3FF;color:#3182F6;font-size:11px;font-weight:700;padding:3px 8px;border-radius:999px;display:inline-flex;align-items:center;gap:3px;}
 .badge-venue-skincare{background:rgba(236,72,153,.08);  color:#ec4899; font-size:11px;font-weight:700;padding:3px 8px;border-radius:999px;display:inline-flex;align-items:center;gap:3px;}
-.badge-venue-massage {background:rgba(16,185,129,.08);  color:#10b981; font-size:11px;font-weight:700;padding:3px 8px;border-radius:999px;display:inline-flex;align-items:center;gap:3px;}
+.badge-venue-massage {background:rgba(45,202,114,.1);color:#18a15b; font-size:11px;font-weight:700;padding:3px 8px;border-radius:999px;display:inline-flex;align-items:center;gap:3px;}
 
-/* ── SPECIALTY ICON 추가 ── */
-.spec-icon.skincare  {background:rgba(59,130,246,.10);}
-.spec-icon.massage   {background:rgba(59,130,246,.10);}
-.spec-icon.derm_cert {background:rgba(59,130,246,.10);}
-.spec-icon.oriental  {background:rgba(59,130,246,.10);}
-.spec-icon.other     {background:rgba(59,130,246,.10);}
+/* spec-icon 개별 클래스는 모두 동일 bg (이미지 스타일) — 추가 정의 불필요 */
 
-/* 기능 필터 버튼 — 구분 강조 */
-.spec-icon.filter-open    {background:rgba(16,185,129,.12);} /* 초록 */
-.spec-icon.filter-foreign {background:rgba(99,119,165,.12);}  /* 블루그레이 */
-.spec-icon.filter-popular {background:rgba(239,68,68,.10);}   /* 레드 */
-.spec-item.spec-filter-active .spec-icon {outline:2px solid currentColor;outline-offset:2px;}
-.spec-item[data-spec="open_now"].spec-active .spec-icon    {background:rgba(16,185,129,.25);}
-.spec-item[data-spec="foreign_official"].spec-active .spec-icon{background:rgba(99,119,165,.25);}
-.spec-item[data-spec="popular"].spec-active .spec-icon     {background:rgba(239,68,68,.20);}
+/* 기능 필터 버튼 — active 상태 테두리로 구분 */
+.spec-item.spec-active .spec-icon{outline:2.5px solid #3182F6;outline-offset:2px;}
+.spec-item[data-spec="open_now"].spec-active .spec-icon    {background:rgba(45,202,114,.15);}
+.spec-item[data-spec="foreign_official"].spec-active .spec-icon{background:#E8F3FF;}
 
 /* ── WIDE HOSPITAL CARD (이미지 좌측 · 정보 우측) ── */
-.hosp-card-wide{background:#fff;border-radius:16px;border:1px solid rgba(0,0,0,.06);box-shadow:0 2px 12px rgba(0,0,0,.06);cursor:pointer;transition:transform .15s;-webkit-tap-highlight-color:transparent;display:flex;align-items:flex-start;gap:12px;padding:12px;position:relative;}
+.hosp-card-wide{background:#fff;border-radius:20px;border:1px solid #E5E8EB;box-shadow:0 2px 4px rgba(0,0,0,0.04);cursor:pointer;transition:transform .15s;-webkit-tap-highlight-color:transparent;display:flex;align-items:flex-start;gap:12px;padding:12px;position:relative;}
 .hosp-card-wide:active{transform:scale(.98);}
-.hosp-card-wide-img{width:84px;height:84px;flex-shrink:0;border-radius:12px;background:linear-gradient(135deg,#e0e7ff,#f5f3ff);overflow:hidden;display:flex;align-items:center;justify-content:center;font-size:32px;color:#c7c7cc;}
+.hosp-card-wide-img{width:84px;height:84px;flex-shrink:0;border-radius:14px;background:#E8F3FF;overflow:hidden;display:flex;align-items:center;justify-content:center;font-size:32px;color:#8B95A1;}
 .hosp-card-wide-img img{width:100%;height:100%;object-fit:cover;display:block;}
 .hosp-card-wide-body{flex:1;min-width:0;padding-right:44px;}
-.hosp-card-wide-name{font-size:15px;font-weight:750;letter-spacing:-.01em;color:#1a1a2e;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
-.hosp-card-wide-sub{font-size:12px;color:#6177a5;margin-top:1px;}
+.hosp-card-wide-name{font-size:15px;font-weight:750;letter-spacing:-.01em;color:#191F28;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.hosp-card-wide-sub{font-size:12px;color:#8B95A1;margin-top:1px;}
 .hosp-card-wide-rating{display:flex;align-items:center;gap:5px;margin-top:4px;}
 .hosp-card-wide-rating .star{font-size:12px;}
 .hosp-card-wide-rating .rating-num{font-size:12px;}
@@ -346,41 +366,41 @@ button{cursor:pointer;border:none;background:none;padding:0;}
 
 /* ── LOCATION SHEET — 리스트 스타일 ── */
 .loc-list{display:flex;flex-direction:column;}
-.loc-list-row{display:flex;align-items:center;gap:14px;padding:15px 4px;border-bottom:1px solid rgba(0,0,0,.06);cursor:pointer;transition:background .12s;border-radius:10px;}
+.loc-list-row{display:flex;align-items:center;gap:14px;padding:15px 4px;border-bottom:1px solid #E5E8EB;cursor:pointer;transition:background .12s;border-radius:10px;}
 .loc-list-row:last-child{border-bottom:none;}
-.loc-list-row:active{background:#f3f4f6;}
-.loc-list-row.selected .loc-list-name{color:#3b82f6;font-weight:700;}
-.loc-list-icon{width:36px;height:36px;border-radius:10px;background:#f3f4f6;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;}
-.loc-list-row.selected .loc-list-icon{background:rgba(59,130,246,.1);}
+.loc-list-row:active{background:#F2F4F6;}
+.loc-list-row.selected .loc-list-name{color:#3182F6;font-weight:700;}
+.loc-list-icon{width:36px;height:36px;border-radius:10px;background:#F2F4F6;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;}
+.loc-list-row.selected .loc-list-icon{background:#E8F3FF;}
 .loc-list-body{flex:1;}
-.loc-list-name{font-size:15px;font-weight:600;color:#1a1a2e;}
-.loc-list-sub{font-size:12px;color:#9ca3af;margin-top:2px;}
-.loc-list-check{color:#3b82f6;font-size:20px;font-weight:800;flex-shrink:0;opacity:0;transition:opacity .15s;}
+.loc-list-name{font-size:15px;font-weight:600;color:#191F28;}
+.loc-list-sub{font-size:12px;color:#8B95A1;margin-top:2px;}
+.loc-list-check{color:#3182F6;font-size:20px;font-weight:800;flex-shrink:0;opacity:0;transition:opacity .15s;}
 .loc-list-row.selected .loc-list-check{opacity:1;}
-.btn-confirm{width:100%;padding:15px;border-radius:14px;background:#3b82f6;color:#fff;font-size:16px;font-weight:700;border:none;cursor:pointer;margin-top:16px;box-shadow:0 4px 14px rgba(59,130,246,.28);transition:transform .12s;}
+.btn-confirm{width:100%;padding:15px;border-radius:14px;background:#3182F6;color:#fff;font-size:16px;font-weight:700;border:none;cursor:pointer;margin-top:16px;box-shadow:0 4px 12px rgba(49,130,246,.22);transition:transform .12s;}
 .btn-confirm:active{transform:scale(.98);}
 
 /* ── CONTACT MODAL — 카드 행 스타일 ── */
-.contact-subtitle{font-size:13px;color:#9ca3af;text-align:center;margin:-12px 0 16px;}
-.contact-channel-row{display:flex;align-items:center;gap:14px;padding:15px;background:#f9fafb;border-radius:14px;margin-bottom:10px;border:1.5px solid transparent;transition:border-color .15s;}
+.contact-subtitle{font-size:13px;color:#8B95A1;text-align:center;margin:-12px 0 16px;}
+.contact-channel-row{display:flex;align-items:center;gap:14px;padding:15px;background:#F2F4F6;border-radius:14px;margin-bottom:10px;border:1.5px solid transparent;transition:border-color .15s;}
 .contact-channel-icon{width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0;}
 .contact-channel-icon.wechat  {background:rgba(7,193,96,.12);}
 .contact-channel-icon.line    {background:rgba(6,199,85,.12);}
 .contact-channel-icon.instagram{background:linear-gradient(135deg,rgba(193,53,132,.12),rgba(131,58,180,.12));}
 .contact-channel-body{flex:1;min-width:0;}
-.contact-channel-name{font-size:15px;font-weight:700;color:#1a1a2e;}
-.contact-channel-sub{font-size:12px;color:#9ca3af;margin-top:2px;}
-.contact-id-row{display:flex;align-items:center;gap:8px;margin-top:8px;padding-top:8px;border-top:1px solid rgba(0,0,0,.06);}
-.contact-id-value{flex:1;font-size:14px;font-weight:700;color:#1a1a2e;letter-spacing:.01em;}
-.btn-copy-inline{padding:6px 14px;border-radius:999px;background:#3b82f6;color:#fff;font-size:12px;font-weight:700;border:none;cursor:pointer;white-space:nowrap;transition:background .15s;}
-.btn-copy-inline.copied{background:#10b981;}
-.btn-cancel-text{width:100%;padding:13px;border:none;background:none;font-size:15px;color:#9ca3af;cursor:pointer;font-weight:600;margin-top:4px;}
-.contact-disclaimer{font-size:11px;color:#ef4444;text-align:center;margin-top:8px;padding:8px 10px;background:rgba(239,68,68,.05);border-radius:8px;}
+.contact-channel-name{font-size:15px;font-weight:700;color:#191F28;}
+.contact-channel-sub{font-size:12px;color:#8B95A1;margin-top:2px;}
+.contact-id-row{display:flex;align-items:center;gap:8px;margin-top:8px;padding-top:8px;border-top:1px solid #E5E8EB;}
+.contact-id-value{flex:1;font-size:14px;font-weight:700;color:#191F28;letter-spacing:.01em;}
+.btn-copy-inline{padding:6px 14px;border-radius:999px;background:#3182F6;color:#fff;font-size:12px;font-weight:700;border:none;cursor:pointer;white-space:nowrap;transition:background .15s;}
+.btn-copy-inline.copied{background:#2DCA72;}
+.btn-cancel-text{width:100%;padding:13px;border:none;background:none;font-size:15px;color:#8B95A1;cursor:pointer;font-weight:600;margin-top:4px;}
+.contact-disclaimer{font-size:11px;color:#F04452;text-align:center;margin-top:8px;padding:8px 10px;background:rgba(240,68,82,.05);border-radius:10px;}
 
 /* ── DETAIL PAGE TABS ── */
-.detail-tabs{display:flex;background:#fff;border-bottom:2px solid #f3f4f6;position:sticky;top:49px;z-index:30;margin:0 -16px;padding:0 16px;}
-.detail-tab-btn{flex:1;padding:12px 4px;font-size:14px;font-weight:600;color:#9ca3af;background:none;border:none;cursor:pointer;border-bottom:2.5px solid transparent;margin-bottom:-2px;transition:all .2s;white-space:nowrap;}
-.detail-tab-btn.active{color:#3b82f6;border-bottom-color:#3b82f6;font-weight:750;}
+.detail-tabs{display:flex;background:#fff;border-bottom:2px solid #E5E8EB;position:sticky;top:49px;z-index:30;margin:0 -16px;padding:0 16px;}
+.detail-tab-btn{flex:1;padding:12px 4px;font-size:14px;font-weight:600;color:#8B95A1;background:none;border:none;cursor:pointer;border-bottom:2.5px solid transparent;margin-bottom:-2px;transition:all .2s;white-space:nowrap;}
+.detail-tab-btn.active{color:#3182F6;border-bottom-color:#3182F6;font-weight:750;}
 .detail-section{scroll-margin-top:96px;}
 
 /* ── TRANSITIONS ── */
@@ -391,60 +411,60 @@ button{cursor:pointer;border:none;background:none;padding:0;}
 .modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:200;display:flex;align-items:flex-end;justify-content:center;}
 .modal-sheet{width:100%;max-width:430px;background:#fff;border-radius:20px 20px 0 0;padding:20px 20px calc(20px + env(safe-area-inset-bottom));animation:slideUp .25s ease;}
 @keyframes slideUp{from{transform:translateY(100%);}to{transform:translateY(0);}}
-.modal-handle{width:36px;height:4px;background:#e5e7eb;border-radius:99px;margin:0 auto 20px;}
+.modal-handle{width:36px;height:4px;background:#E5E8EB;border-radius:99px;margin:0 auto 20px;}
 .modal-title{font-size:17px;font-weight:750;text-align:center;margin-bottom:20px;}
 
 /* WeChat ID box */
 .wechat-id-box{background:#f0fdf4;border:1.5px solid #07c160;border-radius:14px;padding:16px;text-align:center;margin-bottom:16px;}
-.id-label{font-size:12px;color:#7c7c8a;font-weight:600;margin-bottom:6px;}
+.id-label{font-size:12px;color:#8B95A1;font-weight:600;margin-bottom:6px;}
 .wechat-id-value{font-size:22px;font-weight:800;color:#07c160;letter-spacing:.03em;}
 .btn-copy-wechat{width:100%;padding:14px;border-radius:12px;background:#07c160;color:#fff;font-size:16px;font-weight:700;border:none;cursor:pointer;margin-bottom:12px;}
-.btn-copy-wechat.copied{background:#10b981;}
+.btn-copy-wechat.copied{background:#2DCA72;}
 
 /* LINE ID box */
 .line-id-box{background:#f0fff4;border:1.5px solid #06c755;border-radius:14px;padding:16px;text-align:center;margin-bottom:16px;}
 .line-id-value{font-size:22px;font-weight:800;color:#06c755;letter-spacing:.03em;}
 .btn-copy-line{width:100%;padding:14px;border-radius:12px;background:#06c755;color:#fff;font-size:16px;font-weight:700;border:none;cursor:pointer;margin-bottom:12px;}
-.btn-copy-line.copied{background:#10b981;}
+.btn-copy-line.copied{background:#2DCA72;}
 
 /* Instagram ID box */
 .ig-id-box{background:linear-gradient(135deg,rgba(253,241,255,.6),rgba(240,246,255,.6));border:1.5px solid #c13584;border-radius:14px;padding:16px;text-align:center;margin-bottom:16px;}
 .ig-id-value{font-size:22px;font-weight:800;background:linear-gradient(135deg,#c13584,#833ab4,#5851db);-webkit-background-clip:text;-webkit-text-fill-color:transparent;letter-spacing:.03em;}
 .btn-copy-ig{width:100%;padding:14px;border-radius:12px;background:linear-gradient(135deg,#c13584,#833ab4);color:#fff;font-size:16px;font-weight:700;border:none;cursor:pointer;margin-bottom:12px;}
-.btn-copy-ig.copied{background:#10b981;-webkit-text-fill-color:#fff;}
+.btn-copy-ig.copied{background:#2DCA72;-webkit-text-fill-color:#fff;}
 
-.modal-tip{font-size:12px;color:#7c7c8a;text-align:center;line-height:1.6;}
-.btn-modal-close{width:100%;padding:12px;border-radius:12px;background:#f3f4f6;color:#374151;font-size:15px;font-weight:600;border:none;cursor:pointer;margin-top:10px;}
-.modal-section-sep{width:100%;height:1px;background:rgba(0,0,0,.08);margin:16px 0;}
+.modal-tip{font-size:12px;color:#8B95A1;text-align:center;line-height:1.6;}
+.btn-modal-close{width:100%;padding:12px;border-radius:12px;background:#F2F4F6;color:#4E5968;font-size:15px;font-weight:600;border:none;cursor:pointer;margin-top:10px;}
+.modal-section-sep{width:100%;height:1px;background:#E5E8EB;margin:16px 0;}
 
 /* ── HOURS ── */
 .hours-grid{display:grid;grid-template-columns:auto 1fr;gap:4px 12px;font-size:13px;margin-top:4px;}
-.hours-day{color:#7c7c8a;font-weight:600;white-space:nowrap;}
-.hours-time{color:#1a1a2e;font-weight:500;}
-.hours-closed{color:#ef4444;}
+.hours-day{color:#8B95A1;font-weight:600;white-space:nowrap;}
+.hours-time{color:#191F28;font-weight:500;}
+.hours-closed{color:#F04452;}
 
 /* ── LANG BADGE ── */
 .badge-chinese{background:rgba(7,193,96,.1);color:#07c160;font-size:11px;font-weight:700;padding:3px 8px;border-radius:999px;display:inline-flex;align-items:center;gap:3px;}
 
 /* ── MAP / PLATFORM LINK BTNS ── */
 .action-row{display:flex;gap:8px;margin-top:14px;}
-.btn-action{flex:1;padding:10px 0;border-radius:10px;font-size:13px;font-weight:650;border:1px solid rgba(0,0,0,.08);background:#f9fafb;color:#374151;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:5px;}
-.btn-action.blue{background:rgba(59,130,246,.08);border-color:rgba(59,130,246,.15);color:#3b82f6;}
+.btn-action{flex:1;padding:10px 0;border-radius:10px;font-size:13px;font-weight:650;border:1px solid #E5E8EB;background:#fff;color:#4E5968;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:5px;}
+.btn-action.blue{background:#E8F3FF;border-color:rgba(49,130,246,.15);color:#3182F6;}
 
 /* ── PLATFORM EXTERNAL LINK ── */
-.platform-ext-link{display:inline-flex;align-items:center;gap:4px;font-size:12px;color:#3b82f6;font-weight:600;text-decoration:none;margin-top:8px;padding:6px 12px;background:rgba(59,130,246,.06);border-radius:999px;border:1px solid rgba(59,130,246,.12);}
+.platform-ext-link{display:inline-flex;align-items:center;gap:4px;font-size:12px;color:#3182F6;font-weight:600;text-decoration:none;margin-top:8px;padding:6px 12px;background:#E8F3FF;border-radius:999px;border:1px solid rgba(49,130,246,.12);}
 
 /* ── LOCATION HEADER ── */
 .loc-header{display:flex;align-items:center;justify-content:space-between;padding:10px 12px 6px;}
-.loc-btn{display:flex;align-items:center;gap:5px;font-size:19px;font-weight:800;color:#1a1a2e;background:none;border:none;cursor:pointer;padding:4px 6px;letter-spacing:-.02em;border-radius:8px;}
+.loc-btn{display:flex;align-items:center;gap:5px;font-size:19px;font-weight:800;color:#191F28;background:none;border:none;cursor:pointer;padding:4px 6px;letter-spacing:-.02em;border-radius:8px;}
 .loc-btn:active{background:rgba(0,0,0,.05);}
 .loc-btn svg{margin-top:1px;}
-.loc-gps-dot{width:7px;height:7px;border-radius:999px;background:#3b82f6;display:inline-block;margin-left:2px;animation:pulse 1.5s infinite;}
+.loc-gps-dot{width:7px;height:7px;border-radius:999px;background:#3182F6;display:inline-block;margin-left:2px;animation:pulse 1.5s infinite;}
 @keyframes pulse{0%,100%{opacity:1;}50%{opacity:.3;}}
 
 /* ── HEADER ICON BUTTONS ── */
 .header-icons{display:flex;align-items:center;gap:2px;}
-.icon-btn{position:relative;width:40px;height:40px;border-radius:999px;display:flex;align-items:center;justify-content:center;background:none;border:none;cursor:pointer;color:#1a1a2e;transition:background .15s;}
+.icon-btn{position:relative;width:40px;height:40px;border-radius:999px;display:flex;align-items:center;justify-content:center;background:none;border:none;cursor:pointer;color:#191F28;transition:background .15s;}
 .icon-btn:active{background:rgba(0,0,0,.06);}
 .bell-dot{position:absolute;top:8px;right:8px;width:8px;height:8px;border-radius:999px;background:#f97316;border:1.5px solid #fff;}
 
@@ -452,29 +472,29 @@ button{cursor:pointer;border:none;background:none;padding:0;}
 .drawer-overlay{position:fixed;inset:0;background:rgba(0,0,0,.4);z-index:250;}
 .drawer-panel{position:fixed;top:0;right:0;width:78%;max-width:300px;height:100%;background:#fff;z-index:251;display:flex;flex-direction:column;overflow-y:auto;animation:slideFromRight .22s ease;}
 @keyframes slideFromRight{from{transform:translateX(100%);}to{transform:translateX(0);}}
-.drawer-header{padding:20px 20px 16px;border-bottom:1px solid rgba(0,0,0,.06);}
+.drawer-header{padding:20px 20px 16px;border-bottom:1px solid #E5E8EB;}
 .drawer-app-name{font-size:16px;font-weight:800;letter-spacing:-.02em;}
-.drawer-app-sub{font-size:12px;color:#7c7c8a;margin-top:3px;}
+.drawer-app-sub{font-size:12px;color:#8B95A1;margin-top:3px;}
 .drawer-section{padding:12px 0;}
-.drawer-section-label{font-size:11px;font-weight:700;color:#7c7c8a;letter-spacing:.05em;text-transform:uppercase;padding:0 20px;margin-bottom:4px;}
+.drawer-section-label{font-size:11px;font-weight:700;color:#8B95A1;letter-spacing:.05em;text-transform:uppercase;padding:0 20px;margin-bottom:4px;}
 .drawer-item{display:flex;align-items:center;gap:14px;padding:13px 20px;cursor:pointer;transition:background .12s;}
-.drawer-item:active{background:#f3f4f6;}
+.drawer-item:active{background:#F2F4F6;}
 .drawer-item-icon{font-size:20px;width:26px;text-align:center;flex-shrink:0;}
-.drawer-item-label{flex:1;font-size:15px;font-weight:600;color:#1a1a2e;}
-.drawer-item-value{font-size:13px;color:#7c7c8a;font-weight:500;}
-.drawer-item-badge{font-size:11px;background:#f3f4f6;color:#9ca3af;padding:2px 8px;border-radius:999px;font-weight:600;}
-.drawer-divider{width:100%;height:1px;background:rgba(0,0,0,.06);margin:4px 0;}
+.drawer-item-label{flex:1;font-size:15px;font-weight:600;color:#191F28;}
+.drawer-item-value{font-size:13px;color:#8B95A1;font-weight:500;}
+.drawer-item-badge{font-size:11px;background:#F2F4F6;color:#8B95A1;padding:2px 8px;border-radius:999px;font-weight:600;}
+.drawer-divider{width:100%;height:1px;background:#E5E8EB;margin:4px 0;}
 .drawer-footer{padding:20px 20px calc(20px + env(safe-area-inset-bottom));margin-top:auto;text-align:center;font-size:12px;color:#c7c7cc;}
 
 /* ── LOCATION SHEET ── */
-.loc-sheet-btn{width:100%;padding:16px;border-radius:14px;border:1.5px solid rgba(0,0,0,.08);background:#fff;text-align:left;font-size:16px;font-weight:600;cursor:pointer;display:flex;align-items:center;gap:12px;transition:all .15s;}
-.loc-sheet-btn.active{border-color:#3b82f6;background:rgba(59,130,246,.05);color:#3b82f6;}
+.loc-sheet-btn{width:100%;padding:16px;border-radius:14px;border:1.5px solid #E5E8EB;background:#fff;text-align:left;font-size:16px;font-weight:600;cursor:pointer;display:flex;align-items:center;gap:12px;transition:all .15s;}
+.loc-sheet-btn.active{border-color:#3182F6;background:#E8F3FF;color:#3182F6;}
 .loc-sheet-btn:active{transform:scale(.98);}
 .loc-sheet-icon{font-size:20px;width:28px;text-align:center;}
-.loc-sheet-sub{font-size:12px;color:#7c7c8a;margin-top:2px;font-weight:500;}
+.loc-sheet-sub{font-size:12px;color:#8B95A1;margin-top:2px;font-weight:500;}
 
 /* ── NEARBY BADGE ── */
-.badge-nearby{background:rgba(59,130,246,.1);color:#3b82f6;font-size:11px;font-weight:700;padding:3px 8px;border-radius:999px;display:inline-flex;align-items:center;gap:3px;}
+.badge-nearby{background:#E8F3FF;color:#3182F6;font-size:11px;font-weight:700;padding:3px 8px;border-radius:999px;display:inline-flex;align-items:center;gap:3px;}
 
 /* ── FAVORITE BTN ── */
 .fav-btn{position:absolute;top:10px;right:10px;width:30px;height:30px;border-radius:999px;background:rgba(255,255,255,.92);border:1px solid rgba(0,0,0,.08);display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:15px;box-shadow:0 1px 6px rgba(0,0,0,.10);transition:transform .15s;}
@@ -486,6 +506,10 @@ button{cursor:pointer;border:none;background:none;padding:0;}
 <div id="pc-wrapper">
   <div id="app">
     <div id="view"></div>
+    <div class="global-notice" id="globalNotice" style="display:none">
+      <p class="global-notice-text" id="globalNoticeText"></p>
+      <button class="global-notice-close" id="globalNoticeClose" aria-label="close">×</button>
+    </div>
     <nav class="tab-bar" id="tabBar"></nav>
   </div>
 
@@ -523,9 +547,30 @@ const SITE_BASE = (function(){
     .replace(/\/index\.html$/, "/")
     .replace(/\/$/, "");
 })();
-const BASE_URL = (location.origin && location.origin !== "null") ? location.origin + SITE_BASE : "https://your-domain.com";
+const BASE_URL = (location.origin && location.origin !== "null") ? location.origin + SITE_BASE : "https://insightmedi.co.kr";
 
 /* ── 진료과목 그리드 정의 ── */
+/* ════ SVG 아이콘 맵 — 카테고리별 컬러 시스템 ════ */
+const ICON_SVG = {
+  /* Popular Treatments */
+  lifting:`<svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="ig-lift" x1="20" y1="6" x2="20" y2="34" gradientUnits="userSpaceOnUse"><stop stop-color="#60A5FA"/><stop offset="1" stop-color="#2563EB"/></linearGradient></defs><path d="M20 7L31 22H24V34H16V22H9L20 7Z" fill="url(#ig-lift)" rx="2"/><rect x="16" y="22" width="8" height="12" rx="2" fill="url(#ig-lift)"/></svg>`,
+  botox:`<svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="17" y="5" width="6" height="3.5" rx="1.75" fill="#FDA4AF"/><rect x="15.5" y="8.5" width="9" height="17" rx="4.5" fill="#FFE4E6"/><rect x="17" y="10" width="6" height="13" rx="3" fill="#F43F5E"/><rect x="14.5" y="25.5" width="11" height="3" rx="1.5" fill="#F43F5E"/><line x1="20" y1="28.5" x2="20" y2="36" stroke="#F43F5E" stroke-width="2.2" stroke-linecap="round"/><line x1="17" y1="28.5" x2="15.5" y2="35" stroke="#F43F5E" stroke-width="1.8" stroke-linecap="round"/><line x1="23" y1="28.5" x2="24.5" y2="35" stroke="#F43F5E" stroke-width="1.8" stroke-linecap="round"/></svg>`,
+  booster:`<svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="ig-drop" x1="20" y1="6" x2="20" y2="36" gradientUnits="userSpaceOnUse"><stop stop-color="#67E8F9"/><stop offset="1" stop-color="#0891B2"/></linearGradient></defs><path d="M20 6C20 6 9 17 9 25C9 31.075 13.925 36 20 36C26.075 36 31 31.075 31 25C31 17 20 6 20 6Z" fill="url(#ig-drop)"/><ellipse cx="16" cy="22" rx="3.5" ry="5" fill="#fff" opacity=".28" transform="rotate(-15 16 22)"/></svg>`,
+  /* Browse by Specialty — Filter */
+  open_now:`<svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="18" cy="18" r="12" fill="#22C55E" opacity=".16"/><circle cx="18" cy="18" r="7.5" fill="#22C55E"/><circle cx="15.5" cy="15.5" r="2.5" fill="#fff" opacity=".48"/></svg>`,
+  foreign_official:`<svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="18" cy="18" r="10.5" fill="#EFF6FF" stroke="#3182F6" stroke-width="1.8"/><ellipse cx="18" cy="18" rx="4.8" ry="10.5" stroke="#3182F6" stroke-width="1.4"/><line x1="7.5" y1="18" x2="28.5" y2="18" stroke="#3182F6" stroke-width="1.4"/><path d="M10 13.5h16M10 22.5h16" stroke="#3182F6" stroke-width="1" stroke-linecap="round"/></svg>`,
+  /* Browse by Specialty — 진료과목 */
+  derm_cert:`<svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="18" cy="12.5" r="5.5" fill="#BAE6FD"/><path d="M11 31c0-6 3.1-9 7-9s7 3 7 9H11z" fill="#0EA5E9"/><rect x="15.8" y="21.5" width="4.4" height="1.8" rx=".9" fill="#fff"/><rect x="17" y="20.2" width="2" height="4.4" rx="1" fill="#fff"/></svg>`,
+  beauty:`<svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="15.5" y="5" width="5" height="3" rx="1.5" fill="#FBCFE8"/><rect x="14.5" y="8" width="7" height="16" rx="3.5" fill="#FFE4E6"/><rect x="16" y="9" width="4" height="13" rx="2" fill="#EC4899"/><rect x="13.5" y="24" width="9" height="2.5" rx="1.25" fill="#EC4899"/><line x1="18" y1="26.5" x2="18" y2="32" stroke="#EC4899" stroke-width="2" stroke-linecap="round"/><line x1="15.5" y1="26.5" x2="14.5" y2="32" stroke="#EC4899" stroke-width="1.6" stroke-linecap="round"/><line x1="20.5" y1="26.5" x2="21.5" y2="32" stroke="#EC4899" stroke-width="1.6" stroke-linecap="round"/></svg>`,
+  oriental:`<svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18 6C13 11 10 19 12 26C13.5 31 16 33 18 33C20 33 22.5 31 24 26C26 19 23 11 18 6Z" fill="#16A34A"/><line x1="18" y1="8" x2="18" y2="30" stroke="#fff" stroke-width="1.4" stroke-linecap="round" opacity=".65"/><path d="M18 15L13.5 11.5" stroke="#fff" stroke-width="1.1" stroke-linecap="round" opacity=".6"/><path d="M18 20L22.5 16.5" stroke="#fff" stroke-width="1.1" stroke-linecap="round" opacity=".6"/><path d="M18 25L14 22" stroke="#fff" stroke-width="1.1" stroke-linecap="round" opacity=".6"/></svg>`,
+  dental:`<svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M13 11C10.5 11 8.5 13 8.5 16.5C8.5 20 10 22 11.5 27.5C12.3 30.5 13.5 32 16.5 30.5C17.5 31 18.5 31 19.5 30.5C22.5 32 23.7 30.5 24.5 27.5C26 22 27.5 20 27.5 16.5C27.5 13 25.5 11 23 11C21.5 11 20 12.5 18 12.5C16 12.5 14.5 11 13 11Z" fill="#F1F5F9" stroke="#CBD5E1" stroke-width="1.6"/><path d="M14.5 11.5C15.3 14 17 15 18 15C19 15 20.7 14 21.5 11.5" stroke="#CBD5E1" stroke-width="1.1" stroke-linecap="round" fill="none"/></svg>`,
+  eye:`<svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5 18C7 13 12 9 18 9C24 9 29 13 31 18C29 23 24 27 18 27C12 27 7 23 5 18Z" fill="#FEF3C7" stroke="#F59E0B" stroke-width="1.5"/><circle cx="18" cy="18" r="5.5" fill="#F59E0B"/><circle cx="18" cy="18" r="3.2" fill="#7C2D12"/><circle cx="19.5" cy="16.5" r="1.3" fill="#fff"/></svg>`,
+  pediatric:`<svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="18" cy="16.5" r="10" fill="#FED7AA"/><circle cx="15" cy="15.5" r="1.6" fill="#7C2D12"/><circle cx="21" cy="15.5" r="1.6" fill="#7C2D12"/><path d="M14.5 21.5Q18 25 21.5 21.5" stroke="#7C2D12" stroke-width="1.5" stroke-linecap="round" fill="none"/><circle cx="10.5" cy="18" r="3" fill="#FDBA74" opacity=".6"/><circle cx="25.5" cy="18" r="3" fill="#FDBA74" opacity=".6"/></svg>`,
+  other:`<svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="8" y="14" width="20" height="16" rx="2" fill="#F8FAFC" stroke="#64748B" stroke-width="1.6"/><path d="M14 8.5H22V14H14z" fill="#E2E8F0" stroke="#64748B" stroke-width="1.4"/><rect x="15.3" y="19.5" width="5.4" height="1.8" rx=".9" fill="#64748B"/><rect x="17.1" y="17.8" width="1.8" height="5.4" rx=".9" fill="#64748B"/><rect x="10" y="23" width="4" height="5" rx="1" fill="#94A3B8"/><rect x="22" y="23" width="4" height="5" rx="1" fill="#94A3B8"/></svg>`,
+  skincare:`<svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18 7L19.8 14.2L27 13L22 19L29 20L22 21L27 27L19.8 25.8L18 33L16.2 25.8L9 27L14 21L7 20L14 19L9 13L16.2 14.2L18 7Z" fill="#8B5CF6"/><circle cx="25" cy="12" r="2.8" fill="#C4B5FD"/><circle cx="29" cy="22" r="2" fill="#8B5CF6" opacity=".45"/></svg>`,
+  massage:`<svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg"><ellipse cx="18" cy="13" rx="8.5" ry="5.5" fill="#EDE9FE"/><rect x="9.5" y="12.5" width="17" height="9.5" rx="5.5" fill="#7C3AED"/><rect x="12" y="21.5" width="3.2" height="9" rx="1.6" fill="#7C3AED" opacity=".75"/><rect x="16.4" y="21.5" width="3.2" height="10" rx="1.6" fill="#7C3AED" opacity=".75"/><rect x="20.8" y="21.5" width="3.2" height="8.5" rx="1.6" fill="#7C3AED" opacity=".75"/></svg>`,
+};
+
 /* 인기시술 세로 카드 데이터 */
 const POPULAR_PROCS = [
   {
@@ -549,7 +594,6 @@ const SPECIALTIES = [
   /* ── 기능 필터 (앞에 배치) ── */
   {key:"open_now",         icon:"🟢", cls:"filter-open",     isFilter:true},
   {key:"foreign_official", icon:"🌐", cls:"filter-foreign",  isFilter:true},
-  {key:"popular",          icon:"🔥", cls:"filter-popular",  isFilter:true},
   /* ── 진료과목 ── */
   {key:"derm_cert",        icon:"👩‍⚕️", cls:"derm_cert",      specialties:["dermatology"]},
   {key:"beauty",           icon:"💉", cls:"beauty",          specialties:["dermatology","plastic-surgery"]},
@@ -597,7 +641,49 @@ function changeLang(newLang){
   localStorage.setItem('lang', newLang);
   document.documentElement.lang = newLang==='zh'?'zh-CN':newLang==='ja'?'ja':'en';
   document.title = {zh:"济州医院评论摘要",en:"Jeju Medical Beauty Guide",ja:"済州島 医療美容ガイド"}[newLang];
+  updateGlobalNotice();
   render();
+}
+
+let _noticeTimer = null;
+function updateGlobalNotice(){
+  const el  = document.getElementById('globalNotice');
+  const txt = document.getElementById('globalNoticeText');
+  const btn = document.getElementById('globalNoticeClose');
+  if(!el||!txt) return;
+
+  const msg = {
+    zh:"本平台为医疗信息查询服务，不提供医疗建议，不从事预约或患者介绍业务。医院选择由用户自行决定。",
+    en:"For information only. We do not provide medical advice or act as a referral agent. Clinic selection is your own responsibility.",
+    ja:"本サービスは情報提供のみが目的です。医療アドバイスや患者紹介業務は行いません。医院選択はご自身の判断でお願いします。"
+  }[state.lang];
+  txt.textContent = msg;
+
+  // 이미 숨겨진 상태면 다시 보여주지 않음 (한 세션에 첫 진입 시만)
+  if(sessionStorage.getItem('notice_dismissed')) return;
+
+  el.style.display = 'block';
+  el.classList.remove('notice-hide');
+  document.body.classList.add('notice-visible');
+
+  // 닫기 버튼
+  if(btn){
+    btn.onclick = () => dismissNotice();
+  }
+
+  // 5초 후 자동 페이드아웃
+  if(_noticeTimer) clearTimeout(_noticeTimer);
+  _noticeTimer = setTimeout(() => dismissNotice(), 5000);
+}
+
+function dismissNotice(){
+  const el = document.getElementById('globalNotice');
+  if(!el) return;
+  el.classList.add('notice-hide');
+  document.body.classList.remove('notice-visible');
+  sessionStorage.setItem('notice_dismissed','1');
+  if(_noticeTimer){ clearTimeout(_noticeTimer); _noticeTimer=null; }
+  setTimeout(()=>{ el.style.display='none'; }, 500);
 }
 
 /* ════════════════════════════════════════
@@ -612,21 +698,22 @@ const IC = {
   hosp:    (s=22,c="currentColor")=>svg(["M8 2v4","M16 2v4","M3 10h18","M5 4h14a2 2 0 012 2v14a2 2 0 01-2 2H5a2 2 0 01-2-2V6a2 2 0 012-2z"],s,c),
   article: (s=22,c="currentColor")=>svg(["M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z","M14 2v6h6","M16 13H8","M16 17H8","M10 9H8"],s,c),
   user:    (s=22,c="currentColor")=>svg(["M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2","M12 3a4 4 0 100 8 4 4 0 000-8z"],s,c),
-  back:    (s=22,c="#3b82f6")=>svg(["M19 12H5","M12 19l-7-7 7-7"],s,c),
-  search:  (s=16,c="#7c7c8a")=>svg("M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z",s,c),
+  back:    (s=22,c="#3182F6")=>svg(["M19 12H5","M12 19l-7-7 7-7"],s,c),
+  search:  (s=16,c="#8B95A1")=>svg("M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z",s,c),
   chevron: (s=18,c="#c7c7cc")=>svg("M9 18l6-6-6-6",s,c),
-  chevDown:(s=16,c="#6b7280")=>svg("M6 9l6 6 6-6",s,c),
-  locPin:  (s=18,c="#3b82f6")=>svg(["M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z","M12 7a3 3 0 100 6 3 3 0 000-6z"],s,c),
-  map:     (s=15,c="#7c7c8a")=>svg(["M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z","M12 7a3 3 0 100 6 3 3 0 000-6z"],s,c),
-  phone:   (s=15,c="#7c7c8a")=>svg("M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.79 19.79 0 012.12 4.18 2 2 0 014.11 2h3a2 2 0 012 1.72c.44 1.63.77 2.1.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.69.09 1.18.26 2.81.7A2 2 0 0122 16.92z",s,c),
+  chevDown:(s=16,c="#4E5968")=>svg("M6 9l6 6 6-6",s,c),
+  locPin:  (s=18,c="#3182F6")=>svg(["M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z","M12 7a3 3 0 100 6 3 3 0 000-6z"],s,c),
+  map:     (s=15,c="#8B95A1")=>svg(["M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z","M12 7a3 3 0 100 6 3 3 0 000-6z"],s,c),
+  phone:   (s=15,c="#8B95A1")=>svg("M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.79 19.79 0 012.12 4.18 2 2 0 014.11 2h3a2 2 0 012 1.72c.44 1.63.77 2.1.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.69.09 1.18.26 2.81.7A2 2 0 0122 16.92z",s,c),
   thumb:   (s=15,c="#10b981")=>svg("M14 9V5a3 3 0 00-3-3l-4 9v11h11.28a2 2 0 002-1.7l1.38-9a2 2 0 00-2-2.3H14z",s,c),
   alert:   (s=15,c="#f59e0b")=>svg(["M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z","M12 9v4","M12 17h.01"],s,c),
   alertBig:(s=18,c="#f59e0b")=>svg(["M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z","M12 9v4","M12 17h.01"],s,c),
-  bell:    (s=22,c="#1a1a2e")=>svg(["M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9","M13.73 21a2 2 0 01-3.46 0"],s,c),
-  menu:    (s=22,c="#1a1a2e")=>svg(["M3 12h18","M3 6h18","M3 18h18"],s,c),
-  close:   (s=20,c="#6b7280")=>svg("M18 6L6 18M6 6l12 12",s,c),
+  bell:    (s=22,c="#191F28")=>svg(["M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9","M13.73 21a2 2 0 01-3.46 0"],s,c),
+  menu:    (s=22,c="#191F28")=>svg(["M3 12h18","M3 6h18","M3 18h18"],s,c),
+  close:   (s=20,c="#4E5968")=>svg("M18 6L6 18M6 6l12 12",s,c),
   send:    (s=20,c="#fff")=>svg("M22 2L11 13M22 2L15 22l-4-9-9-4 20-7z",s,c),
   booking: (s=22,c="currentColor")=>svg(["M8 6h13","M8 12h13","M8 18h13","M3 6h.01","M3 12h.01","M3 18h.01"],s,c),
+  mapTab:  (s=22,c="currentColor")=>svg(["M3 7l6-3 6 3 6-3v13l-6 3-6-3-6 3V7z","M9 4v13","M15 7v13"],s,c),
 };
 
 /* ════════════════════════════════════════
@@ -637,7 +724,7 @@ function stars(rating){
   return `<div class="stars">${[0,1,2,3,4].map(i=>`<span class="star ${(i<full||(i===full&&half))?'on':'off'}">★</span>`).join("")}<span class="rating-num">${rating}</span></div>`;
 }
 function badge(text, cls=""){return `<span class="badge ${cls}">${text}</span>`;}
-function chip(text, active, color="#3b82f6", bg="rgba(59,130,246,.08)", dataKey=""){
+function chip(text, active, color="#3182F6", bg="#E8F3FF", dataKey=""){
   const style = active ? `style="border-color:${color};border-width:1.5px;background:${bg};color:${color};"` : "";
   return `<button class="chip${active?' active':''}" ${style} data-chip="${dataKey}">${text}</button>`;
 }
@@ -675,15 +762,20 @@ function hospCardHtml(h, isNearby=false){
   const nearbyBadge = isNearby
     ? `<span class="badge-nearby">📍 ${locLabel(state.location)}</span>`
     : "";
+  // isNearby=true일 때 지역 뱃지 생략 (nearbyBadge와 중복 방지)
+  const regionBadge = isNearby ? "" : badge(reg(h.region));
   const foreignBadge = h.foreign_friendly
     ? `<span class="badge-foreign">🌏 ${t('foreign_badge')}</span>`
+    : "";
+  const licensedBadge = h.official_licensed
+    ? `<span class="badge-licensed" title="${t('badge_licensed_tooltip')}">🏥 ${t('badge_licensed_label')} ℹ️</span>`
     : "";
   const typeBadge = venueBadge(h);
 
   // 썸네일 있으면 가로형 카드 (이미지 좌측 · 정보 우측)
   if(h.thumbnail){
     return `<div class="hosp-card-wide" data-nav="hospital" data-id="${h.id}" tabindex="0" role="button"
-      style="${isNearby?'border:1.5px solid rgba(59,130,246,.3);':''}">
+      style="${isNearby?'border:1.5px solid rgba(49,130,246,.3);':''}">
       <div class="hosp-card-wide-img">
         <img src="${h.thumbnail}" alt="${h.name_ko}" loading="lazy" onerror="this.style.display='none'"/>
       </div>
@@ -695,7 +787,7 @@ function hospCardHtml(h, isNearby=false){
           <span class="review-count">${h.review_count} ${t('hosp_reviews')}</span>
         </div>
         <div class="hosp-card-wide-meta">
-          ${nearbyBadge}${typeBadge}${foreignBadge}${badge(reg(h.region))}
+          ${nearbyBadge}${typeBadge}${foreignBadge}${licensedBadge}${regionBadge}
         </div>
       </div>
       <button class="fav-btn" data-fav="${h.id}">${isFav(h.id)?'♥':'♡'}</button>
@@ -704,7 +796,7 @@ function hospCardHtml(h, isNearby=false){
 
   // 썸네일 없으면 아이콘 폴백으로 동일한 가로형 카드
   return `<div class="hosp-card-wide" data-nav="hospital" data-id="${h.id}" tabindex="0" role="button"
-    style="${isNearby?'border:1.5px solid rgba(59,130,246,.3);':''}">
+    style="${isNearby?'border:1.5px solid rgba(49,130,246,.3);':''}">
     <div class="hosp-card-wide-img">🏥</div>
     <div class="hosp-card-wide-body">
       <div class="hosp-card-wide-name">${h.name_ko}</div>
@@ -714,7 +806,7 @@ function hospCardHtml(h, isNearby=false){
         <span class="review-count">${h.review_count} ${t('hosp_reviews')}</span>
       </div>
       <div class="hosp-card-wide-meta">
-        ${nearbyBadge}${typeBadge}${foreignBadge}${badge(reg(h.region))}
+        ${nearbyBadge}${typeBadge}${foreignBadge}${licensedBadge}${regionBadge}
       </div>
     </div>
     <button class="fav-btn" data-fav="${h.id}">${isFav(h.id)?'♥':'♡'}</button>
@@ -728,10 +820,10 @@ async function navigate(page, id=null){
   navHistory.push({page:state.page, id:state.id, tab:state.tab});
   state.page = page;
   state.id = id;
-  if(["home","hospitals","contents","me"].includes(page)) state.tab = page;
+  if(["home","hospitals","contents","map"].includes(page)) state.tab = page;
   else if(page==="hospital") state.tab = "hospitals";
-  else if(page==="post") state.tab = "contents";
-  else if(page==="privacy") state.tab = "me";
+  else if(page==="post")     state.tab = "contents";
+  else if(page==="privacy")  state.tab = "contents";
   window.scrollTo(0,0);
   await render();
 }
@@ -780,17 +872,35 @@ function renderHome(){
   const clinicsOnly = DB.hospitals.filter(h => !h.type || h.type === "clinic");
   const totalReviews = clinicsOnly.reduce((s,h)=>s+h.review_count,0);
 
-  // Sort: featured first, then matched region
+  // Sort: 0) 거래처 고정 핀 → 1) official_licensed → 2) 지역순 → 3) 이름순
+  // 고정 핀: 전체=아름다운(1위)+벨르몬(2위), 제주시=아름다운(1위), 서귀포=벨르몬(1위)
+  const PIN = (h) => {
+    if(loc==="all"){
+      if(h.id==="areumd")    return 0;
+      if(h.id==="bellemorn") return 1;
+    } else if(loc==="jeju-city"){
+      if(h.id==="areumd")    return 0;
+    } else if(loc==="seogwipo"){
+      if(h.id==="bellemorn") return 0;
+    }
+    return 99;
+  };
   const sorted = [...clinicsOnly].sort((a,b)=>{
-    if(a.featured && !b.featured) return -1;
-    if(!a.featured && b.featured) return 1;
-    if(loc==="all") return 0;
-    const aM = a.region===loc ? -1 : 1;
-    const bM = b.region===loc ? -1 : 1;
-    return aM - bM;
+    const pa=PIN(a), pb=PIN(b);
+    if(pa!==pb) return pa-pb;
+    if(a.official_licensed && !b.official_licensed) return -1;
+    if(!a.official_licensed && b.official_licensed) return 1;
+    if(loc!=="all"){
+      const aM = a.region===loc ? -1 : 1;
+      const bM = b.region===loc ? -1 : 1;
+      if(aM !== bM) return aM - bM;
+    }
+    return (a.name_ko||"").localeCompare(b.name_ko||"", "ko");
   });
 
-  const hospCards = sorted.map(h=>{
+  const HOME_PREVIEW = 2;
+  const hospPreview = sorted.slice(0, HOME_PREVIEW);
+  const hospCards = hospPreview.map(h=>{
     const isNearby = loc!=="all" && h.region===loc;
     return `<div style="position:relative">
       ${hospCardHtml(h, isNearby)}
@@ -799,9 +909,9 @@ function renderHome(){
 
   const contCards = DB.contents.slice(0,3).map(c=>{
     const thumbHtml = c.thumbnail
-      ? `<div class="content-thumb" style="padding:0;background:none;"><img src="${c.thumbnail}" alt="" style="width:100%;height:100%;object-fit:cover;display:block;"></div>`
+      ? `<div class="content-thumb" style="padding:0;background:none;"><img src="${c.thumbnail}" alt="" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;display:block;"></div>`
       : `<div class="content-thumb">📄</div>`;
-    const catHtml = c.category ? `<div style="font-size:10px;font-weight:700;color:#3b82f6;margin-bottom:3px;">${lng(c.category)}</div>` : "";
+    const catHtml = c.category ? `<div style="font-size:10px;font-weight:700;color:#3182F6;margin-bottom:3px;">${lng(c.category)}</div>` : "";
     return `<div class="content-card" data-nav="post" data-id="${c.id}">
       ${thumbHtml}
       <div class="content-body">
@@ -858,20 +968,23 @@ function renderHome(){
     </div>
     <div class="page-pad">
       <div class="hero" style="padding-top:8px">
-        <div class="hero-icon">🩺</div>
+        <div class="hero-icon"><img src="images/icon-192.png" alt="insight-medi"/></div>
         <h1>${t('home_title')}</h1>
         <p>${heroSub}</p>
       </div>
       <div class="stats-grid">
-        <div class="stat-card"><div class="stat-num" style="color:#3b82f6">${clinicsOnly.length}</div><div class="stat-label">${statLabels[0]}</div></div>
+        <div class="stat-card"><div class="stat-num" style="color:#3182F6">${clinicsOnly.length}</div><div class="stat-label">${statLabels[0]}</div></div>
         <div class="stat-card"><div class="stat-num" style="color:#10b981">${totalReviews}+</div><div class="stat-label">${statLabels[1]}</div></div>
         <div class="stat-card"><div class="stat-num" style="color:#f59e0b">3</div><div class="stat-label">${statLabels[2]}</div></div>
       </div>
       <div class="section-header">
         <div class="section-title">${sectionTitle}</div>
-        <button class="btn-more" data-nav="hospitals">${t('home_more')}</button>
       </div>
       <div class="list-stack">${hospCards}</div>
+      <button class="btn-see-more" data-nav="hospitals">
+        ${{'zh':'查看全部医院','en':'See All Clinics','ja':'すべて見る'}[lang]} (${sorted.length})
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+      </button>
       <!-- 인기시술 세로 카드 -->
       <div class="proc-section">
         <div class="section-header" style="margin-bottom:10px">
@@ -879,7 +992,7 @@ function renderHome(){
         </div>
         ${POPULAR_PROCS.map(p=>`
           <div class="proc-card" data-proc="${p.key}" data-proc-spec="${p.spec}">
-            <div class="proc-card-icon ${p.iconCls}">${p.icon}</div>
+            <div class="proc-card-icon ${p.iconCls}">${ICON_SVG[p.key]||p.icon}</div>
             <div class="proc-card-body">
               <div class="proc-card-name">${p.label[lang]||p.label.zh}</div>
               <div class="proc-card-sub">${p.sub[lang]||p.sub.zh}</div>
@@ -893,7 +1006,7 @@ function renderHome(){
         <div class="spec-grid">
           ${SPECIALTIES.map(sp=>`
             <div class="spec-item" data-spec="${sp.key}">
-              <div class="spec-icon ${sp.cls}">${sp.icon}</div>
+              <div class="spec-icon ${sp.cls}">${ICON_SVG[sp.key]||sp.icon}</div>
               <span class="spec-label">${t('spec_'+sp.key)}</span>
             </div>`).join("")}
         </div>
@@ -958,9 +1071,9 @@ function renderHospitals(){
     if(cn && !h.chinese_staff) return false;
     if(q && !`${h.name_ko} ${lng(h.name)} ${lng(h.address)}`.toLowerCase().includes(q)) return false;
     // 기능 필터
-    if(sp==="open_now")         { if(!isOpenNow(h)) return false; }
+    if(sp==="__favs__")          { if(!getFavs().includes(h.id)) return false; }
+    else if(sp==="open_now")    { if(!isOpenNow(h)) return false; }
     else if(sp==="foreign_official"){ if(!h.foreign_official) return false; }
-    else if(sp==="popular")     { /* 정렬로 처리, 필터 없음 */ }
     else if(sp==="derm_cert")   { if(h.specialist_cert!=="dermatology") return false; }
     else if(sp){
       // 일반 specialty 필터
@@ -973,21 +1086,17 @@ function renderHospitals(){
     return true;
   });
 
-  // 정렬: popular 필터면 review_count 기준, 그 외엔 평점 기준 (중립 정렬)
-  if(sp==="popular"){
-    filtered = [...filtered].sort((a,b)=>(b.review_count||0)-(a.review_count||0));
-  } else {
-    filtered = [...filtered].sort((a,b)=>b.rating - a.rating);
-  }
+  // 정렬: 평점 기준 (중립 정렬)
+  filtered = [...filtered].sort((a,b)=>b.rating - a.rating);
 
   const regionChips = regions.map(rk=>
-    chip(reg(rk), r===rk, "#3b82f6", "rgba(59,130,246,.08)", `region:${rk}`)
+    chip(reg(rk), r===rk, "#3182F6", "#E8F3FF", `region:${rk}`)
   ).join("");
   const chineseChip = chip(`🗣️ ${t('hosp_chinese')}`, cn, "#07c160", "rgba(7,193,96,.1)", "chinese:toggle");
   const specChips = SPECIALTIES.map(s=>
     chip(t('spec_'+s.key), sp===s.key, "#8b5cf6", "rgba(139,92,246,.1)", `spec:${s.key}`)
   ).join("");
-  const specAllChip = chip({zh:"全部",en:"All",ja:"すべて"}[lang], sp==="", "#3b82f6","rgba(59,130,246,.08)","spec:");
+  const specAllChip = chip({zh:"全部",en:"All",ja:"すべて"}[lang], sp==="", "#3182F6","#E8F3FF","spec:");
 
   const hospList = filtered.length===0
     ? `<div class="empty"><div class="empty-icon">🔍</div><div class="empty-title">${t('hosp_empty')}</div></div>`
@@ -1004,7 +1113,14 @@ function renderHospitals(){
         ${state.hospSearch?`<button class="search-clear" id="clearSearch">✕</button>`:""}
       </div>
       <div class="chips-row" style="margin-bottom:8px">${specAllChip}${specChips}</div>
-      <div class="chips-row" style="margin-bottom:16px">${regionChips}${chineseChip}</div>
+      <div class="chips-row" style="margin-bottom:12px">${regionChips}${chineseChip}</div>
+      <div style="background:#E8F3FF;border:1px solid rgba(49,130,246,.12);border-radius:10px;padding:8px 12px;margin-bottom:14px;font-size:11px;color:#4E5968;line-height:1.6;">
+        ${{
+          zh:"📋 排列顺序：默认按评分高者优先；选择「热门医院」筛选项时，改为按评论数排序。<br>※ 本平台与各医院无任何利益关系，排列为系统自动计算结果，不构成推荐。",
+          en:"📋 Sort order: Highest rated first by default. When 'Popular' filter is selected, sorted by review count.<br>※ We have no financial relationship with any clinic. This ranking is automatic and does not constitute a recommendation.",
+          ja:"📋 表示順序：デフォルトは評価スコアの高い順。「人気医院」フィルター選択時は口コミ数順に変更。<br>※ 本プラットフォームは各医院と利益関係はなく、表示順はシステムによる自動集計であり推薦を意味しません。"
+        }[state.lang]}
+      </div>
       <div class="list-stack" style="padding-bottom:20px" id="hospList">${hospList}</div>
     </div>
   </div>`;
@@ -1057,8 +1173,8 @@ async function renderHospitalDetail(){
   const extLink = (h.platform_links||{})[activePf]||"";
 
   const hoursHtml = `
-    <div style="margin-top:12px;padding-top:12px;border-top:1px solid rgba(0,0,0,.06)">
-      <div style="font-size:12px;font-weight:700;color:#7c7c8a;margin-bottom:8px">🕐 ${t('detail_hours')} ${t('hours_timezone')}</div>
+    <div style="margin-top:12px;padding-top:12px;border-top:1px solid #E5E8EB">
+      <div style="font-size:12px;font-weight:700;color:#8B95A1;margin-bottom:8px">🕐 ${t('detail_hours')} ${t('hours_timezone')}</div>
       <div class="hours-grid">
         <span class="hours-day">${t('hours_weekday')}</span><span class="hours-time">${lng(weekdayHours)||"—"}</span>
         <span class="hours-day">${t('hours_sat')}</span><span class="hours-time">${lng(satHours)||"—"}</span>
@@ -1068,32 +1184,32 @@ async function renderHospitalDetail(){
 
   // 💳 결제 방법 섹션
   const paymentHtml = (h.payment_methods) ? `
-    <div style="margin-top:12px;padding-top:12px;border-top:1px solid rgba(0,0,0,.06)">
-      <div style="font-size:12px;font-weight:700;color:#7c7c8a;margin-bottom:8px">${t('detail_payment')}</div>
+    <div style="margin-top:12px;padding-top:12px;border-top:1px solid #E5E8EB">
+      <div style="font-size:12px;font-weight:700;color:#8B95A1;margin-bottom:8px">${t('detail_payment')}</div>
       <ul style="list-style:none;padding:0;margin:0">
-        ${lng(h.payment_methods).map(p=>`<li style="padding:4px 0;font-size:13px;color:#1a1a2e">• ${p}</li>`).join("")}
+        ${lng(h.payment_methods).map(p=>`<li style="padding:4px 0;font-size:13px;color:#191F28">• ${p}</li>`).join("")}
       </ul>
     </div>` : "";
 
   // 🗣️ 언어 서비스 섹션
   const languagesHtml = (h.languages_supported) ? `
-    <div style="margin-top:12px;padding-top:12px;border-top:1px solid rgba(0,0,0,.06)">
-      <div style="font-size:12px;font-weight:700;color:#7c7c8a;margin-bottom:8px">${t('detail_languages')}</div>
-      <div style="font-size:13px;color:#1a1a2e">${lng(h.languages_supported)}</div>
+    <div style="margin-top:12px;padding-top:12px;border-top:1px solid #E5E8EB">
+      <div style="font-size:12px;font-weight:700;color:#8B95A1;margin-bottom:8px">${t('detail_languages')}</div>
+      <div style="font-size:13px;color:#191F28">${lng(h.languages_supported)}</div>
     </div>` : "";
 
   // 👨‍⚕️ 의사 정보 섹션
   const doctorHtml = (h.doctor_info) ? `
-    <div style="margin-top:12px;padding-top:12px;border-top:1px solid rgba(0,0,0,.06)">
-      <div style="font-size:12px;font-weight:700;color:#7c7c8a;margin-bottom:8px">${t('detail_doctor')}</div>
-      <div style="font-size:13px;color:#1a1a2e;line-height:1.5">${lng(h.doctor_info)}</div>
+    <div style="margin-top:12px;padding-top:12px;border-top:1px solid #E5E8EB">
+      <div style="font-size:12px;font-weight:700;color:#8B95A1;margin-bottom:8px">${t('detail_doctor')}</div>
+      <div style="font-size:13px;color:#191F28;line-height:1.5">${lng(h.doctor_info)}</div>
     </div>` : "";
 
   // 📞  예약 방법 섹션
   const bookingHtml = (h.booking_method) ? `
-    <div style="margin-top:12px;padding-top:12px;border-top:1px solid rgba(0,0,0,.06)">
-      <div style="font-size:12px;font-weight:700;color:#7c7c8a;margin-bottom:8px">${t('detail_booking')}</div>
-      <div style="font-size:13px;color:#1a1a2e">${lng(h.booking_method)}</div>
+    <div style="margin-top:12px;padding-top:12px;border-top:1px solid #E5E8EB">
+      <div style="font-size:12px;font-weight:700;color:#8B95A1;margin-bottom:8px">${t('detail_booking')}</div>
+      <div style="font-size:13px;color:#191F28">${lng(h.booking_method)}</div>
     </div>` : "";
 
   // Contact button by language
@@ -1110,11 +1226,11 @@ async function renderHospitalDetail(){
   } else if(lang==="ja"){
     contactBtnHtml = hasLine
       ? `<div class="cta-btns"><button class="cta-btn-line" data-contact="${h.id}">📱 LINE ${t('detail_contact')}</button></div>`
-      : `<div style="font-size:12px;color:#7c7c8a;text-align:center">LINE ID 準備中</div>`;
+      : `<div style="font-size:12px;color:#8B95A1;text-align:center">LINE ID 準備中</div>`;
   } else {
     contactBtnHtml = hasIg
       ? `<div class="cta-btns"><button class="cta-btn-ig" data-contact="${h.id}">📸 Instagram DM</button></div>`
-      : `<div style="font-size:12px;color:#7c7c8a;text-align:center">Instagram coming soon</div>`;
+      : `<div style="font-size:12px;color:#8B95A1;text-align:center">Instagram coming soon</div>`;
   }
   const ctaNote = {zh:"本平台仅提供联系方式，请自行添加后咨询",en:"We only provide contact details. Please reach out directly.",ja:"連絡先情報のみ提供しています。直接クリニックにお問い合わせください。"}[lang];
 
@@ -1206,7 +1322,7 @@ async function renderHospitalDetail(){
               <span style="font-size:20px;font-weight:800">${h.name_ko}</span>
               ${venueBadge(h)}
             </div>
-            <div style="font-size:14px;color:#7c7c8a;margin-top:2px">${lng(h.name)}
+            <div style="font-size:14px;color:#8B95A1;margin-top:2px">${lng(h.name)}
               ${h.chinese_staff?`<span class="badge-chinese" style="margin-left:6px">🗣️ ${t('hosp_chinese')}</span>`:''}
             </div>
             ${stars(h.rating)}
@@ -1242,15 +1358,15 @@ async function renderHospitalDetail(){
               <span class="price-amount">${p.price}</span>
             </div>`).join("")}
           <!-- 💱 환율 계산기 (언어별 통화) -->
-          <div style="margin-top:14px;padding-top:12px;border-top:1px solid rgba(0,0,0,.06)">
-            <div style="font-size:12px;font-weight:700;color:#7c7c8a;margin-bottom:8px">💱 ${t('exchange_calc')}</div>
+          <div style="margin-top:14px;padding-top:12px;border-top:1px solid #E5E8EB">
+            <div style="font-size:12px;font-weight:700;color:#8B95A1;margin-bottom:8px">💱 ${t('exchange_calc')}</div>
             <div style="display:flex;align-items:center;gap:8px">
               <input id="krwInput-${h.id}" type="number" placeholder="KRW" step="1000" min="0"
-                style="flex:1;padding:8px 10px;border:1px solid rgba(59,130,246,.2);border-radius:8px;font-size:13px;font-family:inherit"/>
-              <span style="font-weight:700;color:#3b82f6;white-space:nowrap">= </span>
-              <span id="currencyOutput-${h.id}" data-hospital="${h.id}" style="font-weight:700;color:#1a1a2e;min-width:80px;text-align:right">0 ${state.lang==='zh'?'元':state.lang==='ja'?'円':'$'}</span>
+                style="flex:1;padding:8px 10px;border:1px solid rgba(49,130,246,.2);border-radius:8px;font-size:13px;font-family:inherit"/>
+              <span style="font-weight:700;color:#3182F6;white-space:nowrap">= </span>
+              <span id="currencyOutput-${h.id}" data-hospital="${h.id}" style="font-weight:700;color:#191F28;min-width:80px;text-align:right">0 ${state.lang==='zh'?'元':state.lang==='ja'?'円':'$'}</span>
             </div>
-            <div style="font-size:11px;color:#7c7c8a;margin-top:6px" id="exchangeRate-${h.id}">
+            <div style="font-size:11px;color:#8B95A1;margin-top:6px" id="exchangeRate-${h.id}">
               ${state.lang==='zh'?'(1 KRW ≈ 0.005 元)':state.lang==='ja'?'(1 KRW ≈ 0.11 円)':'(1 KRW ≈ 0.00071 $)'}
             </div>
           </div>
@@ -1265,7 +1381,7 @@ async function renderHospitalDetail(){
           <span style="font-size:18px">🤖</span>
           <span style="font-size:16px;font-weight:750">${t('detail_overall')}</span>
         </div>
-        <div style="font-size:11px;color:#7c7c8a;margin-bottom:8px">${{zh:"摘要基于公开评论生成，原文版权归各平台所有",en:"AI summary of public reviews. Original copyright belongs to each platform.",ja:"公開口コミのAI要約です。著作権は各プラットフォームに帰属します。"}[lang]}</div>
+        <div style="font-size:11px;color:#8B95A1;margin-bottom:8px">${{zh:"摘要基于公开评论生成，原文版权归各平台所有",en:"AI summary of public reviews. Original copyright belongs to each platform.",ja:"公開口コミのAI要約です。著作権は各プラットフォームに帰属します。"}[lang]}</div>
         <div class="ai-summary-text">${rs.overall||"—"}</div>
         <div class="highlights">${highlights}</div>
       </div>
@@ -1279,7 +1395,7 @@ async function renderHospitalDetail(){
         <div class="keywords-row">${keywords}</div>
         ${prosBox}${consBox}${cautBox}
         ${extLink?`<div style="margin-top:12px"><a href="${extLink}" target="_blank" class="platform-ext-link">🔗 ${pf.source||""} →</a></div>`:""}`
-        : `<div class="platform-summary" style="text-align:center;color:#9ca3af;padding:24px 0">${{zh:"该平台暂无详细评论数据",en:"No detailed review data for this platform yet",ja:"このプラットフォームの詳細レビューはまだありません"}[lang]}</div>`}
+        : `<div class="platform-summary" style="text-align:center;color:#8B95A1;padding:24px 0">${{zh:"该平台暂无详细评论数据",en:"No detailed review data for this platform yet",ja:"このプラットフォームの詳細レビューはまだありません"}[lang]}</div>`}
       </div>` : rs.overall ? `
       <div class="card" style="margin-top:12px">
         <div style="font-size:16px;font-weight:750;margin-bottom:8px">${{zh:"用户评价",en:"Customer Reviews",ja:"口コミ"}[lang]}</div>
@@ -1288,7 +1404,7 @@ async function renderHospitalDetail(){
 
       <div class="card cta-card" style="margin-top:12px;margin-bottom:24px">
         <div class="cta-title">${t('detail_contact')}</div>
-        <div style="font-size:12px;color:#7c7c8a;margin-bottom:12px">${ctaNote}</div>
+        <div style="font-size:12px;color:#8B95A1;margin-bottom:12px">${ctaNote}</div>
         <div class="cta-btns" style="margin-bottom:10px">
           <button class="cta-btn-blue" onclick="window.location.href='tel:${displayPhone}'">📞 ${t('detail_phone')}</button>
         </div>
@@ -1367,7 +1483,7 @@ function getBookingMsgs(){
 }
 
 function bookingSpecOptions(){
-  // 기능 필터(open_now/foreign_official/popular)는 시술 카테고리가 아니므로 제외
+  // 기능 필터(open_now/foreign_official)는 시술 카테고리가 아니므로 제외
   return SPECIALTIES.filter(sp=>!sp.isFilter).map(sp=>
     `<button class="qr-btn" data-bookspec="${sp.key}">${sp.icon} ${t('spec_'+sp.key)}</button>`
   ).join("");
@@ -1404,7 +1520,7 @@ function renderClinicListForSpec(){
   }
   const cards = matched.map(h=>{
     const thumb = h.images?.[0]
-      ? `<img class="booking-clinic-thumb" src="${h.images[0]}" alt="${h.name_ko}" onerror="this.outerHTML='<div class=\\'booking-clinic-thumb\\'>🏥</div>'">`
+      ? `<img class="booking-clinic-thumb" src="${h.images[0]}" alt="${h.name_ko}" loading="lazy" decoding="async" onerror="this.outerHTML='<div class=\\'booking-clinic-thumb\\'>🏥</div>'">`
       : `<div class="booking-clinic-thumb">🏥</div>`;
     const stars = h.rating ? `⭐ ${h.rating}` : "";
     const reviews = h.review_count ? ` · ${h.review_count}${t('hosp_reviews')}` : "";
@@ -1446,6 +1562,33 @@ function renderBooking(){
 }
 
 /* ── ME ── */
+/* ════════════════════════════════════════
+   MAP PAGE (준비 중 — Leaflet 연동 예정)
+   ════════════════════════════════════════ */
+function renderMap(){
+  const lang = state.lang;
+  const title   = {zh:"地图",          en:"Map",       ja:"マップ"}[lang];
+  const comingSoon = {
+    zh:"地图功能即将上线<br>可查看医院位置、距机场距离及周边地标",
+    en:"Map view coming soon<br>Find clinics by location, distance from airport & landmarks",
+    ja:"マップ機能は近日公開予定<br>医院の位置・空港からの距離・周辺スポットを確認できます",
+  }[lang];
+  return `<div class="safe-area page-enter">
+    <div class="page-header">
+      <span class="page-header-title">${title}</span>
+    </div>
+    <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;padding:80px 32px;text-align:center;gap:20px;">
+      <div style="width:80px;height:80px;border-radius:24px;background:#E8F3FF;display:flex;align-items:center;justify-content:center;">
+        ${IC.mapTab(36,"#3182F6")}
+      </div>
+      <div style="font-size:16px;font-weight:700;color:#191F28;line-height:1.6">${comingSoon}</div>
+      <div style="font-size:13px;color:#8B95A1;line-height:1.6">
+        ${lang==='zh'?'공항 기준 거리 · 신화월드 · 노형 · 중문':lang==='ja'?'空港距離 · 神話ワールド · ノヒョン · 中文':'Airport · Sinwha World · Nohyeong · Jungmun'}
+      </div>
+    </div>
+  </div>`;
+}
+
 function renderMe(){
   const lang = state.lang;
   const favs = getFavs();
@@ -1463,7 +1606,7 @@ function renderMe(){
       style="${i===0?'border-radius:16px 16px 0 0':''}${i===arr.length-1?'border-radius:0 0 16px 16px':''}">
       <span class="me-item-icon">${row.flag}</span>
       <span class="me-item-label">${row.name}</span>
-      ${state.lang===row.l?`<span style="color:#3b82f6;font-weight:800;font-size:16px">✓</span>`:""}
+      ${state.lang===row.l?`<span style="color:#3182F6;font-weight:800;font-size:16px">✓</span>`:""}
     </div>
   `).join("");
 
@@ -1490,8 +1633,8 @@ function renderMe(){
       ${favHtml}
     </div>
     <div class="me-footer">${footer}</div>
-    <div style="text-align:center;padding:8px 0 24px;font-size:11px;color:#9ca3af;">
-      <a href="privacy.html" style="color:#9ca3af;text-decoration:underline;" onclick="navigate('privacy');return false;">${privacyLabel}</a>
+    <div style="text-align:center;padding:8px 0 24px;font-size:11px;color:#8B95A1;">
+      <a href="privacy.html" style="color:#8B95A1;text-decoration:underline;" onclick="navigate('privacy');return false;">${privacyLabel}</a>
     </div>
   </div>`;
 }
@@ -1555,7 +1698,7 @@ function renderPrivacy(){
       <span class="page-header-title">${titles[lang]}</span>
     </div>
     <div style="padding:16px 20px 40px">
-      <p style="font-size:12px;color:#9ca3af;margin-bottom:20px">${{zh:"最后更新：",en:"Last updated: ",ja:"最終更新："}[lang]}${updated}</p>
+      <p style="font-size:12px;color:#8B95A1;margin-bottom:20px">${{zh:"最后更新：",en:"Last updated: ",ja:"最終更新："}[lang]}${updated}</p>
       <div class="post-html">${content[lang]}</div>
     </div>
   </div>`;
@@ -1569,18 +1712,18 @@ function renderTabBar(){
     {key:"home",     label:t('tab_home'),     icon:IC.home},
     {key:"hospitals",label:t('tab_hospitals'),icon:IC.hosp},
     {key:"booking",  label:t('tab_booking'),  icon:null, isBooking:true},
+    {key:"map",      label:t('tab_map'),      icon:IC.mapTab},
     {key:"contents", label:t('tab_contents'), icon:IC.article},
-    {key:"me",       label:t('tab_me'),       icon:IC.user},
   ];
   return tabs.map(tb=>{
     const active = state.tab===tb.key;
-    const c = active?"#3b82f6":"#9ca3af";
+    const c = active?"#3182F6":"#8B95A1";
     if(tb.isBooking){
       return `<button class="tab-btn${active?' active':''}" data-tab="booking" style="position:relative;">
-        <div style="width:46px;height:46px;border-radius:50%;background:linear-gradient(135deg,#3b82f6,#8b5cf6);display:flex;align-items:center;justify-content:center;margin-top:-18px;box-shadow:0 4px 16px rgba(59,130,246,.4);">
+        <div style="width:46px;height:46px;border-radius:50%;background:#3182F6;display:flex;align-items:center;justify-content:center;margin-top:-18px;box-shadow:0 4px 12px rgba(49,130,246,.3);">
           ${IC.booking(22,"#fff")}
         </div>
-        <span style="font-size:10px;font-weight:700;color:${active?'#3b82f6':'#9ca3af'};margin-top:2px">${tb.label}</span>
+        <span style="font-size:10px;font-weight:700;color:${active?'#3182F6':'#8B95A1'};margin-top:2px">${tb.label}</span>
       </button>`;
     }
     return `<button class="tab-btn${active?' active':''}" data-tab="${tb.key}">
@@ -1693,20 +1836,27 @@ function updateSEO(){
     if(post){
       const pt = lng(post.title);
       title  = pt + " | " + siteName;
-      // HTML 태그 제거 후 plaintext excerpt 생성
+      // excerpt 필드 우선 사용; 없으면 body plaintext 앞 130자
+      const excerptText = lng(post.excerpt) || "";
       const rawBody = (lng(post.body)||"").replace(/<[^>]+>/g," ").replace(/\s+/g," ").trim();
-      desc   = rawBody.substring(0,130) + "…";
+      desc   = excerptText || (rawBody.substring(0,130) + "…");
       url    = BASE_URL + "/?p=post&id=" + id;
       ogType = "article";
+      const ogImg = post.thumbnail || "";
       jsonLd = {
-        "@context":"https://schema.org","@type":"Article",
+        "@context":"https://schema.org","@type":"BlogPosting",
         "headline":pt,"description":desc,
         "datePublished":post.published_at,
+        "dateModified":post.updated_at || post.published_at,
         "url":url,
         "inLanguage":lang==="zh"?"zh-CN":lang==="ja"?"ja":"en",
+        "author":{"@type":"Organization","name":siteName,"url":BASE_URL+"/"},
         "publisher":{"@type":"Organization","name":siteName,"url":BASE_URL+"/"},
+        "image":ogImg ? {"@type":"ImageObject","url":ogImg} : undefined,
         "mainEntityOfPage":{"@type":"WebPage","@id":url}
       };
+      // undefined 키 제거
+      Object.keys(jsonLd).forEach(k=>{ if(jsonLd[k]===undefined) delete jsonLd[k]; });
     }
   }
 
@@ -1753,7 +1903,7 @@ function renderPcAd(){
   const el = document.getElementById("pc-ad");
   if(!el) return;
   if(!el.querySelector(".pc-ad-img") && !el.querySelector(".pc-ad-fallback")){
-    el.innerHTML = `<img class="pc-ad-img" src="${PC_AD_IMG}" alt="Ad" onerror="this.outerHTML='<div class=\\'pc-ad-fallback\\' style=\\'padding:40px 20px;text-align:center;color:#9ca3af;font-size:13px\\'>Ad</div>'">`;
+    el.innerHTML = `<img class="pc-ad-img" src="${PC_AD_IMG}" alt="Ad" onerror="this.outerHTML='<div class=\\'pc-ad-fallback\\' style=\\'padding:40px 20px;text-align:center;color:#8B95A1;font-size:13px\\'>Ad</div>'">`;
   }
 }
 
@@ -1767,7 +1917,7 @@ async function render(){
   else if(state.page==="hospital")  html=await renderHospitalDetail();
   else if(state.page==="contents")  html=renderContents();
   else if(state.page==="post")      html=renderPost();
-  else if(state.page==="me")        html=renderMe();
+  else if(state.page==="map")        html=renderMap();
   else if(state.page==="booking")   html=renderBooking();
   else if(state.page==="privacy")   html=renderPrivacy();
 
@@ -1801,7 +1951,7 @@ function _onHospSearchInput(e){
       const countLabel = {zh:`共 ${filtered.length} 家`,en:`${filtered.length} found`,ja:`${filtered.length} 件`}[state.lang];
       listEl.innerHTML = filtered.length===0
         ? `<div class="empty"><div class="empty-icon">🔍</div><div class="empty-title">${t('hosp_empty')}</div></div>`
-        : (q?`<div style="font-size:12px;color:#9ca3af;margin-bottom:8px;padding-left:2px">${countLabel}</div>`:"")+filtered.map(h=>hospCardHtml(h)).join("");
+        : (q?`<div style="font-size:12px;color:#8B95A1;margin-bottom:8px;padding-left:2px">${countLabel}</div>`:"")+filtered.map(h=>hospCardHtml(h)).join("");
     }
     // 검색어 있을 때 X 버튼 추가/제거
     const si = document.getElementById("hospSearch");
@@ -2160,7 +2310,7 @@ function showLocationSheet(){
     <div class="modal-sheet">
       <div class="modal-handle"></div>
       <div class="modal-title" style="margin-bottom:4px">${title}</div>
-      <div style="font-size:13px;color:#9ca3af;text-align:center;margin-bottom:18px">${subtitle}</div>
+      <div style="font-size:13px;color:#8B95A1;text-align:center;margin-bottom:18px">${subtitle}</div>
       <div class="loc-list" id="locListWrap">${rowsHtml(pending)}</div>
       <button class="btn-confirm" id="btnLocConfirm">${confirmLabel}</button>
     </div>`;
@@ -2322,16 +2472,34 @@ function showSettingsDrawer(){
     setTimeout(showLocationSheet, 180);
   });
 
-  // Language item → go to Me page
+  // Language item → inline lang picker
   panel.querySelector("#drawerLangItem").addEventListener("click", ()=>{
-    closeSettingsDrawer();
-    switchTab("me");
+    const langs = [{l:"zh",flag:"🇨🇳",name:"中文（简体）"},{l:"en",flag:"🇬🇧",name:"English"},{l:"ja",flag:"🇯🇵",name:"日本語"}];
+    const existing = panel.querySelector("#inlineLangPicker");
+    if(existing){ existing.remove(); return; }
+    const picker = document.createElement("div");
+    picker.id = "inlineLangPicker";
+    picker.style.cssText = "background:#F2F4F6;border-radius:14px;margin:0 16px 12px;overflow:hidden;";
+    picker.innerHTML = langs.map(row=>`
+      <div data-lang="${row.l}" style="display:flex;align-items:center;gap:10px;padding:13px 16px;cursor:pointer;border-bottom:1px solid #E5E8EB;background:${state.lang===row.l?'#E8F3FF':'#fff'};">
+        <span>${row.flag}</span>
+        <span style="font-size:14px;font-weight:${state.lang===row.l?'700':'400'};color:#191F28">${row.name}</span>
+        ${state.lang===row.l?`<span style="margin-left:auto;color:#3182F6;font-weight:800">✓</span>`:""}
+      </div>`).join("");
+    panel.querySelector("#drawerLangItem").after(picker);
+    picker.querySelectorAll("[data-lang]").forEach(el=>{
+      el.addEventListener("click", ()=>{
+        changeLang(el.dataset.lang);
+        closeSettingsDrawer();
+      });
+    });
   });
 
-  // Favorites item → go to Me page
+  // Favorites item → hospitals tab with favs filter
   panel.querySelector("#drawerFavItem").addEventListener("click", ()=>{
     closeSettingsDrawer();
-    switchTab("me");
+    state.hospSpecialty = "__favs__";
+    switchTab("hospitals");
   });
 }
 function closeSettingsDrawer(){
@@ -2426,6 +2594,7 @@ function isFav(id){ return getFavs().includes(id); }
     if(id) state.id = id;
   }
 
+  updateGlobalNotice();
   await render();
 
   // ── 브라우저 뒤로/앞으로 버튼 처리 ──
@@ -2447,6 +2616,16 @@ function isFav(id){ return getFavs().includes(id); }
   const gpsExpired = Date.now() - gpsTs > 86400000; // 24h
   if(!savedLoc && gpsExpired) setTimeout(detectLocation, 300);
 })();
+</script>
+<!-- ── Service Worker 등록 (HTTPS 환경 전용, file:// 에서는 스킵) ── -->
+<script>
+if('serviceWorker' in navigator && window.location.protocol !== 'file:'){
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('/sw.js')
+      .then(reg => console.log('[SW] Registered:', reg.scope))
+      .catch(err => console.warn('[SW] Registration failed:', err));
+  });
+}
 </script>
 </body>
 </html>
