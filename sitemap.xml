@@ -1,0 +1,840 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  sitemap.xml — 제주 의료미용 가이드
+  
+     (VS Code: Ctrl+H / 메모장: 편집 > 바꾸기)
+  ※ 병원/아티클 추가 시 이 파일에도 <url> 블록을 추가해야 합니다.
+-->
+<urlset
+  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
+  <!-- ════ 홈 ════ -->
+  <url>
+    <loc>https://insightmedi.co.kr/</loc>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://insightmedi.co.kr/?lang=zh"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://insightmedi.co.kr/?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://insightmedi.co.kr/?lang=ja"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://insightmedi.co.kr/"/>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- ════ 병원 목록 ════ -->
+  <url>
+    <loc>https://insightmedi.co.kr/?p=hospitals</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Hospital detail: 아름다운피부과의원 -->
+  <url>
+    <loc>https://insightmedi.co.kr/?p=hospital&amp;id=areumd</loc>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://insightmedi.co.kr/?p=hospital&amp;id=areumd&amp;lang=zh"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://insightmedi.co.kr/?p=hospital&amp;id=areumd&amp;lang=en"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://insightmedi.co.kr/?p=hospital&amp;id=areumd&amp;lang=ja"/>
+    <lastmod>2026-05-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Hospital detail: 벨르몬성형외과의원 -->
+  <url>
+    <loc>https://insightmedi.co.kr/?p=hospital&amp;id=bellemorn</loc>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://insightmedi.co.kr/?p=hospital&amp;id=bellemorn&amp;lang=zh"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://insightmedi.co.kr/?p=hospital&amp;id=bellemorn&amp;lang=en"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://insightmedi.co.kr/?p=hospital&amp;id=bellemorn&amp;lang=ja"/>
+    <lastmod>2026-05-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Hospital detail: 아미의원 -->
+  <url>
+    <loc>https://insightmedi.co.kr/?p=hospital&amp;id=ami</loc>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://insightmedi.co.kr/?p=hospital&amp;id=ami&amp;lang=zh"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://insightmedi.co.kr/?p=hospital&amp;id=ami&amp;lang=en"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://insightmedi.co.kr/?p=hospital&amp;id=ami&amp;lang=ja"/>
+    <lastmod>2026-05-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Hospital detail: 미모피부과의원 -->
+  <url>
+    <loc>https://insightmedi.co.kr/?p=hospital&amp;id=mimo</loc>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://insightmedi.co.kr/?p=hospital&amp;id=mimo&amp;lang=zh"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://insightmedi.co.kr/?p=hospital&amp;id=mimo&amp;lang=en"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://insightmedi.co.kr/?p=hospital&amp;id=mimo&amp;lang=ja"/>
+    <lastmod>2026-05-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Hospital detail: 연세피부과의원 -->
+  <url>
+    <loc>https://insightmedi.co.kr/?p=hospital&amp;id=yeonse</loc>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://insightmedi.co.kr/?p=hospital&amp;id=yeonse&amp;lang=zh"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://insightmedi.co.kr/?p=hospital&amp;id=yeonse&amp;lang=en"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://insightmedi.co.kr/?p=hospital&amp;id=yeonse&amp;lang=ja"/>
+    <lastmod>2026-05-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Hospital detail: 미우성형외과의원 -->
+  <url>
+    <loc>https://insightmedi.co.kr/?p=hospital&amp;id=miu</loc>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://insightmedi.co.kr/?p=hospital&amp;id=miu&amp;lang=zh"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://insightmedi.co.kr/?p=hospital&amp;id=miu&amp;lang=en"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://insightmedi.co.kr/?p=hospital&amp;id=miu&amp;lang=ja"/>
+    <lastmod>2026-05-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Hospital detail: 공감성형외과의원 -->
+  <url>
+    <loc>https://insightmedi.co.kr/?p=hospital&amp;id=gonggam</loc>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://insightmedi.co.kr/?p=hospital&amp;id=gonggam&amp;lang=zh"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://insightmedi.co.kr/?p=hospital&amp;id=gonggam&amp;lang=en"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://insightmedi.co.kr/?p=hospital&amp;id=gonggam&amp;lang=ja"/>
+    <lastmod>2026-05-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Hospital detail: 투게더피부과의원 -->
+  <url>
+    <loc>https://insightmedi.co.kr/?p=hospital&amp;id=together</loc>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://insightmedi.co.kr/?p=hospital&amp;id=together&amp;lang=zh"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://insightmedi.co.kr/?p=hospital&amp;id=together&amp;lang=en"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://insightmedi.co.kr/?p=hospital&amp;id=together&amp;lang=ja"/>
+    <lastmod>2026-05-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Hospital detail: WE병원 -->
+  <url>
+    <loc>https://insightmedi.co.kr/?p=hospital&amp;id=we</loc>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://insightmedi.co.kr/?p=hospital&amp;id=we&amp;lang=zh"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://insightmedi.co.kr/?p=hospital&amp;id=we&amp;lang=en"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://insightmedi.co.kr/?p=hospital&amp;id=we&amp;lang=ja"/>
+    <lastmod>2026-05-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Hospital detail: 이미애피부과의원 -->
+  <url>
+    <loc>https://insightmedi.co.kr/?p=hospital&amp;id=imiae</loc>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://insightmedi.co.kr/?p=hospital&amp;id=imiae&amp;lang=zh"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://insightmedi.co.kr/?p=hospital&amp;id=imiae&amp;lang=en"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://insightmedi.co.kr/?p=hospital&amp;id=imiae&amp;lang=ja"/>
+    <lastmod>2026-05-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Hospital detail: 복지피부과의원 -->
+  <url>
+    <loc>https://insightmedi.co.kr/?p=hospital&amp;id=hansen</loc>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://insightmedi.co.kr/?p=hospital&amp;id=hansen&amp;lang=zh"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://insightmedi.co.kr/?p=hospital&amp;id=hansen&amp;lang=en"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://insightmedi.co.kr/?p=hospital&amp;id=hansen&amp;lang=ja"/>
+    <lastmod>2026-05-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Hospital detail: 더고운의원 -->
+  <url>
+    <loc>https://insightmedi.co.kr/?p=hospital&amp;id=degoun</loc>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://insightmedi.co.kr/?p=hospital&amp;id=degoun&amp;lang=zh"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://insightmedi.co.kr/?p=hospital&amp;id=degoun&amp;lang=en"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://insightmedi.co.kr/?p=hospital&amp;id=degoun&amp;lang=ja"/>
+    <lastmod>2026-05-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Hospital detail: 뿜글로벌의원 제주점 -->
+  <url>
+    <loc>https://insightmedi.co.kr/?p=hospital&amp;id=ppeum</loc>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://insightmedi.co.kr/?p=hospital&amp;id=ppeum&amp;lang=zh"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://insightmedi.co.kr/?p=hospital&amp;id=ppeum&amp;lang=en"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://insightmedi.co.kr/?p=hospital&amp;id=ppeum&amp;lang=ja"/>
+    <lastmod>2026-05-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Hospital detail: 더미인의원 -->
+  <url>
+    <loc>https://insightmedi.co.kr/?p=hospital&amp;id=dermiin</loc>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://insightmedi.co.kr/?p=hospital&amp;id=dermiin&amp;lang=zh"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://insightmedi.co.kr/?p=hospital&amp;id=dermiin&amp;lang=en"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://insightmedi.co.kr/?p=hospital&amp;id=dermiin&amp;lang=ja"/>
+    <lastmod>2026-05-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Hospital detail: 미사랑의원 -->
+  <url>
+    <loc>https://insightmedi.co.kr/?p=hospital&amp;id=misarang</loc>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://insightmedi.co.kr/?p=hospital&amp;id=misarang&amp;lang=zh"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://insightmedi.co.kr/?p=hospital&amp;id=misarang&amp;lang=en"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://insightmedi.co.kr/?p=hospital&amp;id=misarang&amp;lang=ja"/>
+    <lastmod>2026-05-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Hospital detail: 포에버의원 제주 -->
+  <url>
+    <loc>https://insightmedi.co.kr/?p=hospital&amp;id=foever</loc>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://insightmedi.co.kr/?p=hospital&amp;id=foever&amp;lang=zh"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://insightmedi.co.kr/?p=hospital&amp;id=foever&amp;lang=en"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://insightmedi.co.kr/?p=hospital&amp;id=foever&amp;lang=ja"/>
+    <lastmod>2026-05-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Hospital detail: 제이뉴피부과의원 -->
+  <url>
+    <loc>https://insightmedi.co.kr/?p=hospital&amp;id=jeinu</loc>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://insightmedi.co.kr/?p=hospital&amp;id=jeinu&amp;lang=zh"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://insightmedi.co.kr/?p=hospital&amp;id=jeinu&amp;lang=en"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://insightmedi.co.kr/?p=hospital&amp;id=jeinu&amp;lang=ja"/>
+    <lastmod>2026-05-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Hospital detail: 서울뉴라인의원 -->
+  <url>
+    <loc>https://insightmedi.co.kr/?p=hospital&amp;id=newline</loc>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://insightmedi.co.kr/?p=hospital&amp;id=newline&amp;lang=zh"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://insightmedi.co.kr/?p=hospital&amp;id=newline&amp;lang=en"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://insightmedi.co.kr/?p=hospital&amp;id=newline&amp;lang=ja"/>
+    <lastmod>2026-05-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Hospital detail: 제주아름다운피부과의원 -->
+  <url>
+    <loc>https://insightmedi.co.kr/?p=hospital&amp;id=jejuareumd</loc>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://insightmedi.co.kr/?p=hospital&amp;id=jejuareumd&amp;lang=zh"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://insightmedi.co.kr/?p=hospital&amp;id=jejuareumd&amp;lang=en"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://insightmedi.co.kr/?p=hospital&amp;id=jejuareumd&amp;lang=ja"/>
+    <lastmod>2026-05-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Hospital detail: 로즈마리의원 -->
+  <url>
+    <loc>https://insightmedi.co.kr/?p=hospital&amp;id=rosemary</loc>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://insightmedi.co.kr/?p=hospital&amp;id=rosemary&amp;lang=zh"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://insightmedi.co.kr/?p=hospital&amp;id=rosemary&amp;lang=en"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://insightmedi.co.kr/?p=hospital&amp;id=rosemary&amp;lang=ja"/>
+    <lastmod>2026-05-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Hospital detail: 뷰앤미의원 -->
+  <url>
+    <loc>https://insightmedi.co.kr/?p=hospital&amp;id=vueanmi</loc>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://insightmedi.co.kr/?p=hospital&amp;id=vueanmi&amp;lang=zh"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://insightmedi.co.kr/?p=hospital&amp;id=vueanmi&amp;lang=en"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://insightmedi.co.kr/?p=hospital&amp;id=vueanmi&amp;lang=ja"/>
+    <lastmod>2026-05-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Hospital detail: 청담루이성형외과의원 -->
+  <url>
+    <loc>https://insightmedi.co.kr/?p=hospital&amp;id=cdrui</loc>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://insightmedi.co.kr/?p=hospital&amp;id=cdrui&amp;lang=zh"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://insightmedi.co.kr/?p=hospital&amp;id=cdrui&amp;lang=en"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://insightmedi.co.kr/?p=hospital&amp;id=cdrui&amp;lang=ja"/>
+    <lastmod>2026-05-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Hospital detail: 강남케이뷰티성형외과의원 -->
+  <url>
+    <loc>https://insightmedi.co.kr/?p=hospital&amp;id=kbeauty</loc>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://insightmedi.co.kr/?p=hospital&amp;id=kbeauty&amp;lang=zh"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://insightmedi.co.kr/?p=hospital&amp;id=kbeauty&amp;lang=en"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://insightmedi.co.kr/?p=hospital&amp;id=kbeauty&amp;lang=ja"/>
+    <lastmod>2026-05-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Hospital detail: 강남스타성형외과의원 -->
+  <url>
+    <loc>https://insightmedi.co.kr/?p=hospital&amp;id=gangnamstar</loc>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://insightmedi.co.kr/?p=hospital&amp;id=gangnamstar&amp;lang=zh"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://insightmedi.co.kr/?p=hospital&amp;id=gangnamstar&amp;lang=en"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://insightmedi.co.kr/?p=hospital&amp;id=gangnamstar&amp;lang=ja"/>
+    <lastmod>2026-05-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Hospital detail: VIP성형외과의원 -->
+  <url>
+    <loc>https://insightmedi.co.kr/?p=hospital&amp;id=vip</loc>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://insightmedi.co.kr/?p=hospital&amp;id=vip&amp;lang=zh"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://insightmedi.co.kr/?p=hospital&amp;id=vip&amp;lang=en"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://insightmedi.co.kr/?p=hospital&amp;id=vip&amp;lang=ja"/>
+    <lastmod>2026-05-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Hospital detail: 마릴린제이의원 -->
+  <url>
+    <loc>https://insightmedi.co.kr/?p=hospital&amp;id=marilyn</loc>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://insightmedi.co.kr/?p=hospital&amp;id=marilyn&amp;lang=zh"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://insightmedi.co.kr/?p=hospital&amp;id=marilyn&amp;lang=en"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://insightmedi.co.kr/?p=hospital&amp;id=marilyn&amp;lang=ja"/>
+    <lastmod>2026-05-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Hospital detail: 황수란피부과의원 -->
+  <url>
+    <loc>https://insightmedi.co.kr/?p=hospital&amp;id=hwangsur</loc>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://insightmedi.co.kr/?p=hospital&amp;id=hwangsur&amp;lang=zh"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://insightmedi.co.kr/?p=hospital&amp;id=hwangsur&amp;lang=en"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://insightmedi.co.kr/?p=hospital&amp;id=hwangsur&amp;lang=ja"/>
+    <lastmod>2026-05-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Hospital detail: 연세예담의원 -->
+  <url>
+    <loc>https://insightmedi.co.kr/?p=hospital&amp;id=yonsedam</loc>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://insightmedi.co.kr/?p=hospital&amp;id=yonsedam&amp;lang=zh"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://insightmedi.co.kr/?p=hospital&amp;id=yonsedam&amp;lang=en"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://insightmedi.co.kr/?p=hospital&amp;id=yonsedam&amp;lang=ja"/>
+    <lastmod>2026-05-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Hospital detail: 삼사오성형외과제주의원 -->
+  <url>
+    <loc>https://insightmedi.co.kr/?p=hospital&amp;id=sam345</loc>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://insightmedi.co.kr/?p=hospital&amp;id=sam345&amp;lang=zh"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://insightmedi.co.kr/?p=hospital&amp;id=sam345&amp;lang=en"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://insightmedi.co.kr/?p=hospital&amp;id=sam345&amp;lang=ja"/>
+    <lastmod>2026-05-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Hospital detail: 제주사랑한의원 -->
+  <url>
+    <loc>https://insightmedi.co.kr/?p=hospital&amp;id=jeju-sarang-oriental</loc>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://insightmedi.co.kr/?p=hospital&amp;id=jeju-sarang-oriental&amp;lang=zh"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://insightmedi.co.kr/?p=hospital&amp;id=jeju-sarang-oriental&amp;lang=en"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://insightmedi.co.kr/?p=hospital&amp;id=jeju-sarang-oriental&amp;lang=ja"/>
+    <lastmod>2026-05-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Hospital detail: 다나치과의원 -->
+  <url>
+    <loc>https://insightmedi.co.kr/?p=hospital&amp;id=dana-dental</loc>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://insightmedi.co.kr/?p=hospital&amp;id=dana-dental&amp;lang=zh"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://insightmedi.co.kr/?p=hospital&amp;id=dana-dental&amp;lang=en"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://insightmedi.co.kr/?p=hospital&amp;id=dana-dental&amp;lang=ja"/>
+    <lastmod>2026-05-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Hospital detail: 제주우리병원 -->
+  <url>
+    <loc>https://insightmedi.co.kr/?p=hospital&amp;id=jeju-woori-hospital</loc>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://insightmedi.co.kr/?p=hospital&amp;id=jeju-woori-hospital&amp;lang=zh"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://insightmedi.co.kr/?p=hospital&amp;id=jeju-woori-hospital&amp;lang=en"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://insightmedi.co.kr/?p=hospital&amp;id=jeju-woori-hospital&amp;lang=ja"/>
+    <lastmod>2026-05-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Hospital detail: 제주 수 흉부외과 -->
+  <url>
+    <loc>https://insightmedi.co.kr/?p=hospital&amp;id=jeju-soo-thoracic</loc>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://insightmedi.co.kr/?p=hospital&amp;id=jeju-soo-thoracic&amp;lang=zh"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://insightmedi.co.kr/?p=hospital&amp;id=jeju-soo-thoracic&amp;lang=en"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://insightmedi.co.kr/?p=hospital&amp;id=jeju-soo-thoracic&amp;lang=ja"/>
+    <lastmod>2026-05-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Hospital detail: 단단한정형외과의원 -->
+  <url>
+    <loc>https://insightmedi.co.kr/?p=hospital&amp;id=dandan-orthopedics</loc>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://insightmedi.co.kr/?p=hospital&amp;id=dandan-orthopedics&amp;lang=zh"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://insightmedi.co.kr/?p=hospital&amp;id=dandan-orthopedics&amp;lang=en"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://insightmedi.co.kr/?p=hospital&amp;id=dandan-orthopedics&amp;lang=ja"/>
+    <lastmod>2026-05-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Hospital detail: 바른이치과교정과치과의원 -->
+  <url>
+    <loc>https://insightmedi.co.kr/?p=hospital&amp;id=bareuni-dental</loc>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://insightmedi.co.kr/?p=hospital&amp;id=bareuni-dental&amp;lang=zh"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://insightmedi.co.kr/?p=hospital&amp;id=bareuni-dental&amp;lang=en"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://insightmedi.co.kr/?p=hospital&amp;id=bareuni-dental&amp;lang=ja"/>
+    <lastmod>2026-05-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Hospital detail: 엔젤산부인과의원 -->
+  <url>
+    <loc>https://insightmedi.co.kr/?p=hospital&amp;id=angel-obgyn</loc>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://insightmedi.co.kr/?p=hospital&amp;id=angel-obgyn&amp;lang=zh"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://insightmedi.co.kr/?p=hospital&amp;id=angel-obgyn&amp;lang=en"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://insightmedi.co.kr/?p=hospital&amp;id=angel-obgyn&amp;lang=ja"/>
+    <lastmod>2026-05-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Hospital detail: 하늘마음한의원 -->
+  <url>
+    <loc>https://insightmedi.co.kr/?p=hospital&amp;id=haneulmaeum-oriental</loc>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://insightmedi.co.kr/?p=hospital&amp;id=haneulmaeum-oriental&amp;lang=zh"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://insightmedi.co.kr/?p=hospital&amp;id=haneulmaeum-oriental&amp;lang=en"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://insightmedi.co.kr/?p=hospital&amp;id=haneulmaeum-oriental&amp;lang=ja"/>
+    <lastmod>2026-05-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Hospital detail: 하늘체한의원 -->
+  <url>
+    <loc>https://insightmedi.co.kr/?p=hospital&amp;id=haneulche-oriental</loc>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://insightmedi.co.kr/?p=hospital&amp;id=haneulche-oriental&amp;lang=zh"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://insightmedi.co.kr/?p=hospital&amp;id=haneulche-oriental&amp;lang=en"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://insightmedi.co.kr/?p=hospital&amp;id=haneulche-oriental&amp;lang=ja"/>
+    <lastmod>2026-05-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Hospital detail: 한국건강관리협회건강증진의원 -->
+  <url>
+    <loc>https://insightmedi.co.kr/?p=hospital&amp;id=kahp-jeju</loc>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://insightmedi.co.kr/?p=hospital&amp;id=kahp-jeju&amp;lang=zh"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://insightmedi.co.kr/?p=hospital&amp;id=kahp-jeju&amp;lang=en"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://insightmedi.co.kr/?p=hospital&amp;id=kahp-jeju&amp;lang=ja"/>
+    <lastmod>2026-05-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Hospital detail: 비바체성형외과 -->
+  <url>
+    <loc>https://insightmedi.co.kr/?p=hospital&amp;id=vivace-plastic</loc>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://insightmedi.co.kr/?p=hospital&amp;id=vivace-plastic&amp;lang=zh"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://insightmedi.co.kr/?p=hospital&amp;id=vivace-plastic&amp;lang=en"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://insightmedi.co.kr/?p=hospital&amp;id=vivace-plastic&amp;lang=ja"/>
+    <lastmod>2026-05-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Hospital detail: 제원한의원 -->
+  <url>
+    <loc>https://insightmedi.co.kr/?p=hospital&amp;id=jewon-oriental</loc>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://insightmedi.co.kr/?p=hospital&amp;id=jewon-oriental&amp;lang=zh"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://insightmedi.co.kr/?p=hospital&amp;id=jewon-oriental&amp;lang=en"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://insightmedi.co.kr/?p=hospital&amp;id=jewon-oriental&amp;lang=ja"/>
+    <lastmod>2026-05-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Hospital detail: 국가대표정형외과의원 -->
+  <url>
+    <loc>https://insightmedi.co.kr/?p=hospital&amp;id=national-orthopedics</loc>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://insightmedi.co.kr/?p=hospital&amp;id=national-orthopedics&amp;lang=zh"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://insightmedi.co.kr/?p=hospital&amp;id=national-orthopedics&amp;lang=en"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://insightmedi.co.kr/?p=hospital&amp;id=national-orthopedics&amp;lang=ja"/>
+    <lastmod>2026-05-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Hospital detail: 톡스앤필의원 -->
+  <url>
+    <loc>https://insightmedi.co.kr/?p=hospital&amp;id=tox-n-fill</loc>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://insightmedi.co.kr/?p=hospital&amp;id=tox-n-fill&amp;lang=zh"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://insightmedi.co.kr/?p=hospital&amp;id=tox-n-fill&amp;lang=en"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://insightmedi.co.kr/?p=hospital&amp;id=tox-n-fill&amp;lang=ja"/>
+    <lastmod>2026-05-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Hospital detail: 나우메디의원 -->
+  <url>
+    <loc>https://insightmedi.co.kr/?p=hospital&amp;id=nowmedi</loc>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://insightmedi.co.kr/?p=hospital&amp;id=nowmedi&amp;lang=zh"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://insightmedi.co.kr/?p=hospital&amp;id=nowmedi&amp;lang=en"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://insightmedi.co.kr/?p=hospital&amp;id=nowmedi&amp;lang=ja"/>
+    <lastmod>2026-05-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Hospital detail: 강주현피부과 의원 -->
+  <url>
+    <loc>https://insightmedi.co.kr/?p=hospital&amp;id=kangjuhyun-derm</loc>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://insightmedi.co.kr/?p=hospital&amp;id=kangjuhyun-derm&amp;lang=zh"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://insightmedi.co.kr/?p=hospital&amp;id=kangjuhyun-derm&amp;lang=en"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://insightmedi.co.kr/?p=hospital&amp;id=kangjuhyun-derm&amp;lang=ja"/>
+    <lastmod>2026-05-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Hospital detail: 이지봄안과의원 -->
+  <url>
+    <loc>https://insightmedi.co.kr/?p=hospital&amp;id=ezbom-eye</loc>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://insightmedi.co.kr/?p=hospital&amp;id=ezbom-eye&amp;lang=zh"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://insightmedi.co.kr/?p=hospital&amp;id=ezbom-eye&amp;lang=en"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://insightmedi.co.kr/?p=hospital&amp;id=ezbom-eye&amp;lang=ja"/>
+    <lastmod>2026-05-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Hospital detail: 김민범 한의원 -->
+  <url>
+    <loc>https://insightmedi.co.kr/?p=hospital&amp;id=kimminbeom-oriental</loc>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://insightmedi.co.kr/?p=hospital&amp;id=kimminbeom-oriental&amp;lang=zh"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://insightmedi.co.kr/?p=hospital&amp;id=kimminbeom-oriental&amp;lang=en"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://insightmedi.co.kr/?p=hospital&amp;id=kimminbeom-oriental&amp;lang=ja"/>
+    <lastmod>2026-05-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Hospital detail: 제주 아나픈치과의원 -->
+  <url>
+    <loc>https://insightmedi.co.kr/?p=hospital&amp;id=jeju-anapeun-dental</loc>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://insightmedi.co.kr/?p=hospital&amp;id=jeju-anapeun-dental&amp;lang=zh"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://insightmedi.co.kr/?p=hospital&amp;id=jeju-anapeun-dental&amp;lang=en"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://insightmedi.co.kr/?p=hospital&amp;id=jeju-anapeun-dental&amp;lang=ja"/>
+    <lastmod>2026-05-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Hospital detail: 블리비의원 -->
+  <url>
+    <loc>https://insightmedi.co.kr/?p=hospital&amp;id=bliv-jeju</loc>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://insightmedi.co.kr/?p=hospital&amp;id=bliv-jeju&amp;lang=zh"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://insightmedi.co.kr/?p=hospital&amp;id=bliv-jeju&amp;lang=en"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://insightmedi.co.kr/?p=hospital&amp;id=bliv-jeju&amp;lang=ja"/>
+    <lastmod>2026-05-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Hospital detail: 로즈앤의원 -->
+  <url>
+    <loc>https://insightmedi.co.kr/?p=hospital&amp;id=rosen-clinic</loc>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://insightmedi.co.kr/?p=hospital&amp;id=rosen-clinic&amp;lang=zh"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://insightmedi.co.kr/?p=hospital&amp;id=rosen-clinic&amp;lang=en"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://insightmedi.co.kr/?p=hospital&amp;id=rosen-clinic&amp;lang=ja"/>
+    <lastmod>2026-05-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Hospital detail: 인제상쾌한이비인후과의원 -->
+  <url>
+    <loc>https://insightmedi.co.kr/?p=hospital&amp;id=inje-ent</loc>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://insightmedi.co.kr/?p=hospital&amp;id=inje-ent&amp;lang=zh"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://insightmedi.co.kr/?p=hospital&amp;id=inje-ent&amp;lang=en"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://insightmedi.co.kr/?p=hospital&amp;id=inje-ent&amp;lang=ja"/>
+    <lastmod>2026-05-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Hospital detail: 어울림의원 -->
+  <url>
+    <loc>https://insightmedi.co.kr/?p=hospital&amp;id=eoullim-clinic</loc>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://insightmedi.co.kr/?p=hospital&amp;id=eoullim-clinic&amp;lang=zh"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://insightmedi.co.kr/?p=hospital&amp;id=eoullim-clinic&amp;lang=en"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://insightmedi.co.kr/?p=hospital&amp;id=eoullim-clinic&amp;lang=ja"/>
+    <lastmod>2026-05-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Hospital detail: 솔담한방병원 -->
+  <url>
+    <loc>https://insightmedi.co.kr/?p=hospital&amp;id=soldam-oriental-hospital</loc>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://insightmedi.co.kr/?p=hospital&amp;id=soldam-oriental-hospital&amp;lang=zh"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://insightmedi.co.kr/?p=hospital&amp;id=soldam-oriental-hospital&amp;lang=en"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://insightmedi.co.kr/?p=hospital&amp;id=soldam-oriental-hospital&amp;lang=ja"/>
+    <lastmod>2026-05-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Hospital detail: 센트럴아이안과의원 -->
+  <url>
+    <loc>https://insightmedi.co.kr/?p=hospital&amp;id=central-eye</loc>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://insightmedi.co.kr/?p=hospital&amp;id=central-eye&amp;lang=zh"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://insightmedi.co.kr/?p=hospital&amp;id=central-eye&amp;lang=en"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://insightmedi.co.kr/?p=hospital&amp;id=central-eye&amp;lang=ja"/>
+    <lastmod>2026-05-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Hospital detail: 제주삼성안과의원 -->
+  <url>
+    <loc>https://insightmedi.co.kr/?p=hospital&amp;id=jeju-samsung-eye</loc>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://insightmedi.co.kr/?p=hospital&amp;id=jeju-samsung-eye&amp;lang=zh"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://insightmedi.co.kr/?p=hospital&amp;id=jeju-samsung-eye&amp;lang=en"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://insightmedi.co.kr/?p=hospital&amp;id=jeju-samsung-eye&amp;lang=ja"/>
+    <lastmod>2026-05-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Hospital detail: 제주이엠365의원 -->
+  <url>
+    <loc>https://insightmedi.co.kr/?p=hospital&amp;id=jeju-em365</loc>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://insightmedi.co.kr/?p=hospital&amp;id=jeju-em365&amp;lang=zh"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://insightmedi.co.kr/?p=hospital&amp;id=jeju-em365&amp;lang=en"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://insightmedi.co.kr/?p=hospital&amp;id=jeju-em365&amp;lang=ja"/>
+    <lastmod>2026-05-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Hospital detail: 글로리 의원 -->
+  <url>
+    <loc>https://insightmedi.co.kr/?p=hospital&amp;id=glory-clinic</loc>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://insightmedi.co.kr/?p=hospital&amp;id=glory-clinic&amp;lang=zh"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://insightmedi.co.kr/?p=hospital&amp;id=glory-clinic&amp;lang=en"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://insightmedi.co.kr/?p=hospital&amp;id=glory-clinic&amp;lang=ja"/>
+    <lastmod>2026-05-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Hospital detail: 속편한드림내과의원 -->
+  <url>
+    <loc>https://insightmedi.co.kr/?p=hospital&amp;id=dream-internal</loc>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://insightmedi.co.kr/?p=hospital&amp;id=dream-internal&amp;lang=zh"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://insightmedi.co.kr/?p=hospital&amp;id=dream-internal&amp;lang=en"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://insightmedi.co.kr/?p=hospital&amp;id=dream-internal&amp;lang=ja"/>
+    <lastmod>2026-05-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Hospital detail: 수안과의원 -->
+  <url>
+    <loc>https://insightmedi.co.kr/?p=hospital&amp;id=soo-eye</loc>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://insightmedi.co.kr/?p=hospital&amp;id=soo-eye&amp;lang=zh"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://insightmedi.co.kr/?p=hospital&amp;id=soo-eye&amp;lang=en"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://insightmedi.co.kr/?p=hospital&amp;id=soo-eye&amp;lang=ja"/>
+    <lastmod>2026-05-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Hospital detail: 밴스의원 -->
+  <url>
+    <loc>https://insightmedi.co.kr/?p=hospital&amp;id=vands-jeju</loc>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://insightmedi.co.kr/?p=hospital&amp;id=vands-jeju&amp;lang=zh"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://insightmedi.co.kr/?p=hospital&amp;id=vands-jeju&amp;lang=en"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://insightmedi.co.kr/?p=hospital&amp;id=vands-jeju&amp;lang=ja"/>
+    <lastmod>2026-05-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Hospital detail: 남재희삼성피부과 -->
+  <url>
+    <loc>https://insightmedi.co.kr/?p=hospital&amp;id=namjaehee-samsung-derm</loc>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://insightmedi.co.kr/?p=hospital&amp;id=namjaehee-samsung-derm&amp;lang=zh"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://insightmedi.co.kr/?p=hospital&amp;id=namjaehee-samsung-derm&amp;lang=en"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://insightmedi.co.kr/?p=hospital&amp;id=namjaehee-samsung-derm&amp;lang=ja"/>
+    <lastmod>2026-05-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Hospital detail: e-편한치과의원 -->
+  <url>
+    <loc>https://insightmedi.co.kr/?p=hospital&amp;id=e-pyeonhan-dental</loc>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://insightmedi.co.kr/?p=hospital&amp;id=e-pyeonhan-dental&amp;lang=zh"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://insightmedi.co.kr/?p=hospital&amp;id=e-pyeonhan-dental&amp;lang=en"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://insightmedi.co.kr/?p=hospital&amp;id=e-pyeonhan-dental&amp;lang=ja"/>
+    <lastmod>2026-05-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Hospital detail: 해아림한의원 -->
+  <url>
+    <loc>https://insightmedi.co.kr/?p=hospital&amp;id=haearim-oriental</loc>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://insightmedi.co.kr/?p=hospital&amp;id=haearim-oriental&amp;lang=zh"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://insightmedi.co.kr/?p=hospital&amp;id=haearim-oriental&amp;lang=en"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://insightmedi.co.kr/?p=hospital&amp;id=haearim-oriental&amp;lang=ja"/>
+    <lastmod>2026-05-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Hospital detail: 메이리의원 -->
+  <url>
+    <loc>https://insightmedi.co.kr/?p=hospital&amp;id=meili-clinic</loc>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://insightmedi.co.kr/?p=hospital&amp;id=meili-clinic&amp;lang=zh"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://insightmedi.co.kr/?p=hospital&amp;id=meili-clinic&amp;lang=en"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://insightmedi.co.kr/?p=hospital&amp;id=meili-clinic&amp;lang=ja"/>
+    <lastmod>2026-05-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Hospital detail: 정치과의원 -->
+  <url>
+    <loc>https://insightmedi.co.kr/?p=hospital&amp;id=jung-dental</loc>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://insightmedi.co.kr/?p=hospital&amp;id=jung-dental&amp;lang=zh"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://insightmedi.co.kr/?p=hospital&amp;id=jung-dental&amp;lang=en"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://insightmedi.co.kr/?p=hospital&amp;id=jung-dental&amp;lang=ja"/>
+    <lastmod>2026-05-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Hospital detail: 제주365플러스내과의원 -->
+  <url>
+    <loc>https://insightmedi.co.kr/?p=hospital&amp;id=jeju365plus-internal</loc>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://insightmedi.co.kr/?p=hospital&amp;id=jeju365plus-internal&amp;lang=zh"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://insightmedi.co.kr/?p=hospital&amp;id=jeju365plus-internal&amp;lang=en"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://insightmedi.co.kr/?p=hospital&amp;id=jeju365plus-internal&amp;lang=ja"/>
+    <lastmod>2026-05-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Hospital detail: 날씬의원 -->
+  <url>
+    <loc>https://insightmedi.co.kr/?p=hospital&amp;id=nalsseen-clinic</loc>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://insightmedi.co.kr/?p=hospital&amp;id=nalsseen-clinic&amp;lang=zh"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://insightmedi.co.kr/?p=hospital&amp;id=nalsseen-clinic&amp;lang=en"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://insightmedi.co.kr/?p=hospital&amp;id=nalsseen-clinic&amp;lang=ja"/>
+    <lastmod>2026-05-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Hospital detail: 채움남성의원 -->
+  <url>
+    <loc>https://insightmedi.co.kr/?p=hospital&amp;id=chaeum-mens</loc>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://insightmedi.co.kr/?p=hospital&amp;id=chaeum-mens&amp;lang=zh"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://insightmedi.co.kr/?p=hospital&amp;id=chaeum-mens&amp;lang=en"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://insightmedi.co.kr/?p=hospital&amp;id=chaeum-mens&amp;lang=ja"/>
+    <lastmod>2026-05-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Hospital detail: 이스톤의원 -->
+  <url>
+    <loc>https://insightmedi.co.kr/?p=hospital&amp;id=easton-clinic</loc>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://insightmedi.co.kr/?p=hospital&amp;id=easton-clinic&amp;lang=zh"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://insightmedi.co.kr/?p=hospital&amp;id=easton-clinic&amp;lang=en"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://insightmedi.co.kr/?p=hospital&amp;id=easton-clinic&amp;lang=ja"/>
+    <lastmod>2026-05-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Hospital detail: 킴스플란트치과의원 -->
+  <url>
+    <loc>https://insightmedi.co.kr/?p=hospital&amp;id=kimsplant-dental</loc>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://insightmedi.co.kr/?p=hospital&amp;id=kimsplant-dental&amp;lang=zh"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://insightmedi.co.kr/?p=hospital&amp;id=kimsplant-dental&amp;lang=en"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://insightmedi.co.kr/?p=hospital&amp;id=kimsplant-dental&amp;lang=ja"/>
+    <lastmod>2026-05-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- ════ 아티클 목록 ════ -->
+  <url>
+    <loc>https://insightmedi.co.kr/?p=contents</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- ════ 아티클: 제주에서 피부과/성형외과 고르는 5가지 요점 ════ -->
+  <url>
+    <loc>https://insightmedi.co.kr/?p=post&amp;id=c-001</loc>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://insightmedi.co.kr/?p=post&amp;id=c-001&amp;lang=zh"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://insightmedi.co.kr/?p=post&amp;id=c-001&amp;lang=en"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://insightmedi.co.kr/?p=post&amp;id=c-001&amp;lang=ja"/>
+    <lastmod>2026-03-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- ════ 아티클: Thermage FLX & Ulthera 리프팅 ════ -->
+  <url>
+    <loc>https://insightmedi.co.kr/?p=post&amp;id=c-002</loc>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://insightmedi.co.kr/?p=post&amp;id=c-002&amp;lang=zh"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://insightmedi.co.kr/?p=post&amp;id=c-002&amp;lang=en"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://insightmedi.co.kr/?p=post&amp;id=c-002&amp;lang=ja"/>
+    <lastmod>2026-03-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- ════ 아티클: 한국 의료 리뷰 플랫폼 비교 ════ -->
+  <url>
+    <loc>https://insightmedi.co.kr/?p=post&amp;id=c-003</loc>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://insightmedi.co.kr/?p=post&amp;id=c-003&amp;lang=zh"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://insightmedi.co.kr/?p=post&amp;id=c-003&amp;lang=en"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://insightmedi.co.kr/?p=post&amp;id=c-003&amp;lang=ja"/>
+    <lastmod>2026-03-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+</urlset>

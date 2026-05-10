@@ -1,0 +1,50 @@
+{
+  "name": "因赛特美医 | insight-medi",
+  "short_name": "insight-medi",
+  "description": "济州岛皮肤科·整形外科医疗旅游指南 / Jeju Medical Beauty Guide / 済州島 医療美容ガイド",
+  "start_url": ".",
+  "scope": ".",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#F2F4F6",
+  "theme_color": "#3182F6",
+  "lang": "zh-CN",
+  "dir": "ltr",
+  "categories": ["medical", "health", "lifestyle"],
+  "icons": [
+    {
+      "src": "images/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "images/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "images/icon-512-maskable.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Clinic List",
+      "short_name": "Clinics",
+      "description": "Browse all Jeju clinics",
+      "url": "./?p=hospitals",
+      "icons": [{ "src": "images/icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Medical Guides",
+      "short_name": "Guides",
+      "description": "Medical beauty travel guides",
+      "url": "./?p=contents",
+      "icons": [{ "src": "images/icon-192.png", "sizes": "192x192" }]
+    }
+  ]
+}
