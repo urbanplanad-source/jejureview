@@ -6,7 +6,7 @@
    - external map tiles/CDNs: network only
    ================================================================ */
 
-const CACHE_VERSION = "v5";
+const CACHE_VERSION = "v6";
 const CACHE_NAME = "insight-medi-" + CACHE_VERSION;
 
 const APP_SHELL = [

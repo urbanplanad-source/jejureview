@@ -510,12 +510,13 @@ body.notice-visible #view{padding-top:40px;}
 .map-filter-bar{display:flex;gap:8px;padding:8px 16px;background:#fff;border-bottom:1px solid #E5E8EB;overflow-x:auto;flex-shrink:0;}
 .map-filter-bar::-webkit-scrollbar{display:none;}
 .map-filter-bar .chip{flex-shrink:0;}
-#leafletMap{width:100%;flex:1;min-height:0;}
-.leaflet-container{overflow:hidden;background:#ddd;outline-offset:1px;}
+#leafletMap{width:100%;flex:1;min-height:320px;position:relative;z-index:1;background:#dbe5ec;}
+.leaflet-container{position:relative;overflow:hidden;background:#ddd;outline-offset:1px;touch-action:none;}
 .leaflet-pane,.leaflet-tile,.leaflet-marker-icon,.leaflet-marker-shadow,.leaflet-tile-container,.leaflet-pane>svg,.leaflet-pane>canvas,.leaflet-zoom-box,.leaflet-image-layer,.leaflet-layer{position:absolute;left:0;top:0;}
 .leaflet-tile,.leaflet-marker-icon,.leaflet-marker-shadow{user-select:none;-webkit-user-drag:none;}
-.leaflet-tile{filter:inherit;visibility:hidden;}
-.leaflet-tile-loaded{visibility:inherit;}
+.leaflet-tile{filter:inherit;visibility:visible;}
+.leaflet-tile-loaded{visibility:visible;}
+.leaflet-map-pane{z-index:400;}
 .leaflet-map-pane canvas{z-index:100;}
 .leaflet-tile-pane{z-index:200;}
 .leaflet-overlay-pane{z-index:400;}
@@ -1620,7 +1621,7 @@ function renderMap(){
       ${chips}
       <button class="chip${state.mapOfficialOnly?' active':''}" data-map-filter="official" id="mapChipOfficial">${officialLabel}</button>
     </div>
-    <div id="leafletMap"></div>
+    <div id="leafletMap" style="position:relative;min-height:320px;background:#dbe5ec;"></div>
     <div id="mapMiniCard" class="map-mini-card">
       <div class="map-mini-card-handle"></div>
       <div id="mapMiniCardContent"></div>
