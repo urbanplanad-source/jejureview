@@ -31,8 +31,8 @@ var HOSPITALS_SEOGWIPO = {
       closed: { zh: "周日 · 周一 休息 ｜ 须提前预约", en: "Sun & Mon Closed | Appointment required", ja: "日・月 休診 ｜ 要予約" }
     },
     lat: 33.3029, lng: 126.2914,
-    lat: 33.3057735,
-    lng: 126.3134242,
+    lat: 33.30522,
+    lng: 126.31368,
     coordStatus: "verified",
     platform_links: {
       naver: "https://map.naver.com/v5/search/벨르몬성형외과",

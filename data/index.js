@@ -1,4 +1,4 @@
-/* ================================================================
+﻿/* ================================================================
    data/index.js - 병원 기본 정보 인덱스 (경량화)
    상세 정보는 지역별 파일에서 로드
    ================================================================ */
@@ -16,7 +16,7 @@ const HOSPITAL_INDEX = [
     rating: 4.6,
     review_count: 1122,
     name_ko: "아름다운피부과의원",
-    name: { zh: "老衡美丽皮肤科", en: "Areumdaun Dermatology", ja: "ノヒョン アルムダウン皮膚科" },
+    name: { zh: "BTSKIN CLINIC", en: "BTSKIN CLINIC", ja: "BTSKIN CLINIC" },
     thumbnail: "images/areumd-thumb.webp",
     lat: 33.4882, lng: 126.4827, coordStatus: "estimated",
     lat: 33.4867661,
@@ -32,14 +32,15 @@ const HOSPITAL_INDEX = [
     specialty: "plastic-surgery",
     type: "clinic",
     official_licensed: true,  // 외국인환자 유치의료기관 (보건복지부 등록)
+    taxi_support: true,
     rating: 4.7,
     review_count: 107,
     name_ko: "벨르몬성형외과의원",
     name: { zh: "贝勒蒙整形外科", en: "Bellemorn Plastic Surgery", ja: "ベルモン整形外科" },
     thumbnail: "images/bellemorn-thumb.jpg",
     lat: 33.3029, lng: 126.2914, coordStatus: "estimated",
-    lat: 33.3057735,
-    lng: 126.3134242,
+    lat: 33.30522,
+    lng: 126.31368,
     coordStatus: "verified",
     has_detail: true
   },
@@ -1269,3 +1270,4 @@ const DB_PROXY = {
     return CONTENTS_DB;
   }
 };
+

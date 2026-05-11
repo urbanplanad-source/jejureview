@@ -12,9 +12,9 @@ var HOSPITALS_JEJU_CITY = {
     specialist_cert: "dermatology",
     featured: true,
     name: {
-      zh: "老衡美丽皮肤科",
-      en: "Areumdaun Dermatology (Noheung)",
-      ja: "ノヒョン アルムダウン皮膚科"
+      zh: "BTSKIN CLINIC",
+      en: "BTSKIN CLINIC",
+      ja: "BTSKIN CLINIC"
     },
     name_ko: "아름다운피부과의원",
     address: {

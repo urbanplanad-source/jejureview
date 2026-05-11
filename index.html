@@ -260,6 +260,41 @@ body.notice-visible #view{padding-top:40px;}
 .hosp-detail-avatar{width:64px;height:64px;border-radius:20px;background:#E8F3FF;display:flex;align-items:center;justify-content:center;font-size:28px;border:1px solid #E5E8EB;flex-shrink:0;}
 .hosp-detail-info-row{display:flex;align-items:center;gap:8px;font-size:13px;color:#8B95A1;margin-top:8px;}
 .specialties{display:flex;gap:6px;margin-top:12px;flex-wrap:wrap;}
+.detail-hero-card{background:#fff;border-bottom:1px solid #E5E8EB;padding:18px 16px 16px;}
+.detail-hero-top{display:flex;gap:14px;align-items:flex-start;}
+.detail-hero-logo{width:72px;height:72px;border-radius:24px;background:#E8F3FF;color:#3182F6;display:flex;align-items:center;justify-content:center;font-size:28px;font-weight:850;flex-shrink:0;border:1px solid rgba(49,130,246,.12);}
+.detail-hero-body{flex:1;min-width:0;}
+.detail-hero-name{font-size:22px;font-weight:850;line-height:1.25;color:#191F28;letter-spacing:-.01em;}
+.detail-hero-sub{font-size:13px;color:#8B95A1;margin-top:4px;line-height:1.45;}
+.detail-hero-meta{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-top:10px;font-size:13px;color:#4E5968;}
+.detail-trust-row{display:flex;gap:6px;flex-wrap:wrap;margin-top:14px;}
+.detail-trust-chip{display:inline-flex;align-items:center;gap:4px;padding:5px 9px;border-radius:999px;font-size:11px;font-weight:750;background:#F2F4F6;color:#4E5968;}
+.detail-trust-chip.primary{background:#E8F3FF;color:#3182F6;}
+.detail-tab-strip{display:flex;background:#fff;border-bottom:1px solid #E5E8EB;position:sticky;top:49px;z-index:30;margin:0 -16px;padding:0 16px;}
+.detail-info-card{background:#fff;border-radius:18px;border:1px solid #E5E8EB;padding:16px;margin-top:12px;}
+.detail-section-title{font-size:16px;font-weight:850;color:#191F28;margin-bottom:12px;display:flex;align-items:center;justify-content:space-between;gap:8px;}
+.detail-section-sub{font-size:12px;color:#8B95A1;font-weight:600;}
+.detail-fact-list{display:flex;flex-direction:column;gap:12px;}
+.detail-fact-row{display:flex;gap:10px;align-items:flex-start;font-size:14px;color:#4E5968;line-height:1.45;}
+.detail-fact-icon{width:28px;height:28px;border-radius:10px;background:#F2F4F6;color:#3182F6;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.detail-hours-card{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:8px;}
+.detail-hours-cell{background:#F7F8FA;border-radius:14px;padding:12px;}
+.detail-hours-label{font-size:12px;color:#8B95A1;font-weight:750;margin-bottom:5px;}
+.detail-hours-value{font-size:14px;color:#191F28;font-weight:750;line-height:1.4;}
+.detail-map-preview{height:132px;border-radius:16px;background:#E8F3FF;overflow:hidden;position:relative;border:1px solid #E5E8EB;margin-top:10px;cursor:pointer;}
+.detail-map-preview:before{content:"";position:absolute;inset:0;background:linear-gradient(135deg,rgba(49,130,246,.14),rgba(45,202,114,.12)),repeating-linear-gradient(45deg,transparent 0 22px,rgba(255,255,255,.45) 22px 24px);}
+.detail-map-pin{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:42px;height:42px;border-radius:999px;background:#3182F6;color:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 22px rgba(49,130,246,.28);border:4px solid #fff;font-weight:850;}
+.detail-map-actions{display:flex;gap:8px;margin-top:10px;}
+.detail-map-actions .btn-action{padding:12px 0;border-radius:12px;}
+.detail-review-score{display:grid;grid-template-columns:92px 1fr;gap:16px;align-items:center;background:#F7F8FA;border-radius:16px;padding:14px;margin-bottom:12px;}
+.detail-review-big{font-size:34px;font-weight:900;color:#191F28;text-align:center;}
+.detail-review-caption{font-size:12px;color:#8B95A1;text-align:center;margin-top:2px;}
+.detail-review-bars{display:flex;flex-direction:column;gap:7px;}
+.detail-review-bar{display:grid;grid-template-columns:52px 1fr;gap:8px;align-items:center;font-size:12px;color:#8B95A1;}
+.detail-review-track{height:6px;border-radius:999px;background:#E5E8EB;overflow:hidden;}
+.detail-review-fill{height:100%;border-radius:999px;background:#3182F6;}
+.detail-sticky-cta{position:sticky;bottom:74px;z-index:25;margin:14px -4px 0;padding:10px;background:rgba(255,255,255,.92);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid #E5E8EB;border-radius:18px;box-shadow:0 10px 30px rgba(0,0,0,.08);}
+.detail-sticky-cta button{width:100%;height:48px;border:none;border-radius:14px;background:#3182F6;color:#fff;font-size:15px;font-weight:850;cursor:pointer;box-shadow:0 6px 16px rgba(49,130,246,.24);}
 
 .platform-tabs{display:flex;gap:6px;margin-bottom:14px;}
 .platform-meta{font-size:13px;color:#8B95A1;margin-bottom:10px;font-weight:600;}
@@ -504,13 +539,30 @@ body.notice-visible #view{padding-top:40px;}
 .fav-btn{position:absolute;top:10px;right:10px;width:30px;height:30px;border-radius:999px;background:rgba(255,255,255,.92);border:1px solid rgba(0,0,0,.08);display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:15px;box-shadow:0 1px 6px rgba(0,0,0,.10);transition:transform .15s;}
 .fav-btn:active{transform:scale(.9);}
 .hosp-card-wrap{position:relative;}
+.quick-keywords{margin:14px 0 18px;}
+.quick-keywords-title{font-size:13px;font-weight:800;color:#191F28;margin-bottom:10px;}
+.quick-keyword-grid{display:flex;flex-wrap:wrap;gap:8px;}
+.quick-keyword{padding:8px 12px;border-radius:10px;border:1px solid #E5E8EB;background:#fff;color:#4E5968;font-size:12px;font-weight:700;}
+.hosp-browse-tabs{display:grid;grid-template-columns:repeat(3,1fr);background:#fff;border-bottom:1px solid #E5E8EB;margin:0 -16px 12px;padding:0 16px;}
+.hosp-browse-tab{height:46px;font-size:13px;font-weight:750;color:#8B95A1;border-bottom:2px solid transparent;}
+.hosp-browse-tab.active{color:#191F28;border-bottom-color:#191F28;}
+.hosp-filter-panel{margin-bottom:14px;}
+.hosp-result-head{display:flex;align-items:center;justify-content:space-between;margin:8px 0 12px;}
+.hosp-result-count{font-size:13px;font-weight:800;color:#191F28;}
+.hosp-result-sort{font-size:12px;color:#8B95A1;}
+.hosp-card-actions{display:flex;gap:8px;margin-top:10px;}
+.hosp-card-action{height:34px;padding:0 12px;border-radius:10px;background:#F2F4F6;color:#4E5968;font-size:12px;font-weight:750;display:inline-flex;align-items:center;justify-content:center;gap:5px;}
+.hosp-card-action.map{background:#E8F3FF;color:#3182F6;}
 
 /* ── MAP PAGE ── */
-.map-page-wrap{display:flex;flex-direction:column;overflow:hidden;position:relative;}
+.map-page-wrap{display:flex;flex-direction:column;overflow:hidden;position:relative;height:calc(100dvh - 68px - env(safe-area-inset-bottom));min-height:560px;}
 .map-filter-bar{display:flex;gap:8px;padding:8px 16px;background:#fff;border-bottom:1px solid #E5E8EB;overflow-x:auto;flex-shrink:0;}
 .map-filter-bar::-webkit-scrollbar{display:none;}
 .map-filter-bar .chip{flex-shrink:0;}
-#leafletMap{width:100%;flex:1;min-height:320px;position:relative;z-index:1;background:#dbe5ec;}
+.map-search-wrap{padding:10px 16px;background:#fff;border-bottom:1px solid #E5E8EB;}
+.map-search{width:100%;height:42px;border:1.5px solid #E5E8EB;border-radius:14px;background:#F9FAFB;padding:0 14px;font-size:14px;outline:none;color:#191F28;}
+.map-search:focus{border-color:#3182F6;background:#fff;}
+#leafletMap{width:100%;flex:1;min-height:420px;position:relative;z-index:1;background:#dbe5ec;}
 .leaflet-container{position:relative;overflow:hidden;background:#ddd;outline-offset:1px;touch-action:none;}
 .leaflet-pane,.leaflet-tile,.leaflet-marker-icon,.leaflet-marker-shadow,.leaflet-tile-container,.leaflet-pane>svg,.leaflet-pane>canvas,.leaflet-zoom-box,.leaflet-image-layer,.leaflet-layer{position:absolute;left:0;top:0;}
 .leaflet-tile,.leaflet-marker-icon,.leaflet-marker-shadow{user-select:none;-webkit-user-drag:none;}
@@ -534,9 +586,32 @@ body.notice-visible #view{padding-top:40px;}
 .leaflet-control-zoom a:first-child{border-radius:8px 8px 0 0;}
 .leaflet-control-zoom a:last-child{border-bottom:0;border-radius:0 0 8px 8px;}
 .leaflet-control-attribution{background:rgba(255,255,255,.8);font-size:10px;padding:2px 5px;color:#4E5968;}
-.map-mini-card{position:fixed;left:50%;transform:translateX(-50%) translateY(calc(100% + 10px));width:100%;max-width:430px;background:#fff;border-radius:20px 20px 0 0;box-shadow:0 -4px 24px rgba(0,0,0,.14);z-index:55;padding:14px 20px calc(16px + env(safe-area-inset-bottom));transition:transform .3s cubic-bezier(.32,.72,0,1);bottom:72px;}
-.map-mini-card.open{transform:translateX(-50%) translateY(0);}
+.map-mini-card{position:fixed;left:50%;transform:translateX(-50%) translateY(calc(100% + 88px));width:100%;max-width:430px;background:#fff;border-radius:20px 20px 0 0;box-shadow:0 -4px 24px rgba(0,0,0,.14);z-index:55;padding:14px 20px calc(16px + env(safe-area-inset-bottom));transition:transform .3s cubic-bezier(.32,.72,0,1),visibility .3s;bottom:68px;visibility:hidden;pointer-events:none;}
+.map-mini-card.open{transform:translateX(-50%) translateY(0);visibility:visible;pointer-events:auto;}
 .map-mini-card-handle{width:36px;height:4px;background:#E5E8EB;border-radius:99px;margin:0 auto 14px;}
+.map-card-close{position:absolute;top:12px;right:14px;width:34px;height:34px;border-radius:50%;background:#F2F4F6;color:#4E5968;font-size:18px;font-weight:700;display:flex;align-items:center;justify-content:center;z-index:2;}
+.map-back-list{display:flex;align-items:center;justify-content:center;gap:6px;width:100%;margin-top:10px;padding:10px 12px;border-radius:12px;background:#F2F4F6;color:#4E5968;font-size:13px;font-weight:750;}
+.map-results-sheet{position:fixed;left:50%;bottom:68px;transform:translateX(-50%);width:100%;max-width:430px;height:260px;background:#fff;border-radius:20px 20px 0 0;box-shadow:0 -4px 20px rgba(0,0,0,.13);z-index:54;display:flex;flex-direction:column;overflow:hidden;}
+.map-results-handle{width:36px;height:4px;background:#E5E8EB;border-radius:99px;margin:9px auto 8px;flex-shrink:0;}
+.map-results-head{display:flex;align-items:center;justify-content:space-between;padding:0 16px 8px;gap:10px;flex-shrink:0;}
+.map-results-title{font-size:13px;font-weight:800;color:#191F28;}
+.map-results-sub{font-size:11px;color:#8B95A1;white-space:nowrap;}
+.map-results-list{overflow-y:auto;padding:0 16px 14px;display:flex;flex-direction:column;gap:8px;}
+.map-result-card{display:flex;gap:10px;align-items:center;padding:10px 0;border-top:1px solid #F2F4F6;cursor:pointer;}
+.map-result-icon{width:38px;height:38px;border-radius:12px;background:#E8F3FF;color:#3182F6;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.map-result-body{flex:1;min-width:0;}
+.map-result-name{font-size:13px;font-weight:750;color:#191F28;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.map-result-meta{font-size:11px;color:#8B95A1;margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.map-result-dist{font-size:12px;font-weight:800;color:#3182F6;white-space:nowrap;}
+.map-priority-notice{position:absolute;left:16px;right:16px;top:118px;z-index:500;background:rgba(25,31,40,.9);color:#fff;border-radius:14px;padding:10px 12px;font-size:12px;font-weight:700;text-align:center;box-shadow:0 8px 24px rgba(0,0,0,.18);pointer-events:none;animation:mapNoticeFade 4.2s ease forwards;}
+@keyframes mapNoticeFade{0%{opacity:0;transform:translateY(-8px)}12%,70%{opacity:1;transform:translateY(0)}100%{opacity:0;transform:translateY(-8px);visibility:hidden}}
+.taxi-estimate-box{margin:10px 0 12px;padding:10px 12px;border-radius:14px;background:#F7F8FA;border:1px solid #E5E8EB;}
+.taxi-estimate-main{display:flex;align-items:center;justify-content:space-between;gap:8px;font-size:13px;color:#191F28;font-weight:750;}
+.taxi-estimate-sub{font-size:11px;color:#8B95A1;margin-top:4px;line-height:1.4;}
+.taxi-support-chip{display:inline-flex;align-items:center;gap:4px;padding:3px 8px;border-radius:999px;background:#FFF4E6;color:#E56A00;font-size:11px;font-weight:800;}
+.map-selected-pin{background:#F04452!important;width:38px!important;height:38px!important;box-shadow:0 0 0 8px rgba(240,68,82,.18),0 4px 14px rgba(0,0,0,.28)!important;}
+.leaflet-tooltip.clinic-label{background:#191F28;color:#fff;border:none;border-radius:10px;padding:6px 9px;font-size:12px;font-weight:750;box-shadow:0 3px 12px rgba(0,0,0,.22);}
+.leaflet-tooltip.clinic-label:before{border-top-color:#191F28;}
 .leaflet-attribution-flag{display:none!important;}
 </style>
 </head>
@@ -640,8 +715,6 @@ const SPECIALTIES = [
   {key:"eye",              icon:"👁️", cls:"eye",             specialties:["ophthalmology"]},
   {key:"pediatric",        icon:"👶", cls:"pediatric",       specialties:["pediatrics"]},
   {key:"other",            icon:"🏥", cls:"other",           specialties:["internal","neurology","orthopedics","ent"]},
-  {key:"skincare",         icon:"✨", cls:"skincare",        specialties:["skincare"]},
-  {key:"massage",          icon:"💆", cls:"massage",         specialties:["massage"]},
 ];
 
 /* PC 광고 설정 — 이미지 경로만 수정 */
@@ -649,16 +722,24 @@ const PC_AD_IMG = "광고.webp";
 
 let state = {
   page:"home", id:null, tab:"home",
-  hospSearch:"", hospRegion:"all", hospChinese:false, hospSpecialty:"",
+  hospSearch:"", hospRegion:"all", hospChinese:false, hospSpecialty:"", hospBrowseTab:"specialty",
   activePlatform:{},
   lang:"zh",
   location:"all",  // "all" | "jeju-city" | "seogwipo"
   // AI 안내 채팅 상태
   bookStep:0, bookData:{}, bookMsgs:[], bookFormVisible:false,
   // 지도 필터 상태
-  mapFilter:"all", mapOfficialOnly:false,
+  mapFilter:"all", mapOfficialOnly:false, mapSearch:"", mapTargetId:null, userLocation:null, mapLocateAsked:false,
 };
 let navHistory = [];
+
+function resetHospitalFilters(){
+  state.hospSearch="";
+  state.hospRegion="all";
+  state.hospChinese=false;
+  state.hospSpecialty="";
+  state.hospBrowseTab="specialty";
+}
 
 /* ════════════════════════════════════════
    i18n HELPERS
@@ -811,6 +892,8 @@ function hospCardHtml(h, isNearby=false){
     ? `<span class="badge-licensed" title="${t('badge_licensed_tooltip')}">🏥 ${t('badge_licensed_label')} ℹ️</span>`
     : "";
   const typeBadge = venueBadge(h);
+  const mapActionLabel = {zh:"地图查看",en:"Map",ja:"地図"}[lang];
+  const detailActionLabel = {zh:"查看详情",en:"Details",ja:"詳細"}[lang];
 
   // 썸네일 있으면 가로형 카드 (이미지 좌측 · 정보 우측)
   if(h.thumbnail){
@@ -828,6 +911,10 @@ function hospCardHtml(h, isNearby=false){
         </div>
         <div class="hosp-card-wide-meta">
           ${nearbyBadge}${typeBadge}${foreignBadge}${licensedBadge}${regionBadge}
+        </div>
+        <div class="hosp-card-actions">
+          <button class="hosp-card-action map" data-hosp-map="${h.id}">${IC.map(14,'#3182F6')} ${mapActionLabel}</button>
+          <button class="hosp-card-action" data-nav="hospital" data-id="${h.id}">${detailActionLabel}</button>
         </div>
       </div>
       <button class="fav-btn" data-fav="${h.id}">${isFav(h.id)?'♥':'♡'}</button>
@@ -847,6 +934,10 @@ function hospCardHtml(h, isNearby=false){
       </div>
       <div class="hosp-card-wide-meta">
         ${nearbyBadge}${typeBadge}${foreignBadge}${licensedBadge}${regionBadge}
+      </div>
+      <div class="hosp-card-actions">
+        <button class="hosp-card-action map" data-hosp-map="${h.id}">${IC.map(14,'#3182F6')} ${mapActionLabel}</button>
+        <button class="hosp-card-action" data-nav="hospital" data-id="${h.id}">${detailActionLabel}</button>
       </div>
     </div>
     <button class="fav-btn" data-fav="${h.id}">${isFav(h.id)?'♥':'♡'}</button>
@@ -888,6 +979,14 @@ async function switchTab(tab){
   state.id = null;
   window.scrollTo(0,0);
   await render();
+}
+
+async function openHospitalOnMap(id){
+  state.mapTargetId = id;
+  state.mapFilter = "all";
+  state.mapSearch = "";
+  state.mapOfficialOnly = false;
+  await switchTab("map");
 }
 
 /* ════════════════════════════════════════
@@ -1108,12 +1207,14 @@ function renderHospitals(){
   let filtered = DB.hospitals.filter(h=>{
     if(r!=="all" && h.region!==r) return false;
     if(cn && !h.chinese_staff) return false;
-    if(q && !`${h.name_ko} ${lng(h.name)} ${lng(h.address)}`.toLowerCase().includes(q)) return false;
+    const treatmentTerms = isMapPrimarySpecialty(h) ? " 울쎄라피프라임 울쎄라 세르프 써마지flx 써마지 리쥬란 ultherapy prime ulthera serf thermage flx rejuran" : "";
+    if(q && !`${h.name_ko} ${lng(h.name)} ${lng(h.address)} ${treatmentTerms}`.toLowerCase().includes(q)) return false;
     // 기능 필터
     if(sp==="__favs__")          { if(!getFavs().includes(h.id)) return false; }
     else if(sp==="open_now")    { if(!isOpenNow(h)) return false; }
     else if(sp==="foreign_official"){ if(!(h.foreign_official || h.official_licensed)) return false; }
     else if(sp==="derm_cert")   { if(h.specialist_cert!=="dermatology") return false; }
+    else if(sp==="dermatology" || sp==="plastic-surgery"){ if(h.specialty!==sp) return false; }
     else if(sp){
       // 일반 specialty 필터
       const specDef = SPECIALTIES.find(s=>s.key===sp);
@@ -1136,7 +1237,29 @@ function renderHospitals(){
     chip(t('spec_'+s.key), sp===s.key, "#8b5cf6", "rgba(139,92,246,.1)", `spec:${s.key}`)
   ).join("");
   const specAllChip = chip({zh:"全部",en:"All",ja:"すべて"}[lang], sp==="", "#3182F6","#E8F3FF","spec:");
-
+  const quickKeywords = [
+    {label:{zh:"Ultherapy Prime",en:"Ultherapy Prime",ja:"Ultherapy Prime"}, action:"search:ultherapy prime"},
+    {label:{zh:"Serf",en:"Serf",ja:"Serf"}, action:"search:serf"},
+    {label:{zh:"Thermage FLX",en:"Thermage FLX",ja:"Thermage FLX"}, action:"search:thermage flx"},
+    {label:{zh:"Rejuran",en:"Rejuran",ja:"Rejuran"}, action:"search:rejuran"},
+    {label:{zh:"Registered",en:"Registered",ja:"Registered"}, action:"spec:foreign_official"},
+    {label:{zh:"Chinese Staff",en:"Chinese Staff",ja:"Chinese Staff"}, action:"chinese"}
+  ].map(k=>`<button class="quick-keyword" data-hosp-keyword="${k.action}">${k.label[lang]||k.label.en}</button>`).join("");
+  const resetLabel={zh:"Reset",en:"Reset",ja:"Reset"}[lang];
+  const mainFilterChips = [
+    specAllChip,
+    chip({zh:"Registered",en:"Registered",ja:"Registered"}[lang], sp==="foreign_official", "#3182F6", "#E8F3FF", "spec:foreign_official"),
+    chip({zh:"Dermatology",en:"Dermatology",ja:"Dermatology"}[lang], sp==="dermatology", "#3182F6", "#E8F3FF", "spec:dermatology"),
+    chip({zh:"Plastic Surgery",en:"Plastic Surgery",ja:"Plastic Surgery"}[lang], sp==="plastic-surgery", "#3182F6", "#E8F3FF", "spec:plastic-surgery")
+  ].join("");
+  const areaFilterChips = [
+    chip(reg("all"), r==="all", "#3182F6", "#E8F3FF", "region:all"),
+    chip(reg("jeju-city"), r==="jeju-city", "#3182F6", "#E8F3FF", "region:jeju-city"),
+    chip(reg("seogwipo"), r==="seogwipo", "#3182F6", "#E8F3FF", "region:seogwipo"),
+    chineseChip
+  ].join("");
+  const filterPanel = `<div class="chips-row">${mainFilterChips}</div><div class="chips-row" style="margin-top:8px">${areaFilterChips}<button class="chip" data-hosp-reset style="border-color:#F04452;color:#F04452;background:#fff;">${resetLabel}</button></div>`;
+  const browseTabs="";
   const hospList = filtered.length===0
     ? `<div class="empty"><div class="empty-icon">🔍</div><div class="empty-title">${t('hosp_empty')}</div></div>`
     : filtered.map(h=>hospCardHtml(h)).join("");
@@ -1151,14 +1274,22 @@ function renderHospitals(){
         <input class="search-input" id="hospSearch" type="text" placeholder="${t('hosp_search_ph')}" value="${state.hospSearch}"/>
         ${state.hospSearch?`<button class="search-clear" id="clearSearch">✕</button>`:""}
       </div>
-      <div class="chips-row" style="margin-bottom:8px">${specAllChip}${specChips}</div>
-      <div class="chips-row" style="margin-bottom:12px">${regionChips}${chineseChip}</div>
+      <div class="quick-keywords">
+        <div class="quick-keywords-title">${{zh:"推荐搜索词",en:"Suggested searches",ja:"おすすめ検索"}[lang]}</div>
+        <div class="quick-keyword-grid">${quickKeywords}</div>
+      </div>
+      ${browseTabs?`<div class="hosp-browse-tabs">${browseTabs}</div>`:""}
+      <div class="hosp-filter-panel">${filterPanel}</div>
       <div style="background:#E8F3FF;border:1px solid rgba(49,130,246,.12);border-radius:10px;padding:8px 12px;margin-bottom:14px;font-size:11px;color:#4E5968;line-height:1.6;">
         ${{
           zh:"📋 排列顺序：默认按公开评分高者优先，并可按地区或科目筛选。<br>※ 本平台仅提供公开信息整理，不提供预约代办或特定医疗机构推荐。",
           en:"📋 Sort order: Public rating score first by default, with filters by area or specialty.<br>※ This platform organizes public information only and does not arrange bookings or recommend specific clinics.",
           ja:"📋 表示順序：デフォルトは公開評価スコアの高い順で、エリアや診療科目で絞り込みできます。<br>※ 本サービスは公開情報の整理のみを目的としており、予約代行や特定医療機関の推薦は行いません。"
         }[state.lang]}
+      </div>
+      <div class="hosp-result-head">
+        <div class="hosp-result-count">${{zh:`共 ${filtered.length} 家`,en:`${filtered.length} institutions`,ja:`${filtered.length} 件`}[lang]}</div>
+        <div class="hosp-result-sort">${{zh:"公开评分顺",en:"Public rating",ja:"公開評価順"}[lang]}</div>
       </div>
       <div class="list-stack" style="padding-bottom:20px" id="hospList">${hospList}</div>
     </div>
@@ -1274,6 +1405,24 @@ async function renderHospitalDetail(){
   const ctaNote = {zh:"本平台仅提供联系方式，请自行添加后咨询",en:"We only provide contact details. Please reach out directly.",ja:"連絡先情報のみ提供しています。直接クリニックにお問い合わせください。"}[lang];
 
   // 가격 섹션
+  const detailCopy = {
+    zh:{info:"机构信息",care:"服务信息",reviews:"评论摘要",location:"位置",hours:"营业时间",today:"平日",saturday:"周六",closed:"休息日",official:"注册确认机构",publicInfo:"公开信息机构",map:"在地图中查看",externalMap:"外部地图",contact:"查看官方联系信息",distance:"距济州机场直线距离",scoreLabel:"公开评分",sourceNote:"本页仅整理公开信息，不提供预约代办或特定医疗机构推荐。"},
+    en:{info:"Clinic Info",care:"Care Info",reviews:"Review Summary",location:"Location",hours:"Hours",today:"Weekdays",saturday:"Saturday",closed:"Closed",official:"Registration checked",publicInfo:"Public info listing",map:"View on Map",externalMap:"External Map",contact:"Official Contact Info",distance:"Straight-line distance from Jeju Airport",scoreLabel:"Public rating",sourceNote:"This page organizes public information only and does not arrange bookings or recommend specific clinics."},
+    ja:{info:"クリニック情報",care:"診療情報",reviews:"レビュー要約",location:"位置",hours:"診療時間",today:"平日",saturday:"土曜",closed:"休診日",official:"登録確認機関",publicInfo:"公開情報機関",map:"地図で見る",externalMap:"外部地図",contact:"公式連絡先を確認",distance:"済州空港からの直線距離",scoreLabel:"公開評価",sourceNote:"本ページは公開情報の整理のみを目的としており、予約代行や特定医療機関の推薦は行いません。"}
+  }[lang];
+  const airportKm = (h.lat && h.lng) ? haversineKm(33.5113,126.4926,Number(h.lat),Number(h.lng)).toFixed(1) : null;
+  const trustChips = [
+    h.official_licensed ? `<span class="detail-trust-chip primary">${detailCopy.official}</span>` : `<span class="detail-trust-chip">${detailCopy.publicInfo}</span>`,
+    h.chinese_staff ? `<span class="detail-trust-chip">${t('hosp_chinese')}</span>` : "",
+    airportKm ? `<span class="detail-trust-chip">~${airportKm} km</span>` : ""
+  ].filter(Boolean).join("");
+  const heroRating = `${stars(h.rating)} <span>${h.rating}</span><span>·</span><span>${h.review_count||0} ${t('hosp_reviews')}</span>`;
+  const reviewBars = [
+    [t('detail_pros'), 88],
+    [t('detail_cons'), 18],
+    [t('detail_cautions'), 12]
+  ].map(([label,val])=>`<div class="detail-review-bar"><span>${label}</span><div class="detail-review-track"><div class="detail-review-fill" style="width:${val}%"></div></div></div>`).join("");
+
   const priceHtml = (h.prices && h.prices.length) ? `
     <div class="card" style="margin-top:12px">
       <div class="price-section">
@@ -1318,9 +1467,9 @@ async function renderHospitalDetail(){
     : "";
 
   // 탭 라벨
-  const tabInfo     = {zh:"基本信息",en:"Info",      ja:"基本情報"}[lang];
-  const tabReview   = {zh:"真实口碑",en:"Reviews",   ja:"口コミ"}[lang];
-  const tabPrice    = {zh:"参考价格",en:"Prices",    ja:"料金"}[lang];
+  const tabInfo     = detailCopy.info;
+  const tabReview   = detailCopy.reviews;
+  const tabPrice    = detailCopy.care;
   const hasPrices   = h.prices && h.prices.length;
   const hasReviews  = isClinic;
 
@@ -1330,11 +1479,22 @@ async function renderHospitalDetail(){
       <span class="page-header-title">${lng(h.name)||h.name_ko}</span>
       <button class="page-header-share" data-share="${h.id}" style="margin-left:auto;background:none;border:none;cursor:pointer;padding:8px;font-size:18px" aria-label="Share">↗</button>
     </div>
+    <div class="detail-hero-card">
+      <div class="detail-hero-top">
+        <div class="detail-hero-logo">${h.name_ko.charAt(0)}</div>
+        <div class="detail-hero-body">
+          <div class="detail-hero-name">${h.name_ko}</div>
+          <div class="detail-hero-sub">${lng(h.name)||""}</div>
+          <div class="detail-hero-meta">${heroRating}</div>
+        </div>
+      </div>
+      <div class="detail-trust-row">${trustChips}</div>
+    </div>
     ${galleryHtml}
     <div class="page-pad">
 
       <!-- 탭 내비게이션 -->
-      <div class="detail-tabs">
+      <div class="detail-tabs detail-tab-strip">
         <button class="detail-tab-btn active" onclick="
           document.querySelectorAll('.detail-tab-btn').forEach(b=>b.classList.remove('active'));
           this.classList.add('active');
@@ -1345,11 +1505,11 @@ async function renderHospitalDetail(){
           this.classList.add('active');
           document.getElementById('sec-reviews').scrollIntoView({behavior:'smooth',block:'start'});
         ">${tabReview}</button>`:""}
-        ${hasPrices?`<button class="detail-tab-btn" onclick="
+        <button class="detail-tab-btn" onclick="
           document.querySelectorAll('.detail-tab-btn').forEach(b=>b.classList.remove('active'));
           this.classList.add('active');
-          document.getElementById('sec-prices').scrollIntoView({behavior:'smooth',block:'start'});
-        ">${tabPrice}</button>`:""}
+          document.getElementById('sec-care').scrollIntoView({behavior:'smooth',block:'start'});
+        ">${tabPrice}</button>
       </div>
 
       <!-- 기본정보 섹션 -->
@@ -1381,6 +1541,51 @@ async function renderHospitalDetail(){
           <a href="tel:${displayPhone}" class="btn-action">📞 ${t('detail_phone')}</a>
         </div>
         <div class="specialties">${specialties}</div>
+      </div>
+
+      <div class="detail-info-card">
+        <div class="detail-section-title">
+          <span>${detailCopy.hours}</span>
+          <span class="detail-section-sub">${t('hours_timezone')}</span>
+        </div>
+        <div class="detail-hours-card">
+          <div class="detail-hours-cell">
+            <div class="detail-hours-label">${detailCopy.today}</div>
+            <div class="detail-hours-value">${lng(weekdayHours)||"-"}</div>
+          </div>
+          <div class="detail-hours-cell">
+            <div class="detail-hours-label">${detailCopy.saturday}</div>
+            <div class="detail-hours-value">${lng(satHours)||"-"}</div>
+          </div>
+          <div class="detail-hours-cell" style="grid-column:1 / -1">
+            <div class="detail-hours-label">${detailCopy.closed}</div>
+            <div class="detail-hours-value">${lng(closedHours)||"-"}</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="detail-info-card">
+        <div class="detail-section-title">${detailCopy.location}</div>
+        <div class="detail-fact-list">
+          <div class="detail-fact-row"><div class="detail-fact-icon">${IC.map()}</div><div>${lng(h.address)}</div></div>
+          ${airportKm?`<div class="detail-fact-row"><div class="detail-fact-icon">km</div><div>${detailCopy.distance} ~${airportKm} km</div></div>`:""}
+        </div>
+        <div class="detail-map-preview" data-detail-map="${h.id}">
+          <div class="detail-map-pin">${IC.map()}</div>
+        </div>
+        <div class="detail-map-actions">
+          <button class="btn-action blue" data-detail-map="${h.id}">${detailCopy.map}</button>
+          <a href="${mapUrl}" target="_blank" class="btn-action">${detailCopy.externalMap}</a>
+        </div>
+      </div>
+
+      <div id="sec-care" class="detail-section detail-info-card">
+        <div class="detail-section-title">${detailCopy.care}</div>
+        <div class="specialties" style="margin-top:0">${specialties||venueBadge(h)}</div>
+        ${languagesHtml}
+        ${doctorHtml}
+        ${paymentHtml}
+        <div class="price-disclaimer" style="margin-top:12px">${detailCopy.sourceNote}</div>
       </div>
 
       <!-- 유튜브 영상 -->
@@ -1418,7 +1623,14 @@ async function renderHospitalDetail(){
       <div id="sec-reviews" class="detail-section card" style="margin-top:12px">
         <div class="ai-summary-header">
           <span style="font-size:18px">🤖</span>
-          <span style="font-size:16px;font-weight:750">${t('detail_overall')}</span>
+          <span style="font-size:16px;font-weight:750">${detailCopy.reviews}</span>
+        </div>
+        <div class="detail-review-score">
+          <div>
+            <div class="detail-review-big">${h.rating}</div>
+            <div class="detail-review-caption">${detailCopy.scoreLabel}</div>
+          </div>
+          <div class="detail-review-bars">${reviewBars}</div>
         </div>
         <div style="font-size:11px;color:#8B95A1;margin-bottom:8px">${{zh:"摘要基于公开评论生成，原文版权归各平台所有",en:"AI summary of public reviews. Original copyright belongs to each platform.",ja:"公開口コミのAI要約です。著作権は各プラットフォームに帰属します。"}[lang]}</div>
         <div class="ai-summary-text">${rs.overall||"—"}</div>
@@ -1442,12 +1654,15 @@ async function renderHospitalDetail(){
       </div>` : ""}
 
       <div class="card cta-card" style="margin-top:12px;margin-bottom:24px">
-        <div class="cta-title">${t('detail_contact')}</div>
-        <div style="font-size:12px;color:#8B95A1;margin-bottom:12px">${ctaNote}</div>
+        <div class="cta-title">${detailCopy.contact}</div>
+        <div style="font-size:12px;color:#8B95A1;margin-bottom:12px">${detailCopy.sourceNote}</div>
         <div class="cta-btns" style="margin-bottom:10px">
           <button class="cta-btn-blue" onclick="window.location.href='tel:${displayPhone}'">📞 ${t('detail_phone')}</button>
         </div>
         ${contactBtnHtml}
+      </div>
+      <div class="detail-sticky-cta">
+        <button data-contact="${h.id}">${detailCopy.contact}</button>
       </div>
     </div>
   </div>`;
@@ -1606,30 +1821,40 @@ function renderBooking(){
    ════════════════════════════════════════ */
 function renderMap(){
   const lang = state.lang;
-  const title = {zh:"地图", en:"Map", ja:"マップ"}[lang];
+  const title = {zh:"地图", en:"Map", ja:"地図"}[lang];
+  const searchPh = {zh:"搜索医院名、地区、科目", en:"Search clinic, area, specialty", ja:"クリニック・地域・科目を検索"}[lang];
+  const priorityNotice = {zh:"优先显示已确认外国患者接收登记的医疗机构。", en:"Clinics registered for international patients are shown first.", ja:"外国人患者受入登録が確認された医療機関を優先表示しています。"}[lang];
   const chips = [
-    {f:"all",        zh:"全部",     en:"All",            ja:"全て"},
-    {f:"dermatology",zh:"皮肤科",   en:"Dermatology",    ja:"皮膚科"},
-    {f:"plastic-surgery",zh:"整形外科",en:"Plastic Surgery",ja:"整形外科"},
+    {f:"all",zh:"皮肤科/整形外科",en:"Derma + Plastic",ja:"皮膚科/美容外科"},
+    {f:"other",zh:"其他医院",en:"Other Clinics",ja:"その他"},
   ].map(c=>`<button class="chip${state.mapFilter===c.f?' active':''}" data-map-filter="${c.f}">${c[lang]||c.zh}</button>`).join("");
-  const officialLabel={zh:"外国人登录",en:"Registered",ja:"外国人登録"}[lang];
   return `<div class="map-page-wrap page-enter">
     <div class="page-header" style="flex-shrink:0;">
       <span class="page-header-title">${title}</span>
     </div>
-    <div class="map-filter-bar" id="mapFilterBar">
-      ${chips}
-      <button class="chip${state.mapOfficialOnly?' active':''}" data-map-filter="official" id="mapChipOfficial">${officialLabel}</button>
+    <div class="map-search-wrap">
+      <input class="map-search" id="mapSearch" value="${state.mapSearch||""}" placeholder="${searchPh}" autocomplete="off"/>
     </div>
-    <div id="leafletMap" style="position:relative;min-height:320px;background:#dbe5ec;"></div>
+    <div class="map-priority-notice">${priorityNotice}</div>
+    <div id="leafletMap" style="position:relative;min-height:420px;background:#dbe5ec;"></div>
+    <div class="map-results-sheet" id="mapResultsSheet">
+      <div class="map-results-handle"></div>
+      <div class="map-filter-bar" id="mapFilterBar">
+        ${chips}
+      </div>
+      <div class="map-results-head">
+        <div class="map-results-title" id="mapResultsTitle"></div>
+        <div class="map-results-sub" id="mapResultsSub"></div>
+      </div>
+      <div id="mapLocationPrompt"></div>
+      <div class="map-results-list" id="mapResultsList"></div>
+    </div>
     <div id="mapMiniCard" class="map-mini-card">
       <div class="map-mini-card-handle"></div>
       <div id="mapMiniCardContent"></div>
     </div>
   </div>`;
 }
-
-/* ── 공항 좌표 (하버사인 거리 계산용) ── */
 const JEJU_AIRPORT_LAT = 33.5113, JEJU_AIRPORT_LNG = 126.4930;
 
 function haversineKm(lat1, lng1, lat2, lng2){
@@ -1637,6 +1862,363 @@ function haversineKm(lat1, lng1, lat2, lng2){
   const dLat=(lat2-lat1)*d2r, dLng=(lng2-lng1)*d2r;
   const a=Math.sin(dLat/2)**2+Math.cos(lat1*d2r)*Math.cos(lat2*d2r)*Math.sin(dLng/2)**2;
   return +(R*2*Math.asin(Math.sqrt(a))).toFixed(1);
+}
+
+function mapDisplayCoords(h, groupIndex=0, groupSize=1){
+  if(groupSize<=1) return {lat:h.lat, lng:h.lng};
+  const radius = 0.00009 + Math.min(groupSize, 5) * 0.000012;
+  const angle = (Math.PI * 2 * groupIndex) / groupSize - Math.PI / 2;
+  return {
+    lat: h.lat + Math.sin(angle) * radius,
+    lng: h.lng + Math.cos(angle) * radius
+  };
+}
+
+function markerHtml(color, selected=false){
+  const cls=selected ? 'map-selected-pin' : '';
+  return `<div class="${cls}" style="background:${color};width:${selected?38:30}px;height:${selected?38:30}px;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(0,0,0,.22);border:2px solid #fff;cursor:pointer;">
+    <svg width="${selected?16:13}" height="${selected?16:13}" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9,22 9,12 15,12 15,22"/></svg>
+  </div>`;
+}
+
+function setSelectedMapMarker(id){
+  if(!window._mapMarkers) return;
+  window._selectedMapHospitalId=id;
+  window._mapMarkers.forEach(({marker,h})=>{
+    const selected=h.id===id;
+    const bg=selected ? '#F04452' : (h.official_licensed?'#3182F6':'#6B7684');
+    marker.setIcon(window.L.divIcon({
+      html:markerHtml(bg, selected),
+      className:'',
+      iconSize:selected?[38,38]:[30,30],
+      iconAnchor:selected?[19,19]:[15,15]
+    }));
+    if(selected){
+      marker.setZIndexOffset(1000);
+      marker.unbindTooltip();
+      marker.bindTooltip(h.name_ko,{permanent:true,direction:'top',offset:[0,-22],className:'clinic-label'}).openTooltip();
+    } else {
+      marker.setZIndexOffset((h.id==="areumd"||h.id==="bellemorn") ? 500 : 200);
+      marker.unbindTooltip();
+    }
+  });
+}
+
+function focusMapMarker(marker, zoom=15){
+  if(!window._mapInstance || !marker) return;
+  const ll=marker.getLatLng();
+  const targetZoom=Math.max(window._mapInstance.getZoom(), zoom);
+  window._mapInstance.setView([ll.lat,ll.lng], targetZoom, {animate:true});
+  setTimeout(()=>{
+    const sheet=document.getElementById('mapMiniCard');
+    const offset=sheet && sheet.classList.contains('open') ? Math.min(210, sheet.offsetHeight * 0.55) : 120;
+    window._mapInstance.panBy([0, offset], {animate:true});
+  }, 280);
+}
+
+function setUserLocationOnMap(map, lat, lng){
+  state.userLocation = {lat, lng};
+  if(window._userLocationMarker) window._mapInstance.removeLayer(window._userLocationMarker);
+  const L=window.L;
+  const icon=L.divIcon({
+    html:`<div style="width:20px;height:20px;border-radius:50%;background:#3182F6;border:3px solid #fff;box-shadow:0 0 0 8px rgba(49,130,246,.18),0 3px 10px rgba(0,0,0,.24);"></div>`,
+    className:'',iconSize:[20,20],iconAnchor:[10,10]
+  });
+  window._userLocationMarker=L.marker([lat,lng],{icon,zIndexOffset:900}).addTo(map);
+  map.setView([lat,lng], 13, {animate:true});
+  setTimeout(()=>{
+    const mini=document.getElementById('mapMiniCard');
+    const results=document.getElementById('mapResultsSheet');
+    let offset=120;
+    if(mini && mini.classList.contains('open')) offset=Math.min(210, mini.offsetHeight * 0.55);
+    else if(results) offset=Math.min(190, results.offsetHeight * 0.42);
+    map.panBy([0, offset], {animate:true});
+  }, 280);
+  renderMapResults();
+}
+
+function requestMapLocation(map, silent=false){
+  const lang=state.lang;
+  if(!navigator.geolocation){
+    if(!silent) alert({zh:"此浏览器不支持位置信息。",en:"Location is not supported in this browser.",ja:"このブラウザは位置情報に対応していません。"}[lang]);
+    return;
+  }
+  navigator.geolocation.getCurrentPosition(
+    pos=>setUserLocationOnMap(map, pos.coords.latitude, pos.coords.longitude),
+    ()=>{
+      if(!silent) alert({zh:"无法获取当前位置。请确认浏览器的位置权限。",en:"Could not get your location. Please check browser location permission.",ja:"現在地を取得できません。ブラウザの位置情報権限をご確認ください。"}[lang]);
+    },
+    {enableHighAccuracy:true, timeout:8000, maximumAge:300000}
+  );
+}
+
+function mapDistanceForHospital(h){
+  const base=state.userLocation || {lat:JEJU_AIRPORT_LAT,lng:JEJU_AIRPORT_LNG};
+  return haversineKm(h.lat,h.lng,base.lat,base.lng);
+}
+
+function isMapPrimarySpecialty(h){
+  return h.specialty==="dermatology" || h.specialty==="plastic-surgery";
+}
+
+function mapHospitalVisibleByFilter(h){
+  if(state.mapFilter==="other") return !isMapPrimarySpecialty(h);
+  if(state.mapFilter==="dermatology") return h.specialty==="dermatology" && h.official_licensed;
+  if(state.mapFilter==="plastic-surgery") return h.specialty==="plastic-surgery" && h.official_licensed;
+  return isMapPrimarySpecialty(h) && h.official_licensed;
+}
+
+function taxiEstimateKrwByKm(km){
+  const straightKm=Number(km)||0;
+  const roadKm=straightKm * roadDistanceFactor(straightKm);
+  const low=smallTaxiFareKrw(roadKm * 0.93);
+  const high=smallTaxiFareKrw(roadKm * 1.12);
+  return {low, high, roadKm};
+}
+
+function roadDistanceFactor(km){
+  const d=Number(km)||0;
+  if(d<3) return 1.28;
+  if(d<8) return 1.35;
+  if(d<20) return 1.45;
+  return 1.55;
+}
+
+function smallTaxiFareKrw(roadKm){
+  const d=Math.max(0, Number(roadKm)||0);
+  let fare=3000;
+  if(d>2){
+    const extraKm=d-2;
+    const unit=d>=20 ? 120 : 100;
+    fare += Math.ceil((extraKm*1000)/167) * unit;
+  }
+  const slowTrafficFactor = d < 8 ? 1.08 : 1.05;
+  fare *= slowTrafficFactor;
+  const hour=new Date().getHours();
+  if(hour>=23 || hour<4) fare *= 1.2;
+  return Math.ceil(fare/500)*500;
+}
+
+function taxiCurrencyEstimate(krw){
+  const rates = {
+    zh:{code:"CNY", symbol:"?", divisor:190},
+    en:{code:"USD", symbol:"$", divisor:1370},
+    ja:{code:"JPY", symbol:"?", multiplier:0.105}
+  };
+  const r=rates[state.lang]||rates.en;
+  if(r.multiplier){
+    const value=Math.round((krw*r.multiplier)/10)*10;
+    return `${r.symbol}${value.toLocaleString()} ${r.code}`;
+  }
+  const value=krw/r.divisor;
+  const rounded=r.code==="USD" ? Math.ceil(value) : Math.ceil(value/5)*5;
+  return `${r.symbol}${rounded.toLocaleString()} ${r.code}`;
+}
+
+function taxiEstimateHtml(h, km){
+  const fare=taxiEstimateKrwByKm(km);
+  const krwMid=Math.round((fare.low+fare.high)/2);
+  const copy={
+    zh:{title:"Taxi fare estimate",rough:"Jeju small taxi fare: KRW 3,000 up to 2km, KRW 100 per 167m after 2km, KRW 120 per 167m after 20km. Road-distance and signal-delay adjustments are included; actual fare may vary.",support:"Taxi fare support noted"},
+    en:{title:"Estimated taxi fare",rough:"Based on Jeju small taxi fare: KRW 3,000 up to 2km, then KRW 100 per 167m, KRW 120 per 167m after 20km. Road distance and signal-delay adjustments are included; actual fare may vary.",support:"Taxi fare support noted"},
+    ja:{title:"Taxi fare estimate",rough:"Jeju small taxi fare: KRW 3,000 up to 2km, KRW 100 per 167m after 2km, KRW 120 per 167m after 20km. Road-distance and signal-delay adjustments are included; actual fare may vary.",support:"Taxi fare support noted"}
+  }[state.lang];
+  return `<div class="taxi-estimate-box">
+    <div class="taxi-estimate-main">
+      <span>${copy.title}</span>
+      <span>KRW ${fare.low.toLocaleString()}~${fare.high.toLocaleString()} / ${taxiCurrencyEstimate(krwMid)}</span>
+    </div>
+    <div class="taxi-estimate-sub">${copy.rough}</div>
+    ${h.taxi_support?`<div style="margin-top:7px"><span class="taxi-support-chip">Taxi ${copy.support}</span></div>`:""}
+  </div>`;
+}
+function mapHospitalMatchesSearch(h){
+  const q=(state.mapSearch||"").trim().toLowerCase();
+  if(!q) return true;
+  const hay=[h.name_ko,lng(h.name),lng(h.address),h.region,h.specialty].join(" ").toLowerCase();
+  return hay.includes(q);
+}
+
+function mapLocationPromptHtml(){
+  if(state.userLocation) return "";
+  const copy={
+    zh:{title:"使用当前位置可获得更准确的距离和出租车费。",btn:"使用我的位置",sub:"未允许时将以济州机场为基准显示。"},
+    en:{title:"Use your location for more accurate distance and taxi fare.",btn:"Use my location",sub:"Without location access, estimates use Jeju Airport as the base."},
+    ja:{title:"現在地を使うと距離とタクシー料金がより正確になります。",btn:"現在地を使う",sub:"許可しない場合は済州空港基準で表示します。"}
+  }[state.lang];
+  return `<div style="margin:0 16px 10px;padding:11px 12px;border-radius:14px;background:#E8F3FF;border:1px solid rgba(49,130,246,.16);">
+    <div style="font-size:12px;font-weight:800;color:#191F28;line-height:1.4;">${copy.title}</div>
+    <div style="font-size:11px;color:#6B7684;margin-top:3px;">${copy.sub}</div>
+    <button data-map-locate-prompt style="margin-top:8px;border:none;background:#3182F6;color:#fff;border-radius:999px;padding:7px 12px;font-size:12px;font-weight:800;">${copy.btn}</button>
+  </div>`;
+}
+
+function getVisibleMapHospitals(){
+  const markers=window._mapMarkers || [];
+  return markers
+    .map(x=>x.h)
+    .filter(h=>{
+      return mapHospitalVisibleByFilter(h) && mapHospitalMatchesSearch(h);
+    })
+    .sort((a,b)=>mapDistanceForHospital(a)-mapDistanceForHospital(b));
+}
+
+function renderMapResults(){
+  const list=document.getElementById('mapResultsList');
+  const title=document.getElementById('mapResultsTitle');
+  const sub=document.getElementById('mapResultsSub');
+  if(!list||!title||!sub) return;
+  const lang=state.lang;
+  const items=getVisibleMapHospitals();
+  const baseLabel=state.userLocation
+    ? {zh:"当前位置基准",en:"From your location",ja:"現在地基準"}[lang]
+    : {zh:"机场距离基准",en:"From Jeju Airport",ja:"空港距離基準"}[lang];
+  title.textContent={zh:"周边医疗机构",en:"Nearby medical institutions",ja:"周辺医療機関"}[lang];
+  sub.textContent=`${items.length} · ${baseLabel}`;
+  if(!items.length){
+    list.innerHTML=`<div style="padding:18px 0;color:#8B95A1;font-size:13px;text-align:center;">${{zh:"没有符合条件的机构",en:"No institutions found",ja:"該当する機関がありません"}[lang]}</div>`;
+    return;
+  }
+  list.innerHTML=items.slice(0,30).map(h=>{
+    const dist=mapDistanceForHospital(h);
+    const badge=h.official_licensed ? {zh:"登记确认",en:"Registered",ja:"登録確認"}[lang] : {zh:"公开信息",en:"Public info",ja:"公開情報"}[lang];
+    return `<div class="map-result-card" data-map-result="${h.id}">
+      <div class="map-result-icon">${IC.hosp(18,'#3182F6')}</div>
+      <div class="map-result-body">
+        <div class="map-result-name">${h.name_ko}</div>
+        <div class="map-result-meta">${badge} · ${reg(h.region)}</div>
+      </div>
+      <div class="map-result-dist">${dist} km</div>
+    </div>`;
+  }).join("");
+  list.querySelectorAll('[data-map-result]').forEach(el=>{
+    el.addEventListener('click',()=>{
+      const id=el.dataset.mapResult;
+      const entry=(window._mapMarkers||[]).find(x=>x.h.id===id);
+      if(entry){
+        entry.marker.addTo(window._mapInstance);
+        setSelectedMapMarker(id);
+        entry.marker.fire('click');
+      }
+    });
+  });
+}
+
+function renderMapResults(){
+  const list=document.getElementById('mapResultsList');
+  const title=document.getElementById('mapResultsTitle');
+  const sub=document.getElementById('mapResultsSub');
+  if(!list||!title||!sub) return;
+  const lang=state.lang;
+  const items=getVisibleMapHospitals();
+  const baseLabel=state.userLocation
+    ? {zh:"从当前位置",en:"From your location",ja:"現在地から"}[lang]
+    : {zh:"从济州机场",en:"From Jeju Airport",ja:"済州空港から"}[lang];
+  title.textContent={
+    zh:state.mapFilter==="other"?"其他医院位置":"登记确认的皮肤科/整形外科",
+    en:state.mapFilter==="other"?"Other clinic locations":"Registered derma/plastic clinics",
+    ja:state.mapFilter==="other"?"その他の医療機関":"登録確認済み皮膚科/美容外科"
+  }[lang];
+  sub.textContent=`${items.length} · ${baseLabel}`;
+  if(!items.length){
+    list.innerHTML=`<div style="padding:18px 0;color:#8B95A1;font-size:13px;text-align:center;">${{zh:"没有符合条件的机构",en:"No institutions found",ja:"該当する医療機関がありません"}[lang]}</div>`;
+    return;
+  }
+  list.innerHTML=items.slice(0,30).map(h=>{
+    const dist=mapDistanceForHospital(h);
+    const badge=h.official_licensed ? {zh:"登记确认",en:"Registered",ja:"登録確認"}[lang] : {zh:"公开信息",en:"Public info",ja:"公開情報"}[lang];
+    const taxi=h.taxi_support ? " · 🚕" : "";
+    return `<div class="map-result-card" data-map-result="${h.id}">
+      <div class="map-result-icon">${IC.hosp(18,'#3182F6')}</div>
+      <div class="map-result-body">
+        <div class="map-result-name">${h.name_ko}</div>
+        <div class="map-result-meta">${badge} · ${reg(h.region)}${taxi}</div>
+      </div>
+      <div class="map-result-dist">${dist} km</div>
+    </div>`;
+  }).join("");
+  list.querySelectorAll('[data-map-result]').forEach(el=>{
+    el.addEventListener('click',()=>{
+      const id=el.dataset.mapResult;
+      const entry=(window._mapMarkers||[]).find(x=>x.h.id===id);
+      if(entry){
+        entry.marker.addTo(window._mapInstance);
+        setSelectedMapMarker(id);
+        entry.marker.fire('click');
+      }
+    });
+  });
+}
+
+function renderMapResults(){
+  const list=document.getElementById('mapResultsList');
+  const title=document.getElementById('mapResultsTitle');
+  const sub=document.getElementById('mapResultsSub');
+  const prompt=document.getElementById('mapLocationPrompt');
+  if(!list||!title||!sub) return;
+  const lang=state.lang;
+  const items=getVisibleMapHospitals();
+  const baseLabel=state.userLocation
+    ? {zh:"从当前位置",en:"From your location",ja:"現在地から"}[lang]
+    : {zh:"从济州机场",en:"From Jeju Airport",ja:"済州空港から"}[lang];
+  title.textContent={
+    zh:state.mapFilter==="other"?"其他医院位置":"登记确认的皮肤科/整形外科",
+    en:state.mapFilter==="other"?"Other clinic locations":"Registered derma/plastic clinics",
+    ja:state.mapFilter==="other"?"その他の医療機関":"登録確認済み皮膚科/美容外科"
+  }[lang];
+  sub.textContent=`${items.length} · ${baseLabel}`;
+  if(prompt){
+    prompt.innerHTML=mapLocationPromptHtml();
+    const btn=prompt.querySelector('[data-map-locate-prompt]');
+    if(btn) btn.onclick=()=>requestMapLocation(window._mapInstance,false);
+  }
+  if(!items.length){
+    list.innerHTML=`<div style="padding:18px 0;color:#8B95A1;font-size:13px;text-align:center;">${{zh:"没有符合条件的机构",en:"No institutions found",ja:"該当する医療機関がありません"}[lang]}</div>`;
+    return;
+  }
+  list.innerHTML=items.slice(0,30).map(h=>{
+    const dist=mapDistanceForHospital(h);
+    const badge=h.official_licensed ? {zh:"登记确认",en:"Registered",ja:"登録確認"}[lang] : {zh:"公开信息",en:"Public info",ja:"公開情報"}[lang];
+    const taxi=h.taxi_support ? " · Taxi" : "";
+    return `<div class="map-result-card" data-map-result="${h.id}">
+      <div class="map-result-icon">${IC.hosp(18,'#3182F6')}</div>
+      <div class="map-result-body">
+        <div class="map-result-name">${h.name_ko}</div>
+        <div class="map-result-meta">${badge} · ${reg(h.region)}${taxi}</div>
+      </div>
+      <div class="map-result-dist">${dist} km</div>
+    </div>`;
+  }).join("");
+  list.querySelectorAll('[data-map-result]').forEach(el=>{
+    el.addEventListener('click',()=>{
+      const id=el.dataset.mapResult;
+      const entry=(window._mapMarkers||[]).find(x=>x.h.id===id);
+      if(entry){
+        entry.marker.addTo(window._mapInstance);
+        setSelectedMapMarker(id);
+        entry.marker.fire('click');
+      }
+    });
+  });
+}
+
+function addLocateControl(map){
+  const L=window.L;
+  const label={zh:"我的位置",en:"My location",ja:"現在地"}[state.lang];
+  const LocateControl=L.Control.extend({
+    options:{position:'topright'},
+    onAdd:function(){
+      const el=L.DomUtil.create('button','');
+      el.type='button';
+      el.title=label;
+      el.textContent='📍';
+      el.style.cssText='width:38px;height:38px;border-radius:12px;background:#fff;border:1px solid #E5E8EB;box-shadow:0 2px 8px rgba(0,0,0,.18);font-size:18px;display:flex;align-items:center;justify-content:center;cursor:pointer;';
+      L.DomEvent.disableClickPropagation(el);
+      L.DomEvent.on(el,'click',()=>requestMapLocation(map,false));
+      return el;
+    }
+  });
+  map.addControl(new LocateControl());
 }
 
 function loadLeafletAsset(tag, attrs){
@@ -1685,7 +2267,7 @@ async function initMap(){
   const fh=filterEl?filterEl.offsetHeight:44;
   const th=tabEl?tabEl.offsetHeight:72;
   const mapEl=document.getElementById('leafletMap');
-  mapEl.style.height=Math.max(320, window.innerHeight-hh-fh-th)+'px';
+  mapEl.style.height=Math.max(420, window.innerHeight-hh-fh-th-260)+'px';
 
   // 기존 맵 인스턴스 제거
   if(window._mapInstance){window._mapInstance.remove();window._mapInstance=null;}
@@ -1696,14 +2278,16 @@ async function initMap(){
     maxZoom:19,
   }).addTo(map);
   L.control.zoom({position:'bottomright'}).addTo(map);
+  addLocateControl(map);
   window._mapInstance=map;
   window._mapMarkers=[];
+  window._userLocationMarker=null;
 
   // ── 랜드마크 마커 ──
   const LANDMARKS=[
     {name:{zh:"济州国际机场",en:"Jeju Airport",ja:"済州空港"},        lat:33.5113,lng:126.4930,bg:"#3182F6",emoji:"✈"},
     {name:{zh:"老衡五岔路口",en:"Nohyeong",ja:"ノヒョン"},             lat:33.4883,lng:126.4808,bg:"#2DCA72",emoji:"📍"},
-    {name:{zh:"神话世界",    en:"Sinwha World",ja:"神話ワールド"},      lat:33.3930,lng:126.2614,bg:"#FF6B35",emoji:"🎡"},
+    {name:{zh:"神话世界",    en:"Shinhwa World",ja:"神話ワールド"},      lat:33.3057735,lng:126.3134242,bg:"#FF6B35",emoji:"🎡"},
     {name:{zh:"中文观光区",  en:"Jungmun",ja:"中文観光地区"},           lat:33.2465,lng:126.4177,bg:"#FF6B35",emoji:"🌊"},
   ];
   LANDMARKS.forEach(lm=>{
@@ -1711,22 +2295,32 @@ async function initMap(){
       html:`<div style="background:${lm.bg};color:#fff;width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:15px;box-shadow:0 2px 8px rgba(0,0,0,.25);border:2px solid #fff;">${lm.emoji}</div>`,
       className:'',iconSize:[34,34],iconAnchor:[17,17]
     });
-    L.marker([lm.lat,lm.lng],{icon:ic,zIndexOffset:100})
+    L.marker([lm.lat,lm.lng],{icon:ic,zIndexOffset:50})
       .addTo(map)
       .bindTooltip(lm.name[state.lang]||lm.name.zh,{permanent:false,direction:'top',offset:[0,-20]});
   });
 
   // ── 병원 마커 (coordStatus !== 'duplicate' 만 표시) ──
   const mapHospitals=HOSPITAL_INDEX.filter(h=>h.coordStatus!=='duplicate'&&h.lat&&h.lng);
+  const coordGroups={};
   mapHospitals.forEach(h=>{
+    const key=Number(h.lat).toFixed(6)+','+Number(h.lng).toFixed(6);
+    (coordGroups[key]||(coordGroups[key]=[])).push(h.id);
+  });
+  mapHospitals.forEach(h=>{
+    const coordKey=Number(h.lat).toFixed(6)+','+Number(h.lng).toFixed(6);
+    const group=coordGroups[coordKey]||[h.id];
+    const display=mapDisplayCoords(h, group.indexOf(h.id), group.length);
     const isOfficial=h.official_licensed;
     const bg=isOfficial?'#3182F6':'#6B7684';
-    const houseIcon=`<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9,22 9,12 15,12 15,22"/></svg>`;
     const ic=L.divIcon({
-      html:`<div style="background:${bg};width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(0,0,0,.22);border:2px solid #fff;cursor:pointer;">${houseIcon}</div>`,
+      html:markerHtml(bg,false),
       className:'',iconSize:[30,30],iconAnchor:[15,15]
     });
-    const marker=L.marker([h.lat,h.lng],{icon:ic});
+    const marker=L.marker([display.lat,display.lng],{
+      icon:ic,
+      zIndexOffset:(h.id==="areumd"||h.id==="bellemorn") ? 500 : 200
+    });
     marker.on('click',()=>showMapCard(h,map));
     window._mapMarkers.push({marker,h});
     marker.addTo(map);
@@ -1739,40 +2333,60 @@ async function initMap(){
       const btn=e.target.closest('[data-map-filter]');
       if(!btn) return;
       const f=btn.dataset.mapFilter;
-      if(f==='official'){
-        state.mapOfficialOnly=!state.mapOfficialOnly;
-        btn.classList.toggle('active',state.mapOfficialOnly);
-      } else {
-        state.mapFilter=f;
-        filterBar.querySelectorAll('[data-map-filter]:not([data-map-filter="official"])').forEach(b=>{
-          b.classList.toggle('active',b.dataset.mapFilter===f);
-        });
-      }
+      state.mapFilter=f;
+      filterBar.querySelectorAll('[data-map-filter]').forEach(b=>{
+        b.classList.toggle('active',b.dataset.mapFilter===f);
+      });
+      applyMapFilter();
+    });
+  }
+  const searchInput=document.getElementById('mapSearch');
+  if(searchInput){
+    searchInput.addEventListener('input',e=>{
+      state.mapSearch=e.target.value;
       applyMapFilter();
     });
   }
 
   // 지도 클릭 시 미니카드 닫기
   map.on('click',()=>hideMapCard());
-  // 맵 크기 재보정
+  if(state.userLocation){
+    setUserLocationOnMap(map, state.userLocation.lat, state.userLocation.lng);
+  } else if(!state.mapLocateAsked){
+    state.mapLocateAsked=true;
+    setTimeout(()=>requestMapLocation(map,true), 250);
+  }
+  applyMapFilter();
+  if(state.mapTargetId){
+    const target=(window._mapMarkers||[]).find(x=>x.h.id===state.mapTargetId);
+    if(target){
+      target.marker.addTo(map);
+      setTimeout(()=>target.marker.fire('click'), 180);
+    }
+    state.mapTargetId=null;
+  }
   setTimeout(()=>map.invalidateSize(),100);
 }
 
 function applyMapFilter(){
   if(!window._mapMarkers||!window._mapInstance) return;
   window._mapMarkers.forEach(({marker,h})=>{
-    const specOk=state.mapFilter==='all'||h.specialty===state.mapFilter;
-    const officialOk=!state.mapOfficialOnly||h.official_licensed;
-    if(specOk&&officialOk) marker.addTo(window._mapInstance);
+    const searchOk=mapHospitalMatchesSearch(h);
+    if(mapHospitalVisibleByFilter(h)&&searchOk) marker.addTo(window._mapInstance);
     else window._mapInstance.removeLayer(marker);
   });
+  renderMapResults();
 }
 
 function showMapCard(h, map){
+  setSelectedMapMarker(h.id);
   const lang=state.lang;
   const name=lng(h.name)||h.name_ko;
-  const dist=haversineKm(h.lat,h.lng,JEJU_AIRPORT_LAT,JEJU_AIRPORT_LNG);
-  const distLabel={zh:`距机场约 ${dist} km`,en:`~${dist} km from Jeju Airport`,ja:`空港まで約 ${dist} km`}[lang];
+  const distBase=state.userLocation || {lat:JEJU_AIRPORT_LAT,lng:JEJU_AIRPORT_LNG};
+  const dist=haversineKm(h.lat,h.lng,distBase.lat,distBase.lng);
+  const distLabel=state.userLocation
+    ? {zh:`距当前位置约 ${dist} km`,en:`~${dist} km from your location`,ja:`現在地から約 ${dist} km`}[lang]
+    : {zh:`距机场约 ${dist} km`,en:`~${dist} km from Jeju Airport`,ja:`空港まで約 ${dist} km`}[lang];
   const SPEC_NAMES={
     'dermatology':{zh:"皮肤科",en:"Dermatology",ja:"皮膚科"},
     'plastic-surgery':{zh:"整形外科",en:"Plastic Surgery",ja:"整形外科"},
@@ -1786,11 +2400,13 @@ function showMapCard(h, map){
     ? `<p style="font-size:11px;color:#8B95A1;margin-top:8px;">${{zh:"⚠ 地图位置为估算，以实际地址为准",en:"⚠ Location is approximate — verify with address",ja:"⚠ 位置は概算です。実際の住所をご確認ください"}[lang]}</p>`:''
   ;
   const viewLabel={zh:"查看详情",en:"View Details",ja:"詳細を見る"}[lang];
+  const listLabel={zh:"返回列表",en:"Back to list",ja:"一覧に戻る"}[lang];
   const thumbHtml=h.thumbnail
     ? `<img src="${h.thumbnail}" loading="lazy" style="width:52px;height:52px;border-radius:12px;object-fit:cover;flex-shrink:0;border:1px solid #E5E8EB;" onerror="this.style.display='none'">`
     : `<div style="width:52px;height:52px;border-radius:12px;background:#E8F3FF;flex-shrink:0;display:flex;align-items:center;justify-content:center;">${IC.hosp(22,'#3182F6')}</div>`;
 
   document.getElementById('mapMiniCardContent').innerHTML=`
+    <button class="map-card-close" data-map-close aria-label="close">×</button>
     <div style="display:flex;gap:12px;margin-bottom:12px;">
       ${thumbHtml}
       <div style="flex:1;min-width:0;">
@@ -1806,13 +2422,101 @@ function showMapCard(h, map){
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#3182F6" stroke-width="2" stroke-linecap="round"><path d="M17.8 19.2L16 11l3.5-3.5C21 6 21 4 19.5 2.5S18 1 16.5 2.5L13 6 4.8 4.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 4.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/></svg>
       ${distLabel}
     </div>
-    <button class="cta-btn-blue" data-nav="hospital" data-id="${h.id}" style="width:100%;padding:12px;">${viewLabel}</button>
+    <button class="cta-btn-blue" data-map-detail="${h.id}" data-nav="hospital" data-id="${h.id}" style="width:100%;padding:12px;">${viewLabel}</button>
+    <button class="map-back-list" data-map-close>☰ ${listLabel}</button>
     ${coordNote}
   `;
+  const detailBtn=document.querySelector('[data-map-detail]');
+  if(detailBtn){
+    detailBtn.onclick=function(e){
+      e.preventDefault();
+      e.stopPropagation();
+      navigate("hospital", this.dataset.mapDetail);
+    };
+  }
+  document.querySelectorAll('[data-map-close]').forEach(btn=>{
+    btn.onclick=function(e){
+      e.preventDefault();
+      e.stopPropagation();
+      hideMapCard();
+    };
+  });
   const card=document.getElementById('mapMiniCard');
   if(card) card.classList.add('open');
-  // 마커 위치로 지도 이동
-  if(map) map.panTo([h.lat,h.lng],{animate:true,duration:0.4});
+  const entry=(window._mapMarkers||[]).find(x=>x.h.id===h.id);
+  if(map && entry) focusMapMarker(entry.marker, 15);
+}
+
+function showMapCard(h, map){
+  setSelectedMapMarker(h.id);
+  const lang=state.lang;
+  const name=lng(h.name)||h.name_ko;
+  const distBase=state.userLocation || {lat:JEJU_AIRPORT_LAT,lng:JEJU_AIRPORT_LNG};
+  const dist=haversineKm(h.lat,h.lng,distBase.lat,distBase.lng);
+  const distLabel=state.userLocation
+    ? {zh:`距当前位置约 ${dist} km`,en:`~${dist} km from your location`,ja:`現在地から約 ${dist} km`}[lang]
+    : {zh:`距济州机场约 ${dist} km`,en:`~${dist} km from Jeju Airport`,ja:`済州空港から約 ${dist} km`}[lang];
+  const SPEC_NAMES={
+    'dermatology':{zh:"皮肤科",en:"Dermatology",ja:"皮膚科"},
+    'plastic-surgery':{zh:"整形外科",en:"Plastic Surgery",ja:"美容外科"},
+    'skincare':{zh:"皮肤管理",en:"Skincare",ja:"肌管理"},
+    'massage':{zh:"按摩",en:"Massage",ja:"マッサージ"},
+  };
+  const specName=((SPEC_NAMES[h.specialty]||{})[lang])||'';
+  const officialBadge=h.official_licensed
+    ? `<span class="badge-licensed" style="font-size:11px;">${lang==='zh'?'登记确认':lang==='ja'?'登録確認':'Registered'}</span>`:'';
+  const taxiSupportBadge=h.taxi_support
+    ? `<span class="taxi-support-chip">🚕 ${lang==='zh'?'车费支援':lang==='ja'?'タクシー支援':'Taxi support'}</span>`:'';
+  const coordNote=h.coordStatus==='estimated'
+    ? `<p style="font-size:11px;color:#8B95A1;margin-top:8px;">${{zh:"位置为估算值，请以实际地址为准。",en:"Location is approximate. Please verify with address.",ja:"位置は概算です。住所でご確認ください。"}[lang]}</p>`:'';
+  const viewLabel={zh:"查看详情",en:"View Details",ja:"詳細を見る"}[lang];
+  const listLabel={zh:"返回列表",en:"Back to list",ja:"一覧に戻る"}[lang];
+  const thumbHtml=h.thumbnail
+    ? `<img src="${h.thumbnail}" loading="lazy" style="width:52px;height:52px;border-radius:12px;object-fit:cover;flex-shrink:0;border:1px solid #E5E8EB;" onerror="this.style.display='none'">`
+    : `<div style="width:52px;height:52px;border-radius:12px;background:#E8F3FF;flex-shrink:0;display:flex;align-items:center;justify-content:center;">${IC.hosp(22,'#3182F6')}</div>`;
+
+  document.getElementById('mapMiniCardContent').innerHTML=`
+    <button class="map-card-close" data-map-close aria-label="close">×</button>
+    <div style="display:flex;gap:12px;margin-bottom:12px;">
+      ${thumbHtml}
+      <div style="flex:1;min-width:0;">
+        <div style="font-size:16px;font-weight:750;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">${name}</div>
+        <div style="font-size:12px;color:#8B95A1;margin-top:2px;">${h.name_ko}</div>
+        <div style="display:flex;flex-wrap:wrap;gap:5px;margin-top:5px;">
+          ${specName?`<span class="badge" style="font-size:11px;">${specName}</span>`:''}
+          ${officialBadge}
+          ${taxiSupportBadge}
+        </div>
+      </div>
+    </div>
+    <div style="display:flex;align-items:center;gap:5px;font-size:13px;color:#4E5968;margin-bottom:10px;">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#3182F6" stroke-width="2" stroke-linecap="round"><path d="M17.8 19.2L16 11l3.5-3.5C21 6 21 4 19.5 2.5S18 1 16.5 2.5L13 6 4.8 4.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 4.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/></svg>
+      ${distLabel}
+    </div>
+    ${taxiEstimateHtml(h, dist)}
+    <button class="cta-btn-blue" data-map-detail="${h.id}" data-nav="hospital" data-id="${h.id}" style="width:100%;padding:12px;">${viewLabel}</button>
+    <button class="map-back-list" data-map-close>← ${listLabel}</button>
+    ${coordNote}
+  `;
+  const detailBtn=document.querySelector('[data-map-detail]');
+  if(detailBtn){
+    detailBtn.onclick=function(e){
+      e.preventDefault();
+      e.stopPropagation();
+      navigate("hospital", this.dataset.mapDetail);
+    };
+  }
+  document.querySelectorAll('[data-map-close]').forEach(btn=>{
+    btn.onclick=function(e){
+      e.preventDefault();
+      e.stopPropagation();
+      hideMapCard();
+    };
+  });
+  const card=document.getElementById('mapMiniCard');
+  if(card) card.classList.add('open');
+  const entry=(window._mapMarkers||[]).find(x=>x.h.id===h.id);
+  if(map && entry) focusMapMarker(entry.marker, 15);
 }
 
 function hideMapCard(){
@@ -2235,6 +2939,14 @@ function _onViewKeydown(e){
 
 /* ── 뷰 클릭 핸들러: named function으로 분리해 중복 바인딩 방지 ── */
 function _onViewClick(e){
+    const mapDetailEl = e.target.closest("[data-map-detail]");
+    if(mapDetailEl){
+      e.preventDefault();
+      e.stopPropagation();
+      navigate("hospital", mapDetailEl.dataset.mapDetail);
+      return;
+    }
+
     // Share button
     const shareEl = e.target.closest("[data-share]");
     if(shareEl){
@@ -2251,6 +2963,22 @@ function _onViewClick(e){
     const favEl = e.target.closest("[data-fav]");
     if(favEl){ toggleFav(favEl.dataset.fav); return; }
 
+    const hospMapEl = e.target.closest("[data-hosp-map]");
+    if(hospMapEl){
+      e.preventDefault();
+      e.stopPropagation();
+      openHospitalOnMap(hospMapEl.dataset.hospMap);
+      return;
+    }
+
+    const detailMapEl = e.target.closest("[data-detail-map]");
+    if(detailMapEl){
+      e.preventDefault();
+      e.stopPropagation();
+      openHospitalOnMap(detailMapEl.dataset.detailMap);
+      return;
+    }
+
     // Navigation
     const navEl = e.target.closest("[data-nav]");
     if(navEl){ navigate(navEl.dataset.nav, navEl.dataset.id||null); return; }
@@ -2266,6 +2994,38 @@ function _onViewClick(e){
       if(v==="chinese:toggle")       { state.hospChinese = !state.hospChinese; render(); return; }
       if(v.startsWith("pf:"))        { state.activePlatform[state.id]=v.replace("pf:",""); render(); return; }
       if(v.startsWith("spec:"))      { state.hospSpecialty = v.replace("spec:",""); render(); return; }
+    }
+
+    const hospTabEl = e.target.closest("[data-hosp-tab]");
+    if(hospTabEl){
+      state.hospBrowseTab = hospTabEl.dataset.hospTab;
+      render();
+      return;
+    }
+
+    const hospKeywordEl = e.target.closest("[data-hosp-keyword]");
+    if(hospKeywordEl){
+      const action = hospKeywordEl.dataset.hospKeyword;
+      if(action.startsWith("spec:")){
+        state.hospSpecialty = action.replace("spec:","");
+        state.hospBrowseTab = state.hospSpecialty==="foreign_official" ? "registered" : "specialty";
+      } else if(action.startsWith("region:")){
+        state.hospRegion = action.replace("region:","");
+        state.hospBrowseTab = "region";
+      } else if(action.startsWith("search:")){
+        state.hospSearch = action.replace("search:","");
+      } else if(action==="chinese"){
+        state.hospChinese = true;
+      }
+      render();
+      return;
+    }
+
+    const hospResetEl = e.target.closest("[data-hosp-reset]");
+    if(hospResetEl){
+      resetHospitalFilters();
+      render();
+      return;
     }
 
     // 홈 진료과목 그리드 클릭 → 병원 탭으로 이동 + specialty 필터 적용
